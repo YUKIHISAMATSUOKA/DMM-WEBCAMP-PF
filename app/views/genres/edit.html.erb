@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto px-5">
+
+      <%= render 'layouts/errors', obj: @genre %>
+      <%= form_with model: @genre, local:true do |f| %>
+        <tr>
+          <td>ジャンル名</td>
+          <td><%= f.text_field :name %></td>
+          <td><%= f.submit '新規登録', class: 'btn btn-success' %></td>
+        </tr>
+      <% end %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto px-5">
+
+      <teble class="table table-borderless mb-5">
+        <h1>ジャンル登録画面</h1>
+        <br><br>
+
+        <%= render 'layouts/errors', obj: @genre %>
+        <%= form_with model: @genre, local:true do |f| %>
+        <tr>
+          <td>ジャンル名</td>
+          <td><%= f.text_field :name %></td>
+          <td><%= f.submit '新規登録', class: 'btn btn-success' %></td>
+        </tr>
+        <% end %>
+      </table>
+
+      <br><br>
+      <table class="teble">
+        <thead  class="table-active">
+          <tr>
+            <th class="py-2 text-center">ジャンル</th>
+            <th class="py-2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @genres.each do |genre| %>
+          <tr>
+            <td class="mb-2 pl-2"><%= genre.name %></td>
+            <td class="p-2 pr-2 "><%= link_to '編集', edit_genre_path(genre) , class: "btn btn-success btn-sm" %></td>
+            <td class="p-2 pr-2 "><%= link_to '削除', genre_path(genre) ,method: :delete,  class: "btn btn-danger btn-sm" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

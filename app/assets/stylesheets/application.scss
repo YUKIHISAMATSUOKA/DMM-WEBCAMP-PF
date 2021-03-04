@@ -16,3 +16,27 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #6c6b6b;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.flash-green {
+  color: green
+}
+
+.flash-red {
+  color: red
+}
+
+.header-name {
+  color: #00ff00;
+}

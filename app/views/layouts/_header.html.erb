@@ -1,0 +1,52 @@
+<header class="bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+
+
+          <!--１、カスタマーログイン状態か否か-->
+          <% if customer_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "お店を探す", root_path, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "カート", root_path, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "注文履歴", root_path, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "マイページ", root_path, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-white' %>
+            </li>
+
+　　　　　<!--2，カスタマーログインしてない状態-->
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "TOP", root_path, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "お店を探す", root_path, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "使いかた", root_path, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "アカウント登録", new_customer_registration_path, class: 'nav-link text-white' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-white' %>
+            </li>
+          <% end %>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

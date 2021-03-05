@@ -11,7 +11,7 @@
           <!--１、カスタマーログイン状態か否か-->
           <% if customer_signed_in? %>
             <li class="nav-item">
-              <%= link_to "お店を探す", root_path, class: 'nav-link text-white' %>
+              <%= link_to "お店を探す", areas_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
               <%= link_to "カート", root_path, class: 'nav-link text-white' %>
@@ -26,6 +26,7 @@
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-white' %>
             </li>
 
+            <!--最後に消す部分-->
             <li class="nav-item">
               <%= link_to "ジャンル", genres_path, class: 'nav-link text-white' %>
             </li>

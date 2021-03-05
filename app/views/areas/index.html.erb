@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto px-5">
+
+      <%= link_to "新規登録する", new_area_path %>
+      <table class="teble">
+        <thead  class="table-active">
+          <tr>
+            <th class="py-2 text-center">地域</th>
+            <th class="py-2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if @areas.exists? %>
+            <% @areas.each do |area| %>
+              <tr>
+                <td><%= area.name %></td>
+
+              </tr>
+            <% end %>
+          <% else %>
+          <h2>まだエリアが登録されていません。</h2>
+          <% end %>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+

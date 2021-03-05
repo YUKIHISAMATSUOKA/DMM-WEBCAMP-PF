@@ -10,7 +10,7 @@
         <%= form_with model: @genre, local:true do |f| %>
         <tr>
           <td>ジャンル名</td>
-          <td><%= f.text_field :name %></td>
+          <td><%= f.text_field :name, class: 'form-control' %></td>
           <td><%= f.submit '新規登録', class: 'btn btn-success' %></td>
         </tr>
         <% end %>

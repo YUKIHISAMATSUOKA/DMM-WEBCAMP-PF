@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'shops/index'
+  get 'shops/edit'
+  get 'shops/show'
+  get 'shops/new'
+
   devise_for :customers
   root to: 'homes#top'
   get 'home/how' => 'homes#how'
@@ -14,5 +19,7 @@ Rails.application.routes.draw do
   put "/customers/:id/hide" => "customers#hide", as: 'customers_hide'
 
   resources :payments, only: [:index, :edit, :update, :create, :destroy]
+
+  resources :shops, only: [:new, :create, :index, :edit, :update, :destroy, :show]
 
 end

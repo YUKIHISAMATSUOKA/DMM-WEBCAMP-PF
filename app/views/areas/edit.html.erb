@@ -3,19 +3,10 @@
     <div class="mx-auto px-5">
 
       <h1>地域　編集画面</h1>
-      <%#= render 'layouts/errors', obj: @area %>
-      <%#= render 'form', area: @area %>
+      <%= render 'layouts/errors', obj: @area %>
+      <%= render 'form', area: @area %>
       
-      <%= form_with model: @area, local:true do |f| %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name, class: 'form-control' %>
-      </div>
 
-      <div class="form-group">
-        <%= f.submit class: 'btn btn-success' %>
-      </div>
-      <% end %>
 
     </div>
   </div>

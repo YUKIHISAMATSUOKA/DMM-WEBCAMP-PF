@@ -1,0 +1,46 @@
+<div class="container m-5">
+  <div class="row">
+    <div class="col-1"></div>
+    <h4 class="mx-auto"><span style="background-color:#EFEFEF">　アカウント情報　</span></h4>
+  </div>
+
+　<br>
+  <div class="row">
+
+    <table class="table table-bordered col-8 mx-auto">
+      <tbody>
+        <tr>
+          <td style="width:15%" class="table-active">会員ID</td>
+          <td style="width:60%"><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td class="table-active">氏名</td>
+          <td><%= @customer.last_name %> <%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <td class="table-active">フリガナ</td>
+          <td><%= @customer.kana_last_name %> <%= @customer.kana_first_name %></td>
+        </tr>
+        <tr>
+          <td class="table-active">郵便番号</td>
+          <td><%= @customer.post_code %></td>
+        </tr>
+        <tr>
+          <td class="table-active">住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td class="table-active">電話番号</td>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <td class="table-active">メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <%= link_to "　編集する　", edit_customer_path, class: "btn btn-success" %>
+  <%= link_to "  退会する  ", customer_exit_path, class: "btn btn-danger" %>
+</div>

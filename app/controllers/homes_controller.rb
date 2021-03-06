@@ -6,4 +6,7 @@ class HomesController < ApplicationController
   def about
   end
 
+  def question
+  end
+
 end

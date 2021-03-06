@@ -18,6 +18,7 @@ class AreasController < ApplicationController
     @areas = Area.all
     @area = Area.new(area_params)
     if @area.save
+      flash[:notice] = "作成しました"
       redirect_to areas_path
     else
       render 'new'
@@ -32,10 +33,11 @@ class AreasController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def destroy
     @area = Area.find(params[:id])
     @area.destroy
+    flash[:alert] = "削除しました"
     redirect_to areas_path
   end
 

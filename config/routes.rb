@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   get 'customer/exit' => 'customers#exit'
   put "/customers/:id/hide" => "customers#hide", as: 'customers_hide'
 
+  resources :payments, only: [:index, :edit, :update, :create, :destroy]
+
 end

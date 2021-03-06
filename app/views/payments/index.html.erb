@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto px-5">
+
+      <h1>支払い方法　登録</h1>
+      <br><br>
+
+      <%= render 'layouts/errors', obj: @payment %>
+      <%= form_with model: @payment, local:true do |f| %>
+
+      <teble>
+        <tr>
+          <td><%= f.label :genre, '種類' %></td>
+          <td><%= f.select :genre, {'クレジットカード': 1, '電子マネー': 2, 'QR決済':3}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %></td>
+        </tr>
+        <tr>
+          <td>画像</td>
+          <td><%= f.attachment_field :image %></td>
+        </tr>
+
+        <tr>
+          <br><br>
+          <td>名前</td>
+          <td><%= f.text_field :name, class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <br>
+          <td><%= f.submit '新規登録', class: 'btn btn-success' %></td>
+        </tr>
+
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="mx">
+      <br>
+　　　<h1>支払方法　一覧</h1>
+      <br><br>
+
+      <!--クレジットカード-->
+      <% @payments = Payment.where(genre: '1') %>
+      <% @payments.each do |payment| %>
+      <div class="payment-picture">
+        <%= link_to edit_payment_path(payment) do %>
+          <%= attachment_image_tag payment, :image, :fill, 200, 150, fallback: "no_image.jpg", size:'200x150' %>
+        <% end %>
+        <h6 class="payment-picture-name"><%= payment.name %></h6>
+      </div>
+      <% end %>
+
+      <!--電子マネー-->
+      <% @payments = Payment.where(genre: '2') %>
+      <% @payments.each do |payment| %>
+      <div class="payment-picture">
+        <%= link_to edit_payment_path(payment) do %>
+          <%= attachment_image_tag payment, :image, :fill, 200, 150, fallback: "no_image.jpg", size:'200x150' %>
+        <% end %>
+        <h6 class="payment-picture-name"><%= payment.name %></h6>
+      </div>
+      <% end %>
+
+      <!--QR決済-->
+      <% @payments = Payment.where(genre: '3') %>
+      <% @payments.each do |payment| %>
+      <div class="payment-picture">
+        <%= link_to edit_payment_path(payment) do %>
+          <%= attachment_image_tag payment, :image, :fill, 200, 150, fallback: "no_image.jpg", size:'200x150' %>
+        <% end %>
+        <h6 class="payment-picture-name"><%= payment.name %></h6>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

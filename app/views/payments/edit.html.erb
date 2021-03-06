@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="mx-auto px-5">
+
+      <h1>支払い方法　変更</h1>
+      <br><br>
+
+      <%= render 'layouts/errors', obj: @payment %>
+      <%= form_with model: @payment, local:true do |f| %>
+
+      <teble>
+        <tr>
+          <td><%= f.label :genre, '種類' %></td>
+          <td><%= f.select :genre, {'クレジットカード': 1, '交通系電子マネー': 2, 'QR決済':3}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %></td>
+        </tr>
+
+        <tr>
+          <td>画像</td>
+          <td><%= f.attachment_field :image %></td>
+        </tr>
+
+        <tr>
+          <br><br>
+          <td>名前</td>
+          <td><%= f.text_field :name, class: 'form-control' %></td>
+        </tr>
+
+        <tr>
+          <br>
+          <td><%= link_to '削除', payment_path(@payment) ,method: :delete,  class: "btn btn-danger btn-sm" %></td>
+          <td><%= f.submit '変更する', class: 'btn btn-success' %></td>
+        </tr>
+
+      </table>
+      <% end %>
+
+    </div>
+  </div>
+</div>

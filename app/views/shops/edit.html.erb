@@ -1,2 +1,62 @@
-<h1>Shops#edit</h1>
-<p>Find me in app/views/shops/edit.html.erb</p>
+<div class="container m-5">
+  <div class="row">
+    <div class="col-2"></div>
+    <h4 class="my-4"><span style="background-color:#EFEFEF">  お店　編集画面　</span></h4>
+  </div>
+
+　<%= render 'layouts/errors', obj: @shop %>
+  <%= form_with model: @shop, local:true do |f| %>
+
+  <div class="row">
+    <div class="col-1"></div>
+
+      <table class="table table-borderless col-8">
+        <tr>
+          <th>お店の名前</th>
+          <th><%= f.text_field :name, class: 'form-control' %></th>
+        </tr>
+        <tr>
+          <th>ショップ写真</th>
+          <th><%= f.attachment_field :image %></th>
+        </tr>
+        <tr>
+          <th>ショップ紹介文</th>
+          <th><%= f.text_area :introduction, class: 'form-control' %></th>
+        </tr>
+        <tr>
+          <th>エリアを選択してください</th>
+          <th><%= f.collection_select :area_id, Area.all, :id, :name, include_blank: "-- 選択してください --", class: 'form-control' , required: true %></th>
+        </tr>
+        <tr>
+          <th>郵便番号(7文字　ハイフンなし)</th>
+          <th><%= f.text_field :post_code, class: 'form-control' %></th>
+        </tr>
+        <tr>
+          <th>お店の住所</th>
+          <th colspan="2"><%= f.text_field :address, autofocus: true, :placeholder => "東京都渋谷区代々木神園町0-0", class: 'form-control'  %></th>
+        </tr>
+        <tr>
+          <th>お店の電話番号(ハイフンなし)</th>
+          <th><%= f.text_field :telephone_number, class: 'form-control' %></th>
+        </tr>
+
+        <tr>
+          <th>メールアドレス</th>
+          <th><%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com", class: 'form-control' %></th>
+        </tr>
+
+        <tr>
+          <td>利用可能な支払方法</td>
+          <td><%= f.collection_select :payment_id, Payment.all, :id, :name, include_blank: "-- 選択してください --" %></td>
+        </tr>
+
+        <tr>
+          <th></th>
+          <th></th>
+          <th><%= f.submit "　　変更して保存　　" , class:'btn btn-success' %></th>
+        </tr>
+        <% end %>
+      </table>
+
+  </div>
+</div>

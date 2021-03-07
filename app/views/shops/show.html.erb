@@ -1,2 +1,48 @@
-<h1>Shops#show</h1>
-<p>Find me in app/views/shops/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+
+      <%= attachment_image_tag @shop, :image, :fill, 1000, 600, fallback: "no_image.jpg", size:'1000x600' %>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th><h2>店舗名</h2></th>
+            <th><h1 class="text-center"><%= @shop.name %></h1></th>
+          </tr>
+
+          <tr>
+            <th><h4>店舗紹介</h4></th>
+            <th><h6 class="text-center"><%= @shop.introduction %></h6></th>
+          </tr>
+
+          <tr>
+            <th><h4>利用できる　支払方法</h4></th>
+            <th><h6 class="text-center">
+              <% @shop.payment_ids.each do |payment_ids| %>
+                <%= payment_ids %></h6></th>
+              <% end %>
+          </tr>
+
+          <tr>
+            <th><h4>エリア</h4></th>
+            <th><h4 class="text-center"><%= @shop.area.name %></h4></th>
+          </tr>
+
+          <tr>
+            <th><h4>住所</h4></th>
+            <th><h4 class="text-center"><%= @shop.post_code %>  ,  <%= @shop.address %></h4></th>
+          </tr>
+
+          <tr>
+            <th><h4>連絡先</h4></th>
+            <th><h4 class="text-center"><%= @shop.telephone_number %>  ,  <%= @shop.email %></h4></th>
+          </tr>
+
+          </thead>
+
+      </table>
+　　  <%= link_to "編集する", edit_shop_path(@shop), class: "btn btn-success btn-sm" %>
+    </div>
+  </div>
+</div>

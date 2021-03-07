@@ -4,28 +4,44 @@ class ShopsController < ApplicationController
   end
 
   def edit
+    @shop = Shop.find(params[:id])
   end
 
   def show
+    @shop = Shop.find(params[:id])
   end
 
   def new
     @shop = Shop.new
+    @payments = Payment.all
   end
 
   def create
     @shop = Shop.new(shop_params)
+    @shop.customer_id = current_customer.id
     if @shop.save
+      flash[:notice] = "お店を登録しました"
       redirect_to shop_path(@shop)
     else
       render 'new'
     end
   end
 
+  def update
+    @shop = Shop.find(params[:id])
+    @shop.customer_id = current_customer.id
+    if @shop.update(shop_params)
+      flash[:notice] = "お店情報を変更しました"
+      redirect_to shop_path(@shop)
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def shop_params
-    params.require(:shop).permit(:customer_id, :area_id, :name, :introduction, :image, :status, :address, :telephone_number, :post_code, :email)
+    params.require(:shop).permit(:customer_id, :area_id, :name, :introduction, :image, :status, :address, :telephone_number, :post_code, :email, payment_ids:[])
   end
 
 

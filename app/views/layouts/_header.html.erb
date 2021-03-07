@@ -23,6 +23,12 @@
               <%= link_to "マイページ", customers_path, class: 'nav-link text-white' %>
             </li>
 
+            <% if current_customer.shop.present? %>
+            <li class="nav-item">
+              <%= link_to "自分のお店", shop_path(current_customer.shop), class: 'nav-link text-white' %>
+            </li>
+            <% end %>
+
              <!--最後に消す部分-->
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-white' %>

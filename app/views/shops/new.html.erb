@@ -13,7 +13,7 @@
       <table class="table table-borderless col-8">
         <tr>
           <th>お店の名前</th>
-          <th><%= f.text_field :name %></th>
+          <th><%= f.text_field :name, class: 'form-control' %></th>
         </tr>
         <tr>
           <th>ショップ写真</th>
@@ -21,15 +21,15 @@
         </tr>
         <tr>
           <th>ショップ紹介文</th>
-          <th><%= f.text_field :introduction %></th>
+          <th><%= f.text_area :introduction, class: 'form-control' %></th>
         </tr>
         <tr>
           <th>エリアを選択してください</th>
-          <th><%= f.collection_select :area_id, Area.all, :id, :name, include_blank: "-- 選択してください --" %></th>
+          <th><%= f.collection_select :area_id, Area.all, :id, :name, include_blank: "-- 選択してください --", class: 'form-control' , required: true %></th>
         </tr>
         <tr>
           <th>郵便番号(7文字　ハイフンなし)</th>
-          <th><%= f.text_field :post_code %></th>
+          <th><%= f.text_field :post_code, class: 'form-control' %></th>
         </tr>
         <tr>
           <th>お店の住所</th>
@@ -37,21 +37,28 @@
         </tr>
         <tr>
           <th>お店の電話番号(ハイフンなし)</th>
-          <th><%= f.text_field :telephone_number %></th>
+          <th><%= f.text_field :telephone_number, class: 'form-control' %></th>
         </tr>
 
         <tr>
           <th>メールアドレス</th>
-          <th><%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com" %></th>
+          <th><%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com", class: 'form-control' %></th>
+        </tr>
+
+        <tr>
+          <td>利用可能な支払方法</td>
+          <td></td>
         </tr>
 
         <tr>
           <th></th>
           <th></th>
-          <th><%= f.submit "　　新規登録　　" , class:'btn btn-success' %></th>
+          <th><%= f.submit "　　登録する　　" , class:'btn btn-success' %></th>
         </tr>
         <% end %>
       </table>
+
+
 
   </div>
 </div>

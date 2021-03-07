@@ -55,7 +55,7 @@
       <% end %>
 
       <!--電子マネー-->
-      <% @payments = Payment.where(genre: '2') %>
+      <% @payments = Payment.where(name: '2') %>
       <% @payments.each do |payment| %>
       <div class="payment-picture">
         <%= link_to edit_payment_path(payment) do %>

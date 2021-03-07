@@ -18,6 +18,13 @@
       <li class="nav-item">
         <%= link_to "お店を登録する", new_shop_path, class: 'text-dark' %>
       </li>
+
+      <% if current_customer.shop.present? %>
+      <li class="nav-item">
+        <%= link_to "自分のお店", shop_path(current_customer.shop), class: 'text-dark' %>
+      </li>
+      <% end %>
+
       <li class="nav-item">
         <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'text-dark' %>
       </li>

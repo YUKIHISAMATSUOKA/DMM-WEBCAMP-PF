@@ -1,9 +1,14 @@
+<!--itemの新規登録・編集ページで-->
+
 <%= form_with model: item, local:true do |f| %>
 
 <table class="table table-borderless col-8 mx-auto">
+  <form class="row g-3 needs-validation" novalidate>
   <tr>
-    <th>名前(30文字以内)</th>
-    <th><%= f.text_field :name, class: 'form-control' %></th>
+    <th><label for="validationCustom02" class="form-label">名前(30文字以内)</label></th>
+    <th type="text" id="validationCustom02" required><%= f.text_field :name, class: 'form-control is-valid' %></th>
+    <div class="valid-feedback">OK</div>
+    <div class="invalid-feedback">有効な郵便番号を入力してください</div>
   </tr>
   <tr>
     <th>写真</th>

@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_back(fallback_location: root_path)
     else
-      render 'index'
+      render 'new'
     end
   end
 

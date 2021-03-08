@@ -1,22 +1,35 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-2">
-      <h4 class="my-4 text-center"><span style="background-color:#EFEFEF">  商品　新規登録　</span></h4>
+      <h4 class="my-4 text-center"><span>  商品　新規登録　</span></h4>
 
       <%= render 'layouts/errors', obj: @item %>
       <%= render 'form', item: @item %>
+　　</div>
+　</div>
+
+　  <div class="row">
 
       <!--メインメニュー-->
-      <% @items = Item.where(genre: '1') %>
-      <%= render 'index', items: @items %>
+      <div class="item-menu  text-white">
+        <h3 class="item-menu-title">メインメニュー</h3>
+        <% @items = Item.where(genre: '1') %>
+        <%= render 'index', items: @items %>
+      </div>
 
       <!--サイドメニュー-->
-      <% @items = Item.where(genre: '2') %>
-      <%= render 'index', items: @items %>
+      <div class="item-menu">
+        <h3 class="item-menu-title">サイドメニュー</h3>
+        <% @items = Item.where(genre: '2') %>
+        <%= render 'index', items: @items %>
+      </div>
 
       <!--ドリンク-->
-      <% @items = Item.where(genre: '3') %>
-      <%= render 'index', items: @items %>
+      <div class="item-menu">
+        <h3 class="item-menu-title">ドリンクメニュー</h3>
+        <% @items = Item.where(genre: '3') %>
+        <%= render 'index', items: @items %>
+      </div>
 
 
     </div>

@@ -11,7 +11,7 @@
 　  <div class="row">
 
       <!--メインメニュー-->
-      <div class="item-menu  text-white">
+      <div class="item-menu">
         <h3 class="item-menu-title">メインメニュー</h3>
         <% @items = Item.where(genre: '1') %>
         <%= render 'index', items: @items %>

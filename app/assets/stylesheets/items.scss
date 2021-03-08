@@ -1,7 +1,13 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.item-box-picture {
+
+.item-box {
+  width: 250px;
+  height: 200px;
+  border-radius: 100px;
+  // border-radius: 50%;/*角丸*/
+  background: skyblue;/*背景色*/
   float: left;
   padding-left: 10px;
 }
@@ -10,9 +16,6 @@
   text-align: center;
 }
 
-.item-box-price {
-  text-align: center;
-}
 
 .item-menu {
   width: 100%;
@@ -21,7 +24,6 @@
 }
 .item-menu-title {
   text-align: left;
-  color: white;
   border-bottom: 1px dotted #fff;
 }
 

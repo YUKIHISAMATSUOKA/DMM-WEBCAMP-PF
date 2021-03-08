@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'shops/index'
-  get 'shops/edit'
-  get 'shops/show'
-  get 'shops/new'
-
   devise_for :customers
   root to: 'homes#top'
   get 'home/how' => 'homes#how'
@@ -13,6 +8,7 @@ Rails.application.routes.draw do
   resources :genres, only: [:create, :index, :edit, :update, :destroy]
   get '/genres/:id' => 'genres#index' #editでバリデエラー発生後に、No route matches [GET] "/genres/1"となったので付け足した
   resources :areas, only: [:new, :create, :index, :edit, :update, :destroy]
+  get 'areas/shinkoiwa' => 'areas/shinkoiwa'
 
   resources :customers, only: [:index, :show, :edit, :update]
   get 'customer/exit' => 'customers#exit'
@@ -20,6 +16,9 @@ Rails.application.routes.draw do
 
   resources :payments, only: [:index, :edit, :update, :create, :destroy]
 
-  resources :shops, only: [:new, :create, :index, :edit, :update, :destroy, :show]
+  get 'shop/exit' => 'shops#exit'
+  resources :shops, only: [:new, :create, :index, :edit, :update, :destroy, :show] do
+    resources :items
+  end
 
 end

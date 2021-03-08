@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="m-auto text-center h-100 w-100 d-flex align-items-center justify-content-center">
+    <div>
+      <h3>本当にお店を削除しますか？</h3>
+      </br>
+      <p>
+        お店を削除すると、これまでの注文履歴</br>
+      　が閲覧できなくなります。
+      </p>
+     <p>削除する場合は、「削除する」をクリックしてください。</p>
+       </br>
+      <%= flash[:error] %>
+      <%= link_to "削除せずに、マイページに戻る", customers_path, class: "btn btn-primary" %>
+      <% if customer_signed_in? && @shop.customer_id == current_customer.id %>
+         <%= link_to "削除する", shop_path(@shop), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>

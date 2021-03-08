@@ -1,29 +1,39 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto px-5">
+    <div class="col-md-10 col-md-offset-2">
 
-      <%= link_to "新規登録する", new_area_path %>
-      <table class="teble">
-        <thead  class="table-active">
-          <tr>
-            <th class="py-2 text-center">地域</th>
-            <th class="py-2"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% if @areas.exists? %>
-            <% @areas.each do |area| %>
-              <tr>
-                <td><%= area.name %></td>
-              </tr>
-            <% end %>
-          <% else %>
-          <h2>まだエリアが登録されていません。</h2>
-          <% end %>
 
-        </tbody>
-      </table>
+      <h2 class="text-center area-title">地域を選択してください</h2>
 
+        <div class="area-index">
+
+            <div class="area-box">
+              <p class="area-name"><%= link_to "新小岩エリア", areas_shinkoiwa_path %></p>
+            </div>
+          　<div class="area-box">
+              <p class="area-name"><%= link_to "立石エリア", areas_shinkoiwa_path %></p>
+            </div>
+          　<div class="area-box">
+              <p class="area-name"><%= link_to "青戸エリア", areas_shinkoiwa_path %></p>
+            </div>
+          　<div class="area-box">
+              <p class="area-name"><%= link_to "お花茶屋エリア", areas_shinkoiwa_path %></p>
+            </div>
+          　<div class="area-box">
+              <p class="area-name"><%= link_to "金町・水元エリア", areas_shinkoiwa_path %></p>
+            </div>
+          　<div class="area-box">
+              <p class="area-name"><%= link_to "亀有エリア", areas_shinkoiwa_path %></p>
+            </div>
+            　<div class="area-box">
+              <p class="area-name"><%= link_to "柴又エリア", areas_shinkoiwa_path %></p>
+            </div>
+          　<div class="area-box">
+              <p class="area-name"><%= link_to "高砂・鎌倉エリア", areas_shinkoiwa_path %></p>
+            </div>
+
+
+        </div>
     </div>
   </div>
 </div>

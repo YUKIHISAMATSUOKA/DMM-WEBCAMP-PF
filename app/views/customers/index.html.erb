@@ -15,14 +15,18 @@
       <li class="nav-item">
         <%= link_to "よくある質問", home_question_path, class: 'text-dark' %>
       </li>
-      <li class="nav-item">
-        <%= link_to "お店を登録する", new_shop_path, class: 'text-dark' %>
-      </li>
 
       <% if current_customer.shop.present? %>
-      <li class="nav-item">
-        <%= link_to "自分のお店", shop_path(current_customer.shop), class: 'text-dark' %>
-      </li>
+        <li class="nav-item">
+          <%= link_to "自分のお店", shop_path(current_customer.shop), class: 'text-dark' %>
+        </li>
+        <li class="nav-item">
+          これ以上お店を新たに登録できません。１ユーザーにつき１店舗しか出店できません。
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "お店を登録する", new_shop_path, class: 'text-dark' %>
+        </li>
       <% end %>
 
       <li class="nav-item">

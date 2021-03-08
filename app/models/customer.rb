@@ -17,7 +17,7 @@ class Customer < ApplicationRecord
   def active_for_authentication?
     super && (self.member_state == true)
   end
-  
+
   has_one :shop
 
 end

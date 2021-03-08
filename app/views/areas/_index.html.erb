@@ -1,0 +1,6 @@
+<% shops.each do |shop| %>
+  <div class="shop-box">
+    <%= attachment_image_tag shop, :image, :fill, 400, 300, fallback: "no_image.jpg", size:'400x300' %>
+    <h6 class="shop-box-name"><%= shop.name %></h6>
+  </div>
+<% end %>

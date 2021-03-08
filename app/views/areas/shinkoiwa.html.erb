@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+
+
+      <h2 class="text-center area-title">新小岩エリア</h2>
+      <% shops = Shop.where(area_id: '7') %>
+　　　<%= render 'index', shops: @shops %>
+
+
+    </div>
+  </div>
+</div>
+

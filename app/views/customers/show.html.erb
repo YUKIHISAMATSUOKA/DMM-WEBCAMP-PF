@@ -37,10 +37,18 @@
           <td class="table-active">メールアドレス</td>
           <td><%= @customer.email %></td>
         </tr>
+
+        <tr>
+          <td class="table-active"></td>
+          <td>
+            <%= link_to "　編集する　", edit_customer_path, class: "btn btn-success" %>
+            <%= link_to "  退会する  ", customer_exit_path, class: "btn btn-danger" %>
+          </td>
+        </tr>
       </tbody>
     </table>
 
   </div>
-  <%= link_to "　編集する　", edit_customer_path, class: "btn btn-success" %>
-  <%= link_to "  退会する  ", customer_exit_path, class: "btn btn-danger" %>
+
+
 </div>

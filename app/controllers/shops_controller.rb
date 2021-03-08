@@ -38,6 +38,18 @@ class ShopsController < ApplicationController
     end
   end
 
+  def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+    flash[:alert] = "ショップを削除しました"
+    redirect_to customers_path
+  end
+
+  def exit
+    @shop = current_customer.shop
+  end
+
+
   private
 
   def shop_params

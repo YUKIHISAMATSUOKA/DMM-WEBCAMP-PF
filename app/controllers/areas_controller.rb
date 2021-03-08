@@ -1,6 +1,7 @@
 class AreasController < ApplicationController
   before_action :authenticate_customer!
 
+
   def index
     @areas = Area.all
   end
@@ -39,6 +40,13 @@ class AreasController < ApplicationController
     @area.destroy
     flash[:alert] = "削除しました"
     redirect_to areas_path
+  end
+
+
+  def shinkoiwa
+    @areas = Area.all
+    @shops = Shop.all
+    @shops = Shop.where(area_id: '7')
   end
 
   private

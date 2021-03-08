@@ -1,11 +1,18 @@
 class Shop < ApplicationRecord
 
-  belongs_to :area
   attachment :image
-  # validates :name, presence: true
-  # validates :image, presence: true
-
+  belongs_to :area
   belongs_to :customer
-  has_many :payments, dependent: :destroy
+  # 現状使用していない　has_many :payments, dependent: :destroy
+  has_many :items, dependent: :destroy
+
+  validates :name, presence: true
+  validates :name, length: { maximum: 30}
+  validates :image_id, presence: true
+  validates :introduction, length: { maximum: 100}
+  validates :post_code, presence: true
+  validates :post_code, length: { is: 7 }
+  validates :address, presence: true
+  validates :telephone_number, presence: true
 
 end

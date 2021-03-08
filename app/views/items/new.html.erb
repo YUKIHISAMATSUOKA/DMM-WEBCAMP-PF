@@ -1,2 +1,24 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <h4 class="my-4 text-center"><span style="background-color:#EFEFEF">  商品　新規登録　</span></h4>
+
+      <%= render 'layouts/errors', obj: @item %>
+      <%= render 'form', item: @item %>
+
+      <!--メインメニュー-->
+      <% @items = Item.where(genre: '1') %>
+      <%= render 'index', items: @items %>
+
+      <!--サイドメニュー-->
+      <% @items = Item.where(genre: '2') %>
+      <%= render 'index', items: @items %>
+
+      <!--ドリンク-->
+      <% @items = Item.where(genre: '3') %>
+      <%= render 'index', items: @items %>
+
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<%= form_with model: item, local:true do |f| %>
+
+<table class="table table-borderless col-8 mx-auto">
+  <tr>
+    <th>名前(30文字以内)</th>
+    <th><%= f.text_field :name, class: 'form-control' %></th>
+  </tr>
+  <tr>
+    <th>写真</th>
+    <th><%= f.attachment_field :image %></th>
+  </tr>
+  <tr>
+    <th>価格(税込み)</th>
+    <th><%= f.text_field :price, class: 'form-control' %>円</th>
+  </tr>
+  <tr>
+    <th>テキスト(50文字以内)</th>
+    <th><%= f.text_area :introduction, class: 'form-control' %></th>
+  </tr>
+  <tr>
+    <th><%= f.label :genre, '商品タイプ' %></th>
+    <th><%= f.select :genre, {'メインメニュー': 1, 'サイドメニュー': 2, 'ドリンク':3}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %></th>
+  </tr>
+  <tr>
+    <th>クッキングタイム<br>(商品を作るまでの目安時間)</th>
+    <th>
+      <%= f.radio_button :cook_time, :"5分" %>
+      <%= f.label :cook_time, "5分" %>
+      <%= f.radio_button :cook_time, :"10分" %>
+      <%= f.label :cook_time, "10分" %>
+      <%= f.radio_button :cook_time, :"15分" %>
+      <%= f.label :cook_time, "15分" %>
+      <%= f.radio_button :cook_time, :"20分" %>
+      <%= f.label :cook_time, "20分" %>
+      <%= f.radio_button :cook_time, :"25分" %>
+      <%= f.label :cook_time, "25分" %>
+      <%= f.radio_button :cook_time, :"30分" %>
+      <%= f.label :cook_time, "30分" %>
+    </th>
+  </tr>
+  <tr>
+    <th></th>
+    <th><%= f.submit class:'btn btn-success' %></th>
+  </tr>
+
+</table>
+<% end %>

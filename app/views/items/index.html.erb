@@ -1,2 +1,11 @@
-<h1>Items#index</h1>
-<p>Find me in app/views/items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <h4 class="my-4 text-center"><span style="background-color:#EFEFEF">  商品　新規登録　</span></h4>
+
+      <%= render 'layouts/errors', obj: @item %>
+      <%= render 'form', item: @item %>
+
+    </div>
+  </div>
+</div>

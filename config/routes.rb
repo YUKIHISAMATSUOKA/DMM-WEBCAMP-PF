@@ -17,8 +17,7 @@ Rails.application.routes.draw do
   resources :payments, only: [:index, :edit, :update, :create, :destroy]
 
   get 'shop/exit' => 'shops#exit'
-  resources :shops, only: [:new, :create, :index, :edit, :update, :destroy, :show] do
-    resources :items
-  end
+  resources :shops, only: [:new, :create, :index, :edit, :update, :destroy, :show]
+  resources :items
 
 end

@@ -1,0 +1,8 @@
+<% items.each do |item| %>
+  <div class="item-box-picture">
+    <%= link_to edit_item_path(item) do %>
+      <%= attachment_image_tag item, :image, :fill, 200, 150, fallback: "no_image.jpg", size:'200x150' %>
+    <% end %>
+    <h6 class="item-box-name"><%= item.name %>　<%= item.price %>円 <%= item.cook_time %></h6>
+  </div>
+<% end %>

@@ -4,6 +4,8 @@
 
 
       <h2 class="text-center area-title">新小岩エリア</h2>
+
+      <!--新小岩エリアのお店を表示させる部分-->
       <% shops = Shop.where(area_id: '7') %>
 　　　<%= render 'index', shops: @shops %>
 

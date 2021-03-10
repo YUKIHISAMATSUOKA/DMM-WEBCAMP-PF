@@ -9,6 +9,12 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+    # 必ず複数形にすること、複数の情報が入っているので
+    @items = @shop.items
+    @items_main = @items.where(genre: '1')
+    @items_side = @items.where(genre: '2')
+    @items_drink = @items.where(genre: '3')
+    # byebug
   end
 
   def new

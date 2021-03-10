@@ -17,10 +17,30 @@
 .item-menu {
   width: 100%;
   height: auto;
-
 }
+
 .item-menu-title {
   text-align: left;
-  border-bottom: 1px dotted #fff;
+  border-bottom: 1px dotted #000000;
 }
 
+.item-show {
+  text-align: left;
+  border-bottom: 1px dotted #000000;
+  // 子要素の価格を絶対位置にするため
+  position:relative;
+}
+
+.item-show-price {
+  // 価格を絶対位置に指定
+	position:absolute;
+	bottom: 20px;
+	right:20px;
+}
+
+.item-show-link {
+  // 価格を絶対位置に指定
+	position:absolute;
+	bottom: 90px;
+	right:0px;
+}

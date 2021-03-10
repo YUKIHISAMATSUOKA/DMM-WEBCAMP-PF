@@ -40,11 +40,31 @@
               <th><p class="text-center"><%= @shop.telephone_number %><br><%= @shop.email %></p></th>
             </tr>
 
-            </thead>
+          </thead>
         </table>
 　　    <%= link_to "編集する", edit_shop_path(@shop), class: "btn btn-success btn-sm" %>
 　　    <%= link_to "商品を登録する", new_item_path, class: "btn btn-primary btn-sm" %>
 　　  </div>
+  </div>
+
+　<!--メニュー表示部分-->
+　<div class="row">
+    <!--メインー-->
+    <div class="item-menu">
+      <h3 class="item-menu-title">メインメニュー</h3>
+      <%= render 'index', items: @items_main %>
+    </div>
+    <!--サイドー-->
+    <div class="item-menu">
+      <h3 class="item-menu-title">サイドメニュー</h3>
+      <%= render 'index', items: @items_side %>
+    </div>
+    <!--ドリンク-->
+    <div class="item-menu">
+      <h3 class="item-menu-title">ドリンクメニュー</h3>
+      <%= render 'index', items: @items_drink %>
     </div>
   </div>
+  <!--メニュー表示部分ここまで-->
+
 </div>

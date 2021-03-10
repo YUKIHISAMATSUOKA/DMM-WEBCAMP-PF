@@ -1,2 +1,23 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<!--itemのshowページ　自分の店の商品だったら、編集・削除へのパスを表示させる-->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-col-md-4 mx-auto item-show">
+    <!--<div class="col-xs-12 col-md-6">-->
+      <%= attachment_image_tag @item, :image, :fill, 1200, 800, fallback: "no_image.jpg", size:'1200x800', class: "img-fluid" %>
+      <h6><%= @item.shop.name %></h6>
+      <h2><%= @item.name %></h2>
+      <h6>料理ができるまでの時間</h6>
+      <h3><%= @item.cook_time %></h3>
+    　<h6><%= @item.introduction %></h6>
+    　<h3 class="item-show-price"><%= @item.price %>円</h3>
+
+      <!--自分の商品の場合であれば、editへのリンクを表示させる-->
+    　<% if @item.shop.customer_id == current_customer.id %>
+    　<div class="item-show-link">
+    　  <%= link_to "編集する", edit_item_path(@item), class: "btn btn-success btn-sm" %>
+    　</div>
+    　<% end %>
+
+    </div>
+  </div>
+</div>

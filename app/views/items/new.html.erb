@@ -7,31 +7,4 @@
       <%= render 'form', item: @item %>
 　　</div>
 　</div>
-
-　  <div class="row">
-
-      <!--メインメニュー-->
-      <div class="item-menu">
-        <h3 class="item-menu-title">メインメニュー</h3>
-        <% @items = Item.where(genre: '1') %>
-        <%= render 'index', items: @items %>
-      </div>
-
-      <!--サイドメニュー-->
-      <div class="item-menu">
-        <h3 class="item-menu-title">サイドメニュー</h3>
-        <% @items = Item.where(genre: '2') %>
-        <%= render 'index', items: @items %>
-      </div>
-
-      <!--ドリンク-->
-      <div class="item-menu">
-        <h3 class="item-menu-title">ドリンクメニュー</h3>
-        <% @items = Item.where(genre: '3') %>
-        <%= render 'index', items: @items %>
-      </div>
-
-
-    </div>
-  </div>
 </div>

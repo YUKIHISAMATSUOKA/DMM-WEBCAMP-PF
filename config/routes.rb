@@ -15,8 +15,18 @@ Rails.application.routes.draw do
   put "/customers/:id/hide" => "customers#hide", as: 'customers_hide'
 
   resources :payments, only: [:index, :edit, :update, :create, :destroy]
+
   get 'shop/exit' => 'shops#exit'
   resources :shops, only: [:new, :create, :index, :edit, :update, :destroy, :show]
+
   resources :items
+
+  resources :cart_items, only: [:index, :create, :update, :destroy] do
+    #collectionはリソース全体に対するアクションを定義します
+    collection do
+      delete 'destroy_all'
+    end
+  end
+
 
 end

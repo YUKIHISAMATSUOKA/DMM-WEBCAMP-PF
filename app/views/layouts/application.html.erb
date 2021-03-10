@@ -11,12 +11,12 @@
   <body class="body">
     <%= render 'layouts/header' %>
 
-    <!--新規投稿や、エラー発生時のメッセージ-->
+    <!--新規投稿や、エラー発生時のメッセージ text-centerで中央に表示されるように設定-->
     <% if flash[:notice] %>
-       <h3 class="flash-green"><%= flash[:notice] %></h3>
+       <h3 class="flash-green text-center"><%= flash[:notice] %></h3>
 　　<% end %>
 　　<% if flash[:alert] %>
-       <h3 class="flash-red"><%= flash[:alert] %></h3>
+       <h3 class="flash-red text-center"><%= flash[:alert] %></h3>
 　　<% end %>
 
     <%= yield %>

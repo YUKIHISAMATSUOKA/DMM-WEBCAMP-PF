@@ -11,22 +11,33 @@
           <!--１、カスタマーログイン状態か否か-->
           <% if customer_signed_in? %>
             <li class="nav-item">
-              <%= link_to "お店を探す", areas_path, class: 'nav-link text-white' %>
+              <%= link_to areas_path, class: 'nav-link text-white', method: :get do %>
+                <i class="fas fa-store">お店を探す</i>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "カート", root_path, class: 'nav-link text-white' %>
+              <%= link_to cart_items_path, class: 'nav-link text-white', method: :get do %>
+                <i class="fas fa-shopping-cart">カート</i>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "注文履歴", root_path, class: 'nav-link text-white' %>
+              <%= link_to root_path, class: 'nav-link text-white', method: :get do %>
+                <i class="fas fa-list-ul">注文履歴</i>
+              <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to "マイページ", customers_path, class: 'nav-link text-white' %>
+              <%= link_to customers_path, class: 'nav-link text-white', method: :get do %>
+                <i class="fas fa-user-cog">マイページ</i>
+              <% end %>
             </li>
 
+            <!--カレントユーザーがお店を作成したら表示される-->
             <% if current_customer.shop.present? %>
-            <li class="nav-item">
-              <%= link_to "自分のお店", shop_path(current_customer.shop), class: 'nav-link text-white' %>
-            </li>
+              <li class="nav-item">
+                <%= link_to shop_path(current_customer.shop), class: 'nav-link text-white', method: :get do %>
+                  <i class="fas fa-home">マイショップ</i>
+                <% end %>
+              </li>
             <% end %>
 
              <!--最後に消す部分-->

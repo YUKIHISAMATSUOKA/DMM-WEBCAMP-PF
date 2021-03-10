@@ -1,0 +1,41 @@
+// Place all the styles related to the cart_items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.cart_item-title {
+  text-align: left;
+  border-bottom: 1px dotted #000000;
+  // 子要素を絶対位置にするため
+  position: relative;
+}
+
+.cart_item-link {
+  // 価格を絶対位置に指定
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+}
+.cart_item-box {
+  width: 100%;
+  height: 200px;
+  // background-color: blue;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted #000000;
+  position: relative;
+}
+.cart_item-box-text {
+  hight: 100%;
+  // 280にしないと右側の写真と重なってしまう。
+  width: 280px;
+}
+
+.cart_item-box-picture {
+  position: absolute;
+  bottom: 10px;
+	right: 10px;
+}
+
+.cart_item-order {
+  width: 100%;
+  height: 300px;
+  background-color: #1e90ff;
+}

@@ -9,7 +9,8 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-    # 必ず複数形にすること、複数の情報が入っているので
+
+    # 必ず複数形にすること、複数の情報が入っているので/ ここの３つのwhereはview画面でitemの並び替えをしているため記述している
     @items = @shop.items
     @items_main = @items.where(genre: '1')
     @items_side = @items.where(genre: '2')

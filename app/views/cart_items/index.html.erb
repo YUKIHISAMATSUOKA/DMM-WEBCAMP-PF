@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-col-md-4 mx-auto">
+
+      <!--題名部分-->
+      <div class="cart_item-title">
+        <h2 class="text-center"><span> お店の名前いれる</span></h2>
+        <h2>カート内商品</h2>
+        <h4 class="cart_item-link">商品を追加する</h4>
+      </div>
+
+  　　<!--カート内商品　表示部分-->
+  　　<% @sum = 0 %>
+      <% @cart_items.each do |cart_item| %>
+        <div class="cart_item-box">
+          <div class="cart_item-box-text">
+            <h3><%= cart_item.item.name %></h3>
+            <h4>テキストテキストテキストテキスト</h4>
+            <h5>
+              <%= cart_item.item.price %>円
+              数量:<%= cart_item.amount %>
+              <%= form_with model: cart_item, local:true do |f| %>
+              <%= f.select :amount, options_for_select((1..20).to_a), include_blank: "個数選択", required: true %>
+              <%= f.submit "数量変更", class: 'btn btn-success' %>
+              <% end %>
+              <%= link_to "削除する", cart_item_path(cart_item), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %></h5>
+          </div>
+          <div class="cart_item-box-picture"><%= attachment_image_tag cart_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %></div>
+        </div>
+        <!--1つの商品の価格*数量を計算-->
+        <% @x = cart_item.item.price * cart_item.amount %>
+        <!--eachの回数だけ、@sumに足していく-->
+        <% @sum += @x %>
+      <% end %>
+
+      <!--購入手続き表示部分-->
+      <div class="cart_item-order">
+        <h4>小計 <%= @sum %>円</h4>
+        <h3>合計 <%= @sum %>円</h3>
+        受取時間 受取時間　受取時間　受取時間　受取時間<br>
+        時間の変更をする
+        <h3>購入手続きへ</h3>
+      </div>
+
+      <div>
+        <% if @cart_items.exists? %>
+          <%= link_to "カート内商品を全て空にする", destroy_all_cart_items_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
+        <% end %>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+    <%#= cart_item.item.shop.name %>
+    <%#= link_to "お店へのリンク", shop_path(cart_item.item.shop), class: "btn btn-primary btn-sm" %>
+    <!--class: "img-fluid"-->
+
+    <%# @x = @cart_item.item.shop.where(name: 'cart_item.item.shop.name') %>

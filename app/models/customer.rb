@@ -19,5 +19,6 @@ class Customer < ApplicationRecord
   end
 
   has_one :shop
+  has_many :cart_items, dependent: :destroy
 
 end

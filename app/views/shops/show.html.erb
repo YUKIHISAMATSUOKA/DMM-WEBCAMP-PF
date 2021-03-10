@@ -42,8 +42,10 @@
 
           </thead>
         </table>
-　　    <%= link_to "編集する", edit_shop_path(@shop), class: "btn btn-success btn-sm" %>
-　　    <%= link_to "商品を登録する", new_item_path, class: "btn btn-primary btn-sm" %>
+        <% if @shop.customer_id == current_customer.id %>
+　　      <%= link_to "編集する", edit_shop_path(@shop), class: "btn btn-success btn-sm" %>
+　　      <%= link_to "商品を登録する", new_item_path, class: "btn btn-primary btn-sm" %>
+　　    <% end %>
 　　  </div>
   </div>
 

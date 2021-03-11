@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 1
+  billing_amount: 1
+  status: 1
+  request: MyText
+  number: MyString
+  pick_up_time: 2021-03-11 03:39:26
+  name: MyString
+
+two:
+  customer_id: 1
+  billing_amount: 1
+  status: 1
+  request: MyText
+  number: MyString
+  pick_up_time: 2021-03-11 03:39:26
+  name: MyString

@@ -20,5 +20,6 @@ class Customer < ApplicationRecord
 
   has_one :shop
   has_many :cart_items, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
 end

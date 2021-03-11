@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   attachment :image
   belongs_to :shop
   has_many :cart_items, dependent: :destroy
+  has_many :order_items, dependent: :destroy
 
   validates :name, presence: true
   validates :name, length: { maximum: 30}

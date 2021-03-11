@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-col-md-4 mx-auto">
+
+      <!--オーダータイトル-->
+      <div class="order-title">
+        <h2 class="text-center"><span> <i class="far fa-check-square">注文内容を確認する</i></span></h2>
+        <h2>注文内容</h2>
+        <h4 class="order-link">1つ前に戻る</h4>
+      </div>
+
+  　　<!--オーダー商品　表示部分-->
+  　　<% @sum = 0 %>
+      <% @cart_items.each do |cart_item| %>
+        <div class="order-box">
+          <div class="order-box-text">
+            <h3><%= cart_item.item.name %></h3>
+            <h4>テキストテキストテキストテキスト</h4>
+            <h5>
+              <%= cart_item.item.price %>円
+              個数:<%= cart_item.amount %>
+          </div>
+          <div class="order-box-picture"><%= attachment_image_tag cart_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %></div>
+        </div>
+        <!--1つの商品の価格*数量を計算-->
+        <% @x = cart_item.item.price * cart_item.amount %>
+        <!--eachの回数だけ、@sumに足していく-->
+        <% @sum += @x %>
+      <% end %>
+
+      <!--購入手続き表示部分-->
+      <div class="order-buy">
+        <h4>小計 <%= @sum %>円</h4>
+        <h3>合計 <%= @sum %>円</h3>
+        <%= form_with model: @order, local:true do |f| %>
+        <h5>受け取り人の名前</h5>
+        <%= f.text_field :name, class: 'form-control', required: true %>
+        <h5>お店に対して、ご要望があればここに記載してください。</h5>
+        <%= f.text_area :request, class: 'form-control' %>
+        <%= f.hidden_field :billing_amount, :value => "#{@sum}" %>
+        <%#= f.hidden_field :billing_amot, :value => @order.billing_amount %>
+        <%= f.submit '注文を確定する', class: "btn btn-success btn-sm" %>
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+</div>

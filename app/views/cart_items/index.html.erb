@@ -5,7 +5,7 @@
       <!--題名部分-->
       <div class="cart_item-title">
         <h2 class="text-center"><span> お店の名前いれる</span></h2>
-        <h2>カート内商品</h2>
+        <h2>注文内容</h2>
         <h4 class="cart_item-link">商品を追加する</h4>
       </div>
 
@@ -18,10 +18,10 @@
             <h4>テキストテキストテキストテキスト</h4>
             <h5>
               <%= cart_item.item.price %>円
-              数量:<%= cart_item.amount %>
+              個数:<%= cart_item.amount %>
               <%= form_with model: cart_item, local:true do |f| %>
               <%= f.select :amount, options_for_select((1..20).to_a), include_blank: "個数選択", required: true %>
-              <%= f.submit "数量変更", class: 'btn btn-success' %>
+              <%= f.submit "個数を変更する", class: 'btn btn-success' %>
               <% end %>
               <%= link_to "削除する", cart_item_path(cart_item), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %></h5>
           </div>
@@ -35,18 +35,18 @@
 
       <!--購入手続き表示部分-->
       <div class="cart_item-order">
+        <% if @cart_items.exists? %>
         <h4>小計 <%= @sum %>円</h4>
         <h3>合計 <%= @sum %>円</h3>
         受取時間 受取時間　受取時間　受取時間　受取時間<br>
         時間の変更をする
-        <h3>購入手続きへ</h3>
-      </div>
-
-      <div>
-        <% if @cart_items.exists? %>
-          <%= link_to "カート内商品を全て空にする", destroy_all_cart_items_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
+        <h3><%= link_to "購入手続きへ", order_confirm_path, class: "btn btn-success btn-sm" %>  </h3>
+        <%= link_to "カート内商品を全て空にする", destroy_all_cart_items_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
+        <% else %>
+        <h4>カート内に商品がありません。</h4>
         <% end %>
       </div>
+
 
 
     </div>

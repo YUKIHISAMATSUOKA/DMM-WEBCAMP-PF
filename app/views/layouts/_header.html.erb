@@ -21,7 +21,7 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to root_path, class: 'nav-link text-white', method: :get do %>
+              <%= link_to orders_path, class: 'nav-link text-white', method: :get do %>
                 <i class="fas fa-list-ul">注文履歴</i>
               <% end %>
             </li>
@@ -40,7 +40,7 @@
               </li>
             <% end %>
 
-             <!--最後に消す部分-->
+            <!--最後に消す部分-->
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-white' %>
             </li>
@@ -53,7 +53,6 @@
             <li class="nav-item">
               <%= link_to "エリアの新規登録", new_area_path, class: 'nav-link text-white' %>
             </li>
-
 
 　　　　　<!--2，カスタマーログインしてない状態-->
           <% else %>

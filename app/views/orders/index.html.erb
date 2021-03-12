@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-col-md-4 mx-auto">
+      <h4 class="my-4 text-center"><span>  注文履歴一覧　</span></h4>
+
+
+　　　<!--注文一覧部分-->
+      <% @orders.each do |order| %>
+      <div class="order-index-box">
+        <h5>注文時間: <%= order.created_at.strftime('%Y/%m/%d %H:%M') %></h5>
+        <h5>注文番号: <%= order.number %></h5>
+　　　　<!--orderの中でorder_itemをeachする & 最初の1回だけ店舗ネームと写真を表示させる。-->
+        <% @i = 1 %>
+        <% order.order_items.each do |order_item| %>
+          <% if @i == 1 %>
+            <h5>店舗名: <%= order_item.item.shop.name %></h5>
+            <div class="order-index-box-picture">
+              <%= link_to order_path(order) do %>
+                <%= attachment_image_tag order_item.item.shop, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class: 'rounded-circle' %>
+              <% end %>
+            </div>
+          <% end %>
+          <h6 class="order-index-box-ietm-name"><%= order_item.item.name %></h6>
+        <% @i += 1 %>
+        <% end %>
+      </div>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

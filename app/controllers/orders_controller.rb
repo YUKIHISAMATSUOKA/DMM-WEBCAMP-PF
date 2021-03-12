@@ -27,9 +27,18 @@ class OrdersController < ApplicationController
       current_customer.cart_items.destroy_all
       redirect_to order_complete_path
     else
-      flash[:alert] = "ああああああああ"
+      flash[:alert] = "注文できませんでした。"
       redirect_back(fallback_location: root_path)
     end
+  end
+
+  def index
+    @orders = Order.all
+    @orders = current_customer.orders
+  end
+
+  def show
+    @order = Order.find(params[:id])
   end
 
   private

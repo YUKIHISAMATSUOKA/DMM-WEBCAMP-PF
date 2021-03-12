@@ -6,8 +6,9 @@
       <div class="order-title">
         <h2 class="text-center"><span> <i class="far fa-check-square">注文内容を確認する</i></span></h2>
         <h2>注文内容</h2>
-        <h4 class="order-link">1つ前に戻る</h4>
+        <h4 class="order-link"><%= link_to "1つ前に戻る", :back %></h4>
       </div>
+
 
   　　<!--オーダー商品　表示部分-->
   　　<% @sum = 0 %>
@@ -28,18 +29,23 @@
         <% @sum += @x %>
       <% end %>
 
+
       <!--購入手続き表示部分-->
       <div class="order-buy">
-        <h4>小計 <%= @sum %>円</h4>
-        <h3>合計 <%= @sum %>円</h3>
-        <%= form_with model: @order, local:true do |f| %>
-        <h5>受け取り人の名前</h5>
-        <%= f.text_field :name, class: 'form-control', required: true %>
-        <h5>お店に対して、ご要望があればここに記載してください。</h5>
-        <%= f.text_area :request, class: 'form-control' %>
-        <%= f.hidden_field :billing_amount, :value => "#{@sum}" %>
-        <%#= f.hidden_field :billing_amot, :value => @order.billing_amount %>
-        <%= f.submit '注文を確定する', class: "btn btn-success btn-sm" %>
+        <% if @cart_items.exists? %>
+          <h4>小計 <%= @sum %>円</h4>
+          <h3>合計 <%= @sum %>円</h3>
+          <%= form_with model: @order, local:true do |f| %>
+          <h5>受け取り人の名前</h5>
+          <!--受取人の名前は初期値に姓のカナにする-->
+          <%= f.text_field :name, value: "#{current_customer.kana_last_name}", class: 'form-control', required: true %>
+          <h5>お店に対してご要望があればここに記載してください。</h5>
+          <%= f.text_area :request, class: 'form-control' %>
+          <%= f.hidden_field :billing_amount, :value => "#{@sum}" %>
+          <!--注文番号は1000~9999の間でランダム-->
+          <%= f.hidden_field :number, :value => "#{rand(1000..9999)}" %>
+          <%= f.submit '注文を確定する', class: "btn btn-success btn-sm" %>
+          <% end %>
         <% end %>
 
 

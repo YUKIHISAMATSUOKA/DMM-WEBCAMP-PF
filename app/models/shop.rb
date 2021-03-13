@@ -8,7 +8,7 @@ class Shop < ApplicationRecord
 
   validates :name, presence: true
   validates :name, length: { maximum: 30}
-  validates :image_id, presence: true
+  # validates :image_id, presence: true
   validates :introduction, length: { maximum: 100}
   validates :post_code, presence: true
   validates :post_code, length: { is: 7 }

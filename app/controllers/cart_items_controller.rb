@@ -2,6 +2,8 @@ class CartItemsController < ApplicationController
 
   def index
     @cart_items = current_customer.cart_items
+    @sum = 0 #合計金額を計算するので初期値は0
+    @first = 1 #each文,最初の1回のみのトリガーに使用するため
   end
 
   def create

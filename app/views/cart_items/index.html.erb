@@ -2,16 +2,20 @@
   <div class="row">
     <div class="col-md-8 offset-col-md-4 mx-auto">
 
+
+
+      <% @cart_items.each do |cart_item| %>
+        <% if @first == 1 %>
       <!--題名部分-->
       <div class="cart_item-title">
-        <h2 class="text-center"><span> お店の名前いれる</span></h2>
+        <h2 class="text-center"><span> <%= cart_item.item.shop.name %></span></h2>
         <h2>注文内容</h2>
-        <h4 class="cart_item-link">商品を追加する</h4>
+        <h4 class="cart_item-link"><%= link_to "商品を追加する", shop_path(cart_item.item.shop), class: "btn btn-primary btn-sm" %></h4>
       </div>
+      <% end %>
 
   　　<!--カート内商品　表示部分-->
-  　　<% @sum = 0 %>
-      <% @cart_items.each do |cart_item| %>
+
         <div class="cart_item-box">
           <div class="cart_item-box-text">
             <h3><%= cart_item.item.name %></h3>
@@ -20,7 +24,7 @@
               <%= cart_item.item.price %>円
               個数:<%= cart_item.amount %>
               <%= form_with model: cart_item, local:true do |f| %>
-              <%= f.select :amount, options_for_select((1..20).to_a), include_blank: "個数選択", required: true %>
+              <%= f.select :amount, options_for_select((1..10).to_a), include_blank: "個数選択", required: true %>
               <%= f.submit "個数を変更する", class: 'btn btn-success' %>
               <% end %>
               <%= link_to "削除する", cart_item_path(cart_item), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %></h5>
@@ -31,6 +35,7 @@
         <% @x = cart_item.item.price * cart_item.amount %>
         <!--eachの回数だけ、@sumに足していく-->
         <% @sum += @x %>
+        <% @first += 1 %>
       <% end %>
 
       <!--購入手続き表示部分-->

@@ -8,9 +8,11 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    # @cart_item = CartItem.find_or_initialize_by(shop_id:  params[:shop_id])
-
-
+    if current_customer.cart_items.joins(:item).where.not(items: {shop_id: Item.find(params[:cart_item][:item_id]).shop_id}).any?
+      pp 'ANY'
+    else
+      pp 'NONE'
+    end
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
 

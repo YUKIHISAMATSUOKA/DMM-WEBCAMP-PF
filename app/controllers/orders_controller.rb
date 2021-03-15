@@ -42,9 +42,14 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def shop_index
+    @orders = Order.all
+    @orders = current_customer.shop.orders
+  end
+
   private
 
   def order_params
-    params.require(:order).permit(:customer_id, :name, :request, :billing_amount, :status, :number, :pick_up_time)
+    params.require(:order).permit(:customer_id, :shop_id, :name, :request, :billing_amount, :status, :number, :pick_up_time)
   end
 end

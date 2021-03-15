@@ -27,6 +27,8 @@
         <% @x = cart_item.item.price * cart_item.amount %>
         <!--eachの回数だけ、@sumに足していく-->
         <% @sum += @x %>
+        <!--shop_idをhiddenfieldで渡すために記述-->
+        <% @shop = cart_item.item.shop %>
       <% end %>
 
 
@@ -44,6 +46,8 @@
           <%= f.hidden_field :billing_amount, :value => "#{@sum}" %>
           <!--注文番号は1000~9999の間でランダム-->
           <%= f.hidden_field :number, :value => "#{rand(1000..9999)}" %>
+          <!--order.create時にshop_idが必要-->
+          <%= f.hidden_field :shop_id, :value => @shop.id %>
           <%= f.submit '注文を確定する', class: "btn btn-success btn-sm" %>
           <% end %>
         <% end %>

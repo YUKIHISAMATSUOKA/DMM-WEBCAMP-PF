@@ -5,6 +5,7 @@ class Shop < ApplicationRecord
   belongs_to :customer
   # 現状使用していない　has_many :payments, dependent: :destroy
   has_many :items, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   validates :name, presence: true
   validates :name, length: { maximum: 30}

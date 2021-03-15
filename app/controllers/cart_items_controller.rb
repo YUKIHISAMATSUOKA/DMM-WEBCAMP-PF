@@ -8,10 +8,11 @@ class CartItemsController < ApplicationController
   end
 
   def create
+    # もし、カート内の既存の商品のショップIDと、新しく追加する商品のショップIDが異なるのならば、
     if current_customer.cart_items.joins(:item).where.not(items: {shop_id: Item.find(params[:cart_item][:item_id]).shop_id}).any?
-      pp 'ANY'
-    else
-      pp 'NONE'
+      # render :text => "data-confirm" => "本当に削除しますか？"
+      current_customer.cart_items.destroy_all
+      flash[:notice] = "別のお店の商品を追加したため、カート内商品を入れ替えました"
     end
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id

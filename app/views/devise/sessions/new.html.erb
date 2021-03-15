@@ -1,6 +1,7 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="mx-auto">
+    <div class="col-lg-8 offset-col-lg-4 mx-auto">
+      <div class="text-center">
 
       <h2>ログイン</h2>
       <br>
@@ -8,7 +9,8 @@
       <%= flash[:error] %>
 
       <%= form_with model: @customer, url: customer_session_path, local: true do |f| %>
-        <table class=table>
+
+        <table class="table">
           <tr>
             <th><%= f.label :メールアドレス %><br /></th>
             <th><%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com" %></th>
@@ -43,8 +45,11 @@
 
         <br>
         <h5>会員登録がお済みでない方</h5>
-        <%= link_to 'こちら', new_customer_registration_path %> から新規登録を行ってください。
+        <p class="text-center"><%= link_to 'こちら', new_customer_registration_path %> から新規登録を行ってください。</p>
 
+
+
+     </div>
     </div>
   </div>
 </div>

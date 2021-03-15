@@ -3,6 +3,8 @@ class ShopsController < ApplicationController
   before_action :correct_customer, only:[:edit]
 
   def index
+    @orders = Order.all
+    @orders = current_customer.orders
   end
 
   def edit

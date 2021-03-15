@@ -33,7 +33,7 @@ a {
 
 body {
   background: #456;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Cormorant Unicase', serif;
 }
 
 
@@ -62,6 +62,12 @@ body {
   width: 400px;
   margin: 16px auto;
   font-size: 16px;
+}
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  .login {
+    width: 100%;
+  }
 }
 
 /* Reset top and bottom margins from certain elements */

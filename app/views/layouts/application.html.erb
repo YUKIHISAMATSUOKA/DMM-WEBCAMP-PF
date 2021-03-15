@@ -4,8 +4,11 @@
     <title>KATSUIKATakeout</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase&display=swap" rel="stylesheet">
   </head>
 
   <body class="body">
@@ -14,10 +17,10 @@
     <!--新規投稿や、エラー発生時のメッセージ text-centerで中央に表示されるように設定-->
     <% if flash[:notice] %>
        <h3 class="flash-green text-center"><%= flash[:notice] %></h3>
-　　<% end %>
-　　<% if flash[:alert] %>
+    <% end %>
+    <% if flash[:alert] %>
        <h3 class="flash-red text-center"><%= flash[:alert] %></h3>
-　　<% end %>
+    <% end %>
 
     <%= yield %>
   </body>

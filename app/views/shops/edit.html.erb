@@ -1,10 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 offset-col-md-2 mx-auto">
-    <h4 class="my-4 my-4 text-center"><span>  お店　編集画面　</span></h4>
+      <h4 class="my-4 my-4 text-center"><span>  お店　編集画面　</span></h4>
 
-　  <%= render 'layouts/errors', obj: @shop %>
-    <%= render 'form', shop: @shop %>
+　    <%= render 'layouts/errors', obj: @shop %>
+      <%= render 'form', shop: @shop %>
+      <!--下寄せ-->
+      <div class="d-flex align-items-end">
+        <%= link_to "お店を削除", shop_path(@shop), method: :delete, "data-confirm" => "本当にお店を削除しますか？", class: "btn btn-danger" %>
+      </div>
+
+    </div>
   </div>
-  </div>
-  </div>
+</div>

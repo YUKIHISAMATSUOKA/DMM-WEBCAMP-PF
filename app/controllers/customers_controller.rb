@@ -1,15 +1,14 @@
 class CustomersController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :set_customer #重複しているコードをひとまとめにした。定義はprivate以下に記述
 
   def index
-    @customer = current_customer
   end
 
   def show
-    @customer = current_customer
   end
 
   def edit
-    @customer = current_customer
   end
 
   def update
@@ -23,7 +22,6 @@ class CustomersController < ApplicationController
   end
 
   def exit
-    @customer = current_customer
   end
 
   def hide
@@ -42,6 +40,10 @@ class CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(:last_name,:first_name, :kana_last_name, :kana_first_name, :post_code, :address, :telephone_number,:telephone_number, :email)
+  end
+
+  def set_customer
+    @customer = current_customer
   end
 
 end

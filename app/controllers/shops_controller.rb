@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :correct_customer, only:[:edit]
 
   def index
   end
@@ -9,18 +11,16 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
-
     # 必ず複数形にすること、複数の情報が入っているので/ ここの３つのwhereはview画面でitemの並び替えをしているため記述している
     @items = @shop.items
     @items_main = @items.where(genre: '1')
     @items_side = @items.where(genre: '2')
     @items_drink = @items.where(genre: '3')
-    # byebug
   end
 
   def new
     @shop = Shop.new
-    @payments = Payment.all
+    # @payments = Payment.all
   end
 
   def create
@@ -61,6 +61,14 @@ class ShopsController < ApplicationController
 
   def shop_params
     params.require(:shop).permit(:customer_id, :area_id, :name, :introduction, :image, :status, :address, :telephone_number, :post_code, :email, payment_ids:[])
+  end
+
+  # 編集画面でのURL直打ち対策
+  def correct_customer
+    @shop = Shop.find(params[:id])
+    unless @shop.customer.id == current_customer.id
+      redirect_to shop_path(@shop)
+    end
   end
 
 

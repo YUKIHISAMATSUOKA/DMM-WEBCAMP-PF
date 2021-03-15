@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :correct_customer, only:[:edit]
 
   def new
     @item = Item.new
@@ -49,6 +51,14 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:shop_id, :name, :price, :sale_state, :image, :introduction, :genre, :cook_time)
+  end
+
+  # 編集画面でのURL直打ち対策
+  def correct_customer
+    @item = Item.find(params[:id])
+    unless @item.shop.id == current_customer.shop.id
+      redirect_to item_path(@item)
+    end
   end
 
 end

@@ -10,7 +10,7 @@
         <%= link_to "お気に入りした商品", areas_path, class: 'text-dark' %>
       </li>
       <li class="nav-item">
-        <%= link_to "アカウント情報", customer_path(@customer), class: 'text-dark' %>
+        <%= link_to "アカウント情報", customer_path(@customer), data: {"turbolinks" => false}, class: 'text-dark' %>
       </li>
       <li class="nav-item">
         <%= link_to "よくある質問", home_question_path, class: 'text-dark' %>
@@ -25,7 +25,7 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "お店を登録する", new_shop_path, class: 'text-dark' %>
+          <%= link_to "お店を登録する", new_shop_path, data: {"turbolinks" => false}, class: 'text-dark' %>
         </li>
       <% end %>
 

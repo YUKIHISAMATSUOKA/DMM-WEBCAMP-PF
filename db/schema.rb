@@ -36,9 +36,6 @@ ActiveRecord::Schema.define(version: 2021_03_11_035758) do
     t.string "first_name"
     t.string "kana_last_name"
     t.string "kana_first_name"
-    t.string "telephone_number"
-    t.string "post_code"
-    t.string "address"
     t.boolean "member_state", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

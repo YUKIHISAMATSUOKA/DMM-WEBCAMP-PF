@@ -3,11 +3,11 @@
     <div class="col-2"></div>
     <h4 class="my-4"><span style="background-color:#EFEFEF">　アカウント情報　変更　</span></h4>
   </div>
-  
+
   <%= render 'layouts/errors', obj: @customer %>
   <%= form_with model: @customer, local:true do |f| %>
   <%= flash[:error] %>
-  
+
   <div class="row">
     <div class="col-1"></div>
       <table class="table table-borderless col-8">
@@ -31,21 +31,6 @@
           <th><%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com" %></th>
           <th></th>
         </tr>
-        <tr>
-          <th>郵便番号(ハイフンなし)</th>
-          <th></th>
-          <th><%= f.text_field :post_code, autofocus: true, :placeholder => "0000000" %></th>
-        </tr>
-        <tr>
-          <th>住所</th>
-          <th></th>
-          <th colspan="2"><%= f.text_field :address, autofocus: true, :placeholder => "東京都渋谷区代々木神園町0-0" %></th>
-        </tr>
-        <tr>
-          <th>電話番号(ハイフンなし)</th>
-          <th></th>
-          <th><%= f.text_field :telephone_number %></th>
-        </tr>
 
         <tr>
           <th></th>
@@ -54,6 +39,6 @@
         </tr>
         <% end %>
       </table>
-      
+
     </div>
   </div>

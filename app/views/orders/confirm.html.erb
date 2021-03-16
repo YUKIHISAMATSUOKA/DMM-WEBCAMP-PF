@@ -41,7 +41,7 @@
           <h5>受け取り人の名前</h5>
           <!--受取人の名前は初期値に姓のカナにする-->
           <%= f.text_field :name, value: "#{current_customer.kana_last_name}", class: 'form-control', required: true %>
-          <h5>お店に対してご要望があればここに記載してください。</h5>
+          <h5>お店に対してご要望(100文字以内) </h5>
           <%= f.text_area :request, class: 'form-control' %>
           <%= f.hidden_field :billing_amount, :value => "#{@sum}" %>
           <!--注文番号は1000~9999の間でランダム-->

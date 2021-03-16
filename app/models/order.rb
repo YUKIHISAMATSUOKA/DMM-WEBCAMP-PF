@@ -1,12 +1,11 @@
 class Order < ApplicationRecord
 
   has_many :order_items, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   belongs_to :customer
   belongs_to :shop
 
-  has_many :notifications, dependent: :destroy
-
-
+  validates :request, length: { maximum: 100}
 
   def create_notification_order!(current_customer)
     # すでに「」されているか検索

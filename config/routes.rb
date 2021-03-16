@@ -34,6 +34,11 @@ Rails.application.routes.draw do
   # order/complete.htmlで注文確定のform_withをするのでPOSTにする
   get 'order/complete' => 'orders#complete'
 
-  resources :notifications, only: :index
+  resources :notifications, only: [:index, :destroy] do
+    collection do
+      delete 'destroy_all'
+    end
+  end
+
   get '*path' => redirect('/')
 end

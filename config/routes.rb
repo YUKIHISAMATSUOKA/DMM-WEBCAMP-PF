@@ -35,4 +35,5 @@ Rails.application.routes.draw do
   get 'order/complete' => 'orders#complete'
 
   resources :notifications, only: :index
+  get '*path' => redirect('/')
 end

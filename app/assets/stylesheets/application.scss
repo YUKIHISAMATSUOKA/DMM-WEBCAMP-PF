@@ -21,7 +21,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white;
+  // color: white;
 }
 
 a {
@@ -32,8 +32,8 @@ a {
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 body {
-  background: #456;
-  font-family: 'Cormorant Unicase', serif;
+  // background: #456;
+  font-family: 'Crimson Text', serif;
 }
 
 
@@ -53,6 +53,15 @@ body {
   text-align: center;
 }
 // float: left;
+
+// header
+.n-circle {
+  position: absolute;
+  right: 0rem;
+  bottom: 0rem;
+  color: #efa04c;
+}
+// headerここまで
 
 
 // ここからログインフォームのcss

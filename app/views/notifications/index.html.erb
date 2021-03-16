@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 offset-col-lg-4 mx-auto">
+      <h4 class="my-4 text-center"><span>  お店　通知画面　</span></h4>
+
+
+
+      <!--/自分の投稿に対するいいね、コメントは通知に表示しない-->
+      <% notifications = @notifications.where.not(visitor_id: current_customer.id) %>
+      <% if @notifications.exists? %>
+      <% @notifications.each do |notification| %>
+      <%= time_ago_in_words(notification.created_at).upcase %>前
+
+      <% if notification.order.request.blank? %>
+      <p>リクエストなし</p>
+      <% else %>
+      <%= notification.order.request %>
+      <% end %>
+
+      <div>
+        <%= notification.order.name %> さんが商品を注文しました。
+        <%= link_to order_path(notification.order) do %>
+          <%#= attachment_image_tag notification.order.order_item.item, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class: 'rounded-circle' %>
+        <% end %>
+      </div>
+      <% end %>
+
+      <%#= render 'index', notifications: notifications %>
+      <%= paginate notifications %>
+      <% else %>
+       通知はありません
+      <% end %>
+
+    </div>
+  </div>
+</div>

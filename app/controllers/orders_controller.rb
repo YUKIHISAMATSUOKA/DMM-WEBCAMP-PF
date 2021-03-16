@@ -24,6 +24,17 @@ class OrdersController < ApplicationController
         @order_item.order_id = @order.id
         @order_item.save
       end
+
+      # ここから
+      # @post.create_notification_comment!(current_user, @comment.id)
+      @order.create_notification_order!(current_customer)
+      # ここまで
+      # @notification = Notification.new
+      # @notification.customer_id = current_customer.id
+      # @notification.shop_id = @order.shop_id
+
+
+
       current_customer.cart_items.destroy_all
       redirect_to order_complete_path
     else

@@ -33,4 +33,6 @@ Rails.application.routes.draw do
   get 'order/confirm' => 'orders#confirm'
   # order/complete.htmlで注文確定のform_withをするのでPOSTにする
   get 'order/complete' => 'orders#complete'
+
+  resources :notifications, only: :index
 end

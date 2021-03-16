@@ -17,6 +17,9 @@
     <p type="submit" value="Log in"><%= f.submit "新規登録" %></p>
     <% end %>
 
+    <h4 class="text-center"><span class="text-dark">　既に登録済みの方　</span></h4>
+    <P class="text-center text-dark"><%= link_to "こちら", new_customer_session_path %> からログインしてください。</P>
+
 
   </div>
 </div>

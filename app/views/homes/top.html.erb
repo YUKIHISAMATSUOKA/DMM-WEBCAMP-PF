@@ -85,7 +85,7 @@
 
         <% @shop.each.with_index(1) do |shop, i| %>
         <div class="shop-box">
-            <%= attachment_image_tag shop,  :image, :fill, 400, 300, fallback: "no_image.jpg", size:'400x300' %>
+            <%= attachment_image_tag shop,  :image, :fill, 500, 400, fallback: "no_image.jpg", size:'500x400' %>
           <p><%= shop.name %></p>
           <p><%= shop.area.name %></p>
         </div>

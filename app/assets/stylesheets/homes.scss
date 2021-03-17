@@ -11,12 +11,11 @@
   background-position: center;
 }
 
-#main-shop {
+#shop {
   padding-top: 50px;
-  background-color: red;
 }
 
-.main-shop-title {
+.shop-title {
   text-align: center;
   padding-top: 50px;
 }
@@ -32,6 +31,7 @@
   display: table;
   margin-bottom: 40px;
 }
+
 .work-grid .desc {
   position: relative;
   display: table-cell;
@@ -55,7 +55,7 @@
 .work-grid .desc h3 a {
   color: #fff;
 }
-.work-grid .desc h3 a:hover, .work-grid .desc h3 a:focus {
+.work-grid .desc h3 a:hover, .work-grid .desc h3{
   text-decoration: none;
 }
 .work-grid .desc .cat {
@@ -73,13 +73,14 @@
   padding: 0;
   color: #fff;
 }
-.work-grid .desc p a:hover, .work-grid .desc p a:focus {
+.work-grid .desc, .work-grid {
   text-decoration: none;
 }
-.work-grid .desc .download, .work-grid .desc {
+.work-grid .desc, .work-grid .desc {
   line-height: 0;
   font-size: 16px;
 }
+
 
 .work-grid .desc {
   background: #50CB86;
@@ -87,6 +88,7 @@
 .work-grid .desc {
   background: #E04462;
 }
+
 .work-grid:hover .desc {
   opacity: 1;
 }

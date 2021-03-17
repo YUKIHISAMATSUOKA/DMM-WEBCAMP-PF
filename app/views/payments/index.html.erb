@@ -47,9 +47,9 @@
       <% @payments = Payment.where(genre: '1') %>
       <% @payments.each do |payment| %>
       <div class="payment-picture">
-        <%= link_to edit_payment_path(payment) do %>
-          <%= attachment_image_tag payment, :image, :fill, 200, 150, fallback: "no_image.jpg", size:'200x150' %>
-        <% end %>
+        <%#= link_to edit_payment_path(payment) do %>
+          <%= attachment_image_tag payment, :image, fallback: "no_image.jpg" %>
+        <%# end %>
         <h6 class="payment-picture-name"><%= payment.name %></h6>
       </div>
       <% end %>

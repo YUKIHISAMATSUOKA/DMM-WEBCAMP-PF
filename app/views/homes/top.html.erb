@@ -6,64 +6,97 @@
       <section id="main-logo"></section>
 
       <!--main-shop部分-->
-      <section id="shop">
-        <div class="shop-title">
-          <h2>いますぐ注文しよう</h2>
+      <section id="main-guide">
+        <div class="guide-title">
+          <h2>いますぐ注文しよう</h2><br >
     			<h4>葛飾にある<i><%= @shops.count %></i>軒のお店の商品をテイクアウトできます</h4>
         </div>
 
+        <!--main-box部分-->
+  			<div class="row guide-box">
+  			  <!--box1-->
+  				<div class="col-lg-4 text-center aa">
+  					<div class="work-grid box1">
+  						<div class="desc">
+  							<h3><%= link_to "まずは会員登録！", new_customer_registration_path %></h3>
+  							<span class="cat">step1</span>
+  						</div>
+  					</div>
+  				</div>
+          <!--box2-->
+  				<div class="col-lg-4 text-center">
+  					<div class="work-grid box2">
+  						<div class="desc">
+  							<h3><%= link_to "エリアからお店を探そう！", areas_path %></h3>
+  							<span class="cat">step2</span>
+  						</div>
+  					</div>
+  				</div>
 
-    			<div class="row">
-    				<div class="col-md-4 col-sm-4 text-center animate-box">
-    					<div class="work-grid" style="background-image: url(logo.jpg);">
-    						<div class="desc">
-    							<h3><a href="#">Work Title Here</a></h3>
-    							<span class="cat">Web Design</span>
-    						</div>
-    					</div>
-    				</div>
-    				<div class="col-md-4 col-sm-4 text-center animate-box">
-    					<div class="work-grid" style="background-image: url(images/project-3.jpg);">
-    						<div class="desc">
-    							<h3><a href="#">Work Title Here</a></h3>
-    							<span class="cat">Web Design</span>
-    						</div>
-    					</div>
-    				</div>
-    				<div class="col-md-4 col-sm-4 text-center animate-box">
-    					<div class="work-grid" style="background-image: url(images/project-4.jpg);">
-    						<div class="desc">
-    							<h3><a href="#">Work Title Here</a></h3>
-    							<span class="cat">Web Design</span>
-    						</div>
-    					</div>
-    				</div>
-    				<div class="col-md-4 col-sm-4 text-center animate-box">
-    					<div class="work-grid" style="background-image: url(images/project-5.jpg);">
-    						<div class="desc">
-    							<h3><a href="#">Work Title Here</a></h3>
-    							<span class="cat">Web Design</span>
-    						</div>
-    					</div>
-    				</div>
-    				<div class="col-md-4 col-sm-4 text-center animate-box">
-    					<div class="work-grid" style="background-image: url(images/project-6.jpg);">
-    						<div class="desc">
-    							<h3><a href="#">Work Title Here</a></h3>
-    							<span class="cat">Web Design</span>
-    						</div>
-    					</div>
-    				</div>
-    				<div class="col-md-4 col-sm-4 text-center animate-box">
-    					<div class="work-grid" style="background-image: url(images/project-7.jpg);">
-    						<div class="desc">
-    							<h3><a href="#">aaaaaaaaa</a></h3>
-    							<span class="cat">Web Design</span>
-    						</div>
-    					</div>
-    			</div>
-    	</div>
+          <!--box3-->
+  				<div class="col-lg-4 text-center">
+  					<div class="work-grid box3">
+  						<div class="desc">
+  							<h3>気になるお店を見みよう！</h3>
+  							<span class="cat">step3</span>
+  						</div>
+  					</div>
+  				</div>
+
+          <!--box4-->
+  				<div class="col-lg-4 text-center">
+  					<div class="work-grid box4">
+  						<div class="desc">
+  							<h3>食べたい物を注文しよう！</h3>
+  							<span class="cat">step4</span>
+  						</div>
+  					</div>
+  				</div>
+
+          <!--box5-->
+  				<div class="col-lg-4 text-center">
+  					<div class="work-grid box5">
+  						<div class="desc">
+  							<h3>お店で商品を受け取ろう！</h3>
+  							<span class="cat">step5</span>
+  						</div>
+  					</div>
+  				</div>
+
+          <!--box6-->
+  				<div class="col-lg-4 text-center">
+  					<div class="work-grid box6">
+  						<div class="desc">
+  							<h3>熱々のうちに♪</h3>
+  							<span class="cat">step6</span>
+  						</div>
+  					</div>
+  			 </div>
+      	</div>
     	</section>
+
+
+    	<!--shop4軒程度紹介-->
+    	<section class="main-shop">
+    	  <div class="shop-title">
+          <h2>注目のお店を一部ご紹介♪</h2><br >
+    			<h4>葛飾にある<i><%= @shops.count %></i>軒のお店の商品をテイクアウトできます</h4>
+        </div>
+
+        <% @shop.each.with_index(1) do |shop, i| %>
+        <div class="shop-box">
+            <%= attachment_image_tag shop,  :image, :fill, 400, 300, fallback: "no_image.jpg", size:'400x300' %>
+          <p><%= shop.name %></p>
+          <p><%= shop.area.name %></p>
+        </div>
+        <% end %>
+
+
+
+
+
+    	</section>
+
 
 
     </div>

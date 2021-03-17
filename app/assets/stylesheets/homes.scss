@@ -11,15 +11,18 @@
   background-position: center;
 }
 
-#shop {
-  padding-top: 50px;
+#main-guide {
 }
 
-.shop-title {
+.guide-title {
+  height: 200px;
+  padding-top: 50px;
   text-align: center;
-  padding-top: 50px;
+  background: linear-gradient(-135deg, #E4A972, #9941D8) fixed;
 }
 
+.guide-box {
+}
 
 .work-grid {
   background-size: cover;
@@ -30,6 +33,7 @@
   float: left;
   display: table;
   margin-bottom: 40px;
+  border-radius: 50%;/*角丸*/
 }
 
 .work-grid .desc {
@@ -43,12 +47,9 @@
   -webkit-transition: 0.2s;
   -o-transition: 0.2s;
   transition: 0.2s;
+  border-radius: 50%;/*角丸*/
 }
-@media screen and (max-width: 768px) {
-  .work-grid .desc {
-    opacity: 1;
-  }
-}
+
 .work-grid .desc h3 {
   margin-bottom: 10px;
 }
@@ -59,13 +60,14 @@
   text-decoration: none;
 }
 .work-grid .desc .cat {
-  font-size: 12px;
+  font-size: 20px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 2px;
   margin-bottom: 20px;
   display: block;
 }
+
 .work-grid .desc {
   padding: 0;
 }
@@ -81,14 +83,43 @@
   font-size: 16px;
 }
 
-
-.work-grid .desc {
-  background: #50CB86;
-}
-.work-grid .desc {
-  background: #E04462;
-}
-
 .work-grid:hover .desc {
   opacity: 1;
+}
+
+.box1 {
+  background-image: url(project-1.jpg);
+}
+.box2 {
+  background-image: url(project-2.jpg);
+}
+.box3 {
+  background-image: url(project-3.jpg);
+}
+.box4 {
+  background-image: url(project-4.jpg);
+}
+.box5 {
+  background-image: url(project-5.jpg);
+}
+.box6 {
+  background-image: url(project-6.jpg);
+}
+
+#main-shop {
+}
+
+.shop-title {
+  height: 200px;
+  padding-top: 50px;
+  text-align: center;
+  background: linear-gradient(-135deg, #E4A972, #9941D8) fixed;
+}
+
+.shop-box {
+  margin-right: 10px;
+}
+
+.shop-box:last-child {
+  margin-right: 0px;
 }

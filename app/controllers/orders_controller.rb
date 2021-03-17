@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_customer!
 
   def confirm
     @cart_items = current_customer.cart_items

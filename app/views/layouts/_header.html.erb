@@ -46,6 +46,8 @@
               </li>
 
               <li class="nav-item">
+                
+                
                 <%= link_to notifications_path, class: 'nav-link text-white', method: :get do %>
                 <% if unchecked_notifications.any? %>
                   <span class="fa-stack">
@@ -56,6 +58,8 @@
                     <i class="fas fa-bell fa-2x"></i>
                   <% end %>
                 <% end %>
+                
+                
               </li>
             <% end %>
 

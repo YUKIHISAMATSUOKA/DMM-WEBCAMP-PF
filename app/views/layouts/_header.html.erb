@@ -1,4 +1,4 @@
-<header class="bg-dark">
+<header class="bg-info">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,22 +12,24 @@
           <% if customer_signed_in? %>
             <li class="nav-item">
               <%= link_to areas_path, class: 'nav-link text-white', method: :get do %>
-                <i class="fas fa-store">お店を探す</i>
+                <i class="fas fa-store fa-2x">探す</i>
               <% end %>
             </li>
+
+
             <li class="nav-item">
               <%= link_to cart_items_path, class: 'nav-link text-white', method: :get do %>
-                <i class="fas fa-shopping-cart">カート</i>
+                <i class="fas fa-shopping-cart fa-2x">カート</i>
               <% end %>
             </li>
             <li class="nav-item">
               <%= link_to orders_path, class: 'nav-link text-white', method: :get do %>
-                <i class="fas fa-list-ul">注文履歴</i>
+                <i class="fas fa-list-ul fa-2x">注文</i>
               <% end %>
             </li>
             <li class="nav-item">
               <%= link_to customers_path, class: 'nav-link text-white', method: :get do %>
-                <i class="fas fa-user-cog">マイページ</i>
+                <i class="fas fa-user-cog fa-2x"></i>
               <% end %>
             </li>
 
@@ -59,13 +61,13 @@
 
             <!--最後に消す部分-->
             <li class="nav-item">
-              <%= link_to "ジャ", genres_path, class: 'nav-link text-white' %>
+              <%= link_to "", genres_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to "支払", payments_path, class: 'nav-link text-white' %>
+              <%= link_to "", payments_path, class: 'nav-link text-white' %>
             </li>
             <li class="nav-item">
-              <%= link_to "エリア", new_area_path, class: 'nav-link text-white' %>
+              <%= link_to "", new_area_path, class: 'nav-link text-white' %>
             </li>
 
 　　　　　<!--2，カスタマーログインしてない状態-->

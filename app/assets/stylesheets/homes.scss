@@ -1,3 +1,92 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#main-logo {
+  width: 100%;
+  height: 650px;
+  text-align: center;
+  // color: #fafafa;
+  background-image: url(logo.jpg);
+  background-position: center;
+}
+
+#main-shop {
+  padding-top: 50px;
+  background-color: red;
+}
+
+.main-shop-title {
+  text-align: center;
+  padding-top: 50px;
+}
+
+
+.work-grid {
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  width: 100%;
+  height: 350px;
+  float: left;
+  display: table;
+  margin-bottom: 40px;
+}
+.work-grid .desc {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+  height: 350px;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+@media screen and (max-width: 768px) {
+  .work-grid .desc {
+    opacity: 1;
+  }
+}
+.work-grid .desc h3 {
+  margin-bottom: 10px;
+}
+.work-grid .desc h3 a {
+  color: #fff;
+}
+.work-grid .desc h3 a:hover, .work-grid .desc h3 a:focus {
+  text-decoration: none;
+}
+.work-grid .desc .cat {
+  font-size: 12px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  display: block;
+}
+.work-grid .desc {
+  padding: 0;
+}
+.work-grid .desc {
+  padding: 0;
+  color: #fff;
+}
+.work-grid .desc p a:hover, .work-grid .desc p a:focus {
+  text-decoration: none;
+}
+.work-grid .desc .download, .work-grid .desc {
+  line-height: 0;
+  font-size: 16px;
+}
+
+.work-grid .desc {
+  background: #50CB86;
+}
+.work-grid .desc {
+  background: #E04462;
+}
+.work-grid:hover .desc {
+  opacity: 1;
+}

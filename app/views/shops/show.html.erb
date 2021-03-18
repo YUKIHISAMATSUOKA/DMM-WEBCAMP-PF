@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-
       <!--サイト左側には店舗写真-->
-      <div class="col-md-7">
+      <div class="col-lg-8 offset-col-lg-4 mx-auto">
+      <div class="col-lg-5 mx-auto">
         <%= attachment_image_tag @shop, :image, :fill, 600, 500, format: 'jpeg', fallback: "no_image.jpg", size:'600x500' %>
       </div>
 
       <!--サイト右側には店舗紹介文-->
-      <div class="col-md-5">
+      <div class="col-lg-3 mx-auto">
         <table class="table" style="table-layout:fixed;width:100%;">
           <thead>
             <tr>
@@ -46,7 +46,6 @@
   </div>
 
 　<!--メニュー表示部分-->
-　<div class="row">
     <!--メインー-->
     <div class="item-menu">
       <h3 class="item-menu-title">メインメニュー</h3>

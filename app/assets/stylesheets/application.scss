@@ -68,6 +68,8 @@ body {
    opacity: 0.9;
    z-index: 99;
 }
+
+// レスポンシブ時にはフッターの高さを調節する
 @media screen and (max-width:768px) {
   #sp-fixed-menu {
     width: 100%;
@@ -212,5 +214,5 @@ body {
 
 img {
     max-width: 100%;
-    height: auto;
+    // height: auto;
 }

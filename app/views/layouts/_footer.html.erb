@@ -1,29 +1,29 @@
 <div id="sp-fixed-menu" class="for-sp">
   <ul>
-    <!--<li><a href="#">お問い合わせ</a></li>-->
-    <!--<li><a href="#">資料請求</a></li>-->
 
     <!--１、カスタマーログイン状態か否か-->
     <% if customer_signed_in? %>
       <li class="nav-item">
+        <%= link_to root_path, class: 'nav-link text-white', method: :get do %>
+          <i class="fas fa-utensils fa-2x"><h6>TOP</h6></i>
+        <% end %>
+      </li>
+
+      <li class="nav-item">
         <%= link_to areas_path, class: 'nav-link text-white', method: :get do %>
-          <i class="fas fa-store">探す</i>
+          <i class="fas fa-store fa-2x"><h6>探す</h6></i>
         <% end %>
       </li>
 
       <li class="nav-item">
         <%= link_to cart_items_path, class: 'nav-link text-white', method: :get do %>
-          <i class="fas fa-shopping-cart">カート</i>
+          <i class="fas fa-shopping-cart fa-2x"><h6>カート</h6></i>
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to orders_path, class: 'nav-link text-white', method: :get do %>
-          <i class="fas fa-list-ul fa-2x">注文</i>
-        <% end %>
-      </li>
+
       <li class="nav-item">
         <%= link_to customers_path, class: 'nav-link text-white', method: :get do %>
-          <i class="fas fa-user-cog fa-2x"></i>
+          <i class="fas fa-user-cog fa-2x"><h6 class="text">マイページ</h6></i>
         <% end %>
       </li>
 
@@ -31,11 +31,11 @@
       <% if current_customer.shop.present? %>
         <li class="nav-item">
           <%= link_to shop_path(current_customer.shop), class: 'nav-link text-white', method: :get do %>
-            <i class="fas fa-home fa-2x">マイショップ</i>
+            <i class="fas fa-home fa-2x"><h6 class="text">マイショップ</h6></i>
           <% end %>
         <li class="nav-item">
           <%= link_to order_shop_index_path, class: 'nav-link text-white', method: :get do %>
-            <i class="fas fa-truck fa-2x">マイショップの注文</i>
+            <i class="fas fa-truck fa-2x"><h6 class="text">マイショップの注文</h6></i>
           <% end %>
         </li>
         <li class="nav-item">
@@ -52,22 +52,14 @@
         </li>
       <% end %>
 
-      <!--最後に消す部分-->
-      <li class="nav-item">
-        <%= link_to "", genres_path, class: 'nav-link text-white' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "支払い", payments_path, class: 'nav-link text-white' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "", new_area_path, class: 'nav-link text-white' %>
-      </li>
-
 　　　<!--2，カスタマーログインしてない状態-->
     <% else %>
       <li class="nav-item">
-        <%= link_to "TOP", root_path, class: 'nav-link text-white' %>
+        <%= link_to root_path, class: 'nav-link text-white', method: :get do %>
+          <i class="fas fa-utensils fa-2x"><h6>TOP</h6></i>
+        <% end %>
       </li>
+
       <li class="nav-item">
         <%= link_to "お店を探す", root_path, class: 'nav-link text-white' %>
       </li>
@@ -81,8 +73,6 @@
         <%= link_to "ログイン", new_customer_session_path, data: {"turbolinks" => false}, class: 'nav-link text-white' %>
       </li>
     <% end %>
-
-
 
 
   </ul>

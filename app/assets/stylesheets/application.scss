@@ -34,8 +34,9 @@ a {
 body {
   font-family: 'Crimson Text', serif;
   // background-color: #456;
+  height: 100%;
+  padding-bottom: 100px;
 }
-
 
 .flash-green {
   color: #00CC33
@@ -43,17 +44,6 @@ body {
 .flash-red {
   color: #FF3333
 }
-
-.payment-picture {
-  float: left;
-  padding-left: 10px;
-}
-
-.payment-picture-name {
-  text-align: center;
-}
-// float: left;
-
 
 // header
 .n-circle {
@@ -63,11 +53,6 @@ body {
   color: #efa04c;
 }
 // headerここまで
-
-.main {
-  // これないと下のほうがフッター固定してるので隠れちゃう
-  margin-bottom: -100px;
-}
 
 // footer
 /*メニューをページ下部に固定*/
@@ -85,7 +70,6 @@ body {
     height: 80px;
   }
 }
-
 
 /*メニューを横並びにする*/
 #sp-fixed-menu ul {
@@ -126,10 +110,11 @@ body {
    padding:20px;
 }
 
+.text {
+  font-size: 12px;
+}
+
 // footerここまで
-
-
-
 
 
 

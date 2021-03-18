@@ -16,6 +16,17 @@
         <%= link_to "よくある質問", home_question_path, class: 'text-dark' %>
       </li>
 
+      <!--最後に消す部分-->
+      <li class="nav-item">
+        <%= link_to "ジャンル", genres_path, class: 'text-dark' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "エリア登録", new_area_path, class: 'text-dark' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "支払い", payments_path, class: 'text-dark' %>
+      </li>
+
       <% if current_customer.shop.present? %>
         <li class="nav-item">
           <%= link_to "自分のお店", shop_path(current_customer.shop), class: 'text-dark' %>
@@ -32,6 +43,12 @@
       <li class="nav-item">
         <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'text-dark' %>
       </li>
+      <li class="nav-item">
+        <%= link_to orders_path, class: 'text-dark', method: :get do %>
+          <i class="fas fa-list-ul fa-2x">注文</i>
+        <% end %>
+      </li>
+
 
     </div>
   </div>

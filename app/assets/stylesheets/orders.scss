@@ -42,6 +42,7 @@
   background-color: #1e90ff;
 }
 
+// index view
 .order-index-box {
   width: 100%;
   height: 200px;
@@ -53,20 +54,30 @@
 }
 
 .order-index-box-text {
+  width: 40%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+@media screen and (max-width:768px) {
+  .order-index-box-text {
+    font-size: 10px;
+  }
+}
 
 
+.order-index-box-picture {
+  width: 49%;
+}
+
+
+// show.view
 .order-show-title {
   width: 100%;
   height: 200px;
   background-color: white;
   border-bottom: 2px dotted #000000;
 }
-
-
 
 
 .order-show-box {

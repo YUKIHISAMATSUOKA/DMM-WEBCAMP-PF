@@ -21,7 +21,7 @@
       <!--カート部分-->
       <%= form_with model: @cart_item, local:true do |f| %>
       <%= f.hidden_field :item_id, :value => @item.id %>
-      <%= f.select :amount, options_for_select((1..10).to_a), include_blank: "個数選択", required: true %>
+      <%= f.select :amount, options_for_select((1..10).to_a), required: true %>
       <%= f.submit "カートに入れる", class: 'btn btn-success btn-sm' %>
       <% end %>
 

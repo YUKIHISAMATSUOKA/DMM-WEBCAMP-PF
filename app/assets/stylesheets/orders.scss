@@ -62,5 +62,18 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
 
+.order-show-title {
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  border-bottom: 2px dotted #000000;
+}
+
+.order-show-item-box {
+  width: 100%;
+  height: 150px;
+  background-color: white;
+  border-bottom: 2px dotted #000000;
 }

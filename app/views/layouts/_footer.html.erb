@@ -1,21 +1,14 @@
-<header class="bg-info">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-
-
-          <!--１、カスタマーログイン状態か否か-->
+<div id="sp-fixed-menu" class="for-sp">
+  <ul>
+    <li><a href="#">お問い合わせ</a></li>
+    <li><a href="#">資料請求</a></li>
+    <!--１、カスタマーログイン状態か否か-->
           <% if customer_signed_in? %>
             <li class="nav-item">
               <%= link_to areas_path, class: 'nav-link text-white', method: :get do %>
                 <i class="fas fa-store fa-2x">探す</i>
               <% end %>
             </li>
-
 
             <li class="nav-item">
               <%= link_to cart_items_path, class: 'nav-link text-white', method: :get do %>
@@ -93,8 +86,5 @@
             </li>
           <% end %>
 
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
+  </ul>
+</div>

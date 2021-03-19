@@ -4,16 +4,22 @@
   <h2 class="login-header">アカウント情報</h2>
   <div class="login-container">
 
-    <p type="text" placeholder="text"><%= @customer.id %></p>
-    <p type="text" placeholder="text"><%= @customer.last_name %> <%= @customer.first_name %></p>
-    <p type="text" placeholder="text"><%= @customer.kana_last_name %> <%= @customer.kana_first_name %></p>
-    <p type="text" placeholder="text"><%= @customer.email %></p>
+    <p type="text" placeholder="text">会員ID</p>
+    <div class="text_field"><%= @customer.id %></div>
+
+    <p type="text" placeholder="text">名前</p>
+    <div class="text_field">  <%= @customer.last_name %> <%= @customer.first_name %></div>
+
+    <p type="text" placeholder="text">ナマエ</p>
+    <div class="text_field">  <%= @customer.kana_last_name %> <%= @customer.kana_first_name %></div>
+
+    <p type="text" placeholder="text">メールアドレス</p>
+    <div class="text_field">  <%= @customer.email %></div>
+
     <p type="text" placeholder="text">
       <%= link_to "編集する", edit_customer_path, class: "btn btn-success" %>
     　<%= link_to "退会する", customer_exit_path, class: "btn btn-danger" %>
     </p>
-    <p type="submit" value="Log in"><%= link_to "編集する", edit_customer_path %></p>
-    <p type="submit" value="Log in"><%= link_to "退会する", customer_exit_path, class: "btn btn-danger" %></p>
 
   </div>
 </div>

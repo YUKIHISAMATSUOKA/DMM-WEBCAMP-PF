@@ -3,7 +3,7 @@
     <div class="col-md-8 offset-col-md-4 mx-auto">
       <h4 class="my-4 text-center"><span>　<%= @order.shop.name %>　</span></h4>
 
-      <div class="order-show-title">
+      <div class="order-show-title background">
         <h4>注文時間: <%= @order.created_at.strftime('%Y/%m/%d %H:%M') %></h4>
         <h4>受取時の名前: <%= @order.name %></h4>
         <h4>注文番号: <%= @order.number %></h4>
@@ -12,7 +12,7 @@
       </div>
 
       <% @order.order_items.each do |order_item| %>
-        <div class="order-show-box">
+        <div class="order-show-box background">
           <p class="order-show-box-text">
             商品名: <%= order_item.item.name %> <br>
             トッピング: テキストテキストテキストテキスト

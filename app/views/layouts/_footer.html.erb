@@ -3,11 +3,6 @@
 
     <!--１、カスタマーログイン状態か否か-->
     <% if customer_signed_in? %>
-      <li class="nav-item">
-        <%= link_to root_path, class: 'nav-link text-white', method: :get do %>
-          <i class="fas fa-utensils fa-2x"><h6>TOP</h6></i>
-        <% end %>
-      </li>
 
       <li class="nav-item">
         <%= link_to areas_path, class: 'nav-link text-white', method: :get do %>
@@ -21,11 +16,6 @@
         <% end %>
       </li>
 
-      <li class="nav-item">
-        <%= link_to customers_path, class: 'nav-link text-white', method: :get do %>
-          <i class="fas fa-user-cog fa-2x"><h6 class="text">マイページ</h6></i>
-        <% end %>
-      </li>
 
       <!--カレントユーザーがお店を作成したら表示される-->
       <% if current_customer.shop.present? %>
@@ -50,6 +40,13 @@
             <% end %>
           <% end %>
         </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to new_shop_path, data: {"turbolinks" => false}, method: :get do %>
+        <i class="fas fa-plus-square fa-2x"><h6>お店を登録</h6></i>
+        <% end %>
+      </li>
+
       <% end %>
 
 　　　<!--2，カスタマーログインしてない状態-->
@@ -63,12 +60,11 @@
       <li class="nav-item">
         <%= link_to "お店を探す", root_path, class: 'nav-link text-white' %>
       </li>
-      <li class="nav-item">
-        <%= link_to "使いかた", home_how_path, class: 'nav-link text-white' %>
-      </li>
+
       <li class="nav-item">
         <%= link_to "アカウント登録", new_customer_registration_path, data: {"turbolinks" => false}, class: 'nav-link text-white' %>
       </li>
+
       <li class="nav-item">
         <%= link_to "ログイン", new_customer_session_path, data: {"turbolinks" => false}, class: 'nav-link text-white' %>
       </li>

@@ -1,56 +1,22 @@
+  <div class="login-container">
+
   <%= form_with model: shop, local:true do |f| %>
 
-      <table class="table table-borderless mx-auto table-hover">
-        <tr>
-          <th>お店の名前(30文字以内)</th>
-          <th><%= f.text_field :name, class: 'form-control', required: true %></th>
-        </tr>
+    <p type="text" placeholder="text">店の名前(30文字以内)<%= f.text_field :name, required: true %></p>
+    <p type="text" placeholder="text"><%= f.attachment_field :image %></p>
+    <p type="text" placeholder="text">ショップ写真<%= attachment_image_tag shop, :image,  :fill, 400, 300, fallback: "no_image.jpg", id: "img_prev", size:'400x300' %></p>
+    <p type="text" placeholder="text">ショップ紹介文(100文字以内)<%= f.text_area :introduction, class: 'form-control' %></p>
 
-        <tr>
-          <th>ショップ写真</th>
-          <th><%= f.attachment_field :image %><br>
-              <%= attachment_image_tag shop, :image,  :fill, 200, 200, fallback: "no_image.jpg", id: "img_prev", size:'400x300' %>
-          </th>
-        </tr>
+    <p type="text" placeholder="text">エリアを選択してください<%= f.collection_select :area_id, Area.all, :id, :name, include_blank: "-- 選択してください --", required: true %></p>
 
-        <tr>
-          <th>ショップ紹介文(100文字以内)</th>
-          <th><%= f.text_area :introduction, class: 'form-control' %></th>
-        </tr>
-        <tr>
-          <th>エリアを選択してください</th>
-          <th><%= f.collection_select :area_id, Area.all, :id, :name, include_blank: "-- 選択してください --", class: 'form-control' , required: true %></th>
-        </tr>
-        <tr>
-          <th>郵便番号(7文字　ハイフンなし)</th>
-          <th><%= f.text_field :post_code, class: 'form-control', required: true %></th>
-        </tr>
-        <tr>
-          <th>お店の住所</th>
-          <th colspan="2"><%= f.text_field :address, autofocus: true, :placeholder => "東京都渋谷区代々木神園町0-0", class: 'form-control', required: true  %></th>
-        </tr>
-        <tr>
-          <th>お店の電話番号(ハイフンなし)</th>
-          <th><%= f.text_field :telephone_number, class: 'form-control' %></th>
-        </tr>
+    <p type="text" placeholder="text">郵便番号<%= f.text_field :post_code, required: true %></p>
+    <p type="text" placeholder="text">店の住所<%= f.text_field :address, autofocus: true, required: true  %></p>
+    <p type="text" placeholder="text">メールアドレス<%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com" %></p>
+　　 <p type="text" placeholder="text">店の電話番号<%= f.text_field :telephone_number %></p>
+    <p type="submit" value="Log in"><%= f.submit "　　変更する　　" , class:'btn btn-success' %></p>
+    <% end %>
 
-        <tr>
-          <th>メールアドレス</th>
-          <th><%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com", class: 'form-control' %></th>
-        </tr>
-
-          <!--この部分は後回しする、余裕なければ、支払方法カラムをstringで導入、余裕あれば中間テーブル化-->
-          <!--<td>利用可能な支払方法</td>-->
-          <!--= f.collection_select :payment_id, Payment.all, :id, :name, include_blank: "-- 選択してください --" %-->
-
-        <tr>
-          <th></th>
-          <th></th>
-          <th><%= f.submit "　　登録する　　" , class:'btn btn-success' %></th>
-        </tr>
-        <% end %>
-      </table>
-
+  </div>
 </div>
 
 <script>

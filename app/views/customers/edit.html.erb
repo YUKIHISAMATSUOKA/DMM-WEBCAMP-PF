@@ -10,8 +10,8 @@
     <p type="text" placeholder="text">名前:姓<%= f.text_field :last_name %></p>
     <p type="text" placeholder="text">名前:名<%= f.text_field :first_name %></p>
 
-    <p type="text" placeholder="text">名前:セイ</p><%= f.text_field :kana_last_name %></p>
-    <p type="text" placeholder="text">名前:メイ</p><%= f.text_field :kana_first_name %></p>
+    <p type="text" placeholder="text">名前:セイ<%= f.text_field :kana_last_name %></p>
+    <p type="text" placeholder="text">名前:メイ<%= f.text_field :kana_first_name %></p>
     <p type="text" placeholder="text">メールアドレス<%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com" %></p>
 
     <p type="submit" value="Log in"><%= f.submit "　　変更する　　" , class:'btn btn-success' %></p>
@@ -19,37 +19,3 @@
 
   </div>
 </div>
-
- <%= form_with model: @customer, local:true do |f| %>
-
-        <tr>
-          <th>名前</th>
-          <th><%= f.label :"(姓)" %></th>
-          <th><%= f.text_field :last_name %></th>
-          <th><%= f.label :"(名)" %></th>
-          <th><%= f.text_field :first_name %></th>
-        </tr>
-        <tr>
-          <th>フリガナ</th>
-          <th><%= f.label :"(セイ)" %></th>
-          <th><%= f.text_field :kana_last_name %></th>
-          <th><%= f.label :"(メイ)" %></th>
-          <th><%= f.text_field :kana_first_name, autofocus: true, :placeholder => "ミチコ" %></th>
-        </tr>
-        <tr>
-          <th>メールアドレス</th>
-          <th></th>
-          <th><%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com" %></th>
-          <th></th>
-        </tr>
-
-        <tr>
-          <th></th>
-          <th></th>
-          <th><%= f.submit "　　変更する　　" , class:'btn btn-success' %></th>
-        </tr>
-      </table>
-      <% end %>
-
-    </div>
-  </div>

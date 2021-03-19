@@ -1,9 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-col-md-2 mx-auto">
-      <h4 class="my-4 my-4 text-center"><span>  お店　編集画面　</span></h4>
+<%= render 'layouts/errors', obj: @shop %>
 
-　    <%= render 'layouts/errors', obj: @shop %>
+<div class="login">
+  <div class="login-triangle"></div>
+  <h2 class="login-header"> お店　編集画面 </h2>
+
       <%= render 'form', shop: @shop %>
       <!--下寄せ-->
       <div class="d-flex align-items-end">

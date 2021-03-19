@@ -1,18 +1,19 @@
-<div class="container">
-  <div class="m-auto text-center h-100 w-100 d-flex align-items-center justify-content-center">
-    <div>
-      <h3>本当に退会しますか？</h3>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 offset-col-lg-4 mx-auto">
+      <h4 class="my-4 text-center"><span> 本当に退会しますか？　</span></h4>
       </br>
-      <p>
+      <p class="exit-text background">
         退会すると、会員登録情報や</br>
-        これまでの購⼊履歴が閲覧できなくなります。
+        これまでの購⼊履歴が閲覧できなくなります。<br><br>
+        退会する場合は、「退会する」をクリックしてください。
       </p>
-     <p>退会する場合は、「退会する」をクリックしてください。</p>
        </br>
       <%= flash[:error] %>
       <%= link_to "マイページに戻る", customers_path, class: "btn btn-primary btn-block btn-md" %>
       <% if customer_signed_in? && @customer.id == current_customer.id %>
         <% if current_customer.shop.present? %>
+          <P class="text-danger">先にショップを削除してからでないと退会できません。</P>
           <%= link_to "退会する", customers_hide_path(current_customer), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-secondary btn-block btn-md disabled" %>
         <% else %>
           <%= link_to "退会する", customers_hide_path(current_customer), method: :put, "data-confirm" => "本当に退会しますか？", class: "btn btn-danger btn-block btn-md" %>

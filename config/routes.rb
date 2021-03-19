@@ -8,7 +8,14 @@ Rails.application.routes.draw do
   resources :genres, only: [:create, :index, :edit, :update, :destroy]
   get '/genres/:id' => 'genres#index' #editでバリデエラー発生後に、No route matches [GET] "/genres/1"となったので付け足した
   resources :areas, only: [:new, :create, :index, :edit, :update, :destroy]
-  get 'areas/shinkoiwa' => 'areas/shinkoiwa'
+  get 'areas/area1' => 'areas/area1'
+  get 'areas/area2' => 'areas/area2'
+  get 'areas/area3' => 'areas/area3'
+  get 'areas/area4' => 'areas/area4'
+  get 'areas/area5' => 'areas/area5'
+  get 'areas/area6' => 'areas/area6'
+  get 'areas/area7' => 'areas/area7'
+  get 'areas/area8' => 'areas/area8'
 
   resources :customers, only: [:index, :show, :edit, :update]
   get 'customer/exit' => 'customers#exit'

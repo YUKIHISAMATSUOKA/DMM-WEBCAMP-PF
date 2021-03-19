@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 offset-col-lg-4 mx-auto">
+      <h4 class="my-4 text-center"><span>  金町・水元エリア　</span></h4>
+
+      <!--新小岩エリアのお店を表示させる部分-->
+      <% shops = Shop.where(area_id: '5') %>
+　　　<%= render 'index', shops: @shops %>
+
+    </div>
+  </div>
+</div>
+

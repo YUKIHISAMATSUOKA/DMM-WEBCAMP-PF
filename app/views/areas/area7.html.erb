@@ -1,14 +1,11 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-
-
-      <h2 class="text-center area-title">新小岩エリア</h2>
+    <div class="col-lg-8 offset-col-lg-4 mx-auto">
+      <h4 class="my-4 text-center"><span>  柴又エリア　</span></h4>
 
       <!--新小岩エリアのお店を表示させる部分-->
       <% shops = Shop.where(area_id: '7') %>
 　　　<%= render 'index', shops: @shops %>
-
 
     </div>
   </div>

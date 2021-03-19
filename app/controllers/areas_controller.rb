@@ -42,11 +42,45 @@ class AreasController < ApplicationController
     redirect_to areas_path
   end
 
-
-  def shinkoiwa
+  def area1
+    @areas = Area.all
+    @shops = Shop.all
+    @shops = Shop.where(area_id: '1')
+  end
+  def area2
+    @areas = Area.all
+    @shops = Shop.all
+    @shops = Shop.where(area_id: '2')
+  end
+  def area3
+    @areas = Area.all
+    @shops = Shop.all
+    @shops = Shop.where(area_id: '3')
+  end
+  def area4
+    @areas = Area.all
+    @shops = Shop.all
+    @shops = Shop.where(area_id: '4')
+  end
+  def area5
+    @areas = Area.all
+    @shops = Shop.all
+    @shops = Shop.where(area_id: '5')
+  end
+  def area6
+    @areas = Area.all
+    @shops = Shop.all
+    @shops = Shop.where(area_id: '6')
+  end
+  def area7
     @areas = Area.all
     @shops = Shop.all
     @shops = Shop.where(area_id: '7')
+  end
+  def area8
+    @areas = Area.all
+    @shops = Shop.all
+    @shops = Shop.where(area_id: '8')
   end
 
   private

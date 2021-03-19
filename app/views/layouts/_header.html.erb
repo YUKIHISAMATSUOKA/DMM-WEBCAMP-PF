@@ -1,5 +1,5 @@
 <header class="header">
-  <nav class="navbar navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -11,66 +11,71 @@
           <!--１、カスタマーログイン状態か否か-->
           <% if customer_signed_in? %>
 
+            <li class="d-flex align-items-center">
+              <i class="">ようこそ、<%= current_customer.last_name %>さん！</i>
+            </li>
+
             <li class="nav-item">
-              <%= link_to customers_path, class: 'nav-link text-white', method: :get do %>
-                <i class="fas fa-user-cog fa-2x"><h6 class="text">マイページ</h6></i>
+              <%= link_to orders_path, class: 'nav-link text-dark', method: :get do %>
+                注文履歴<i class="fas fa-list-ul"></i>
               <% end %>
             </li>
 
-            <!--カレントユーザーがお店を作成したら表示される-->
-            <% if current_customer.shop.present? %>
-              <li class="nav-item">
-                <%= link_to shop_path(current_customer.shop), class: 'nav-link text-white', method: :get do %>
-                  <i class="fas fa-home">マイショップ</i>
-                <% end %>
-              <li class="nav-item">
-                <%= link_to order_shop_index_path, class: 'nav-link text-white', method: :get do %>
-                  <i class="fas fa-truck">マイショップの注文</i>
-                <% end %>
-              </li>
+            <li class="nav-item">
+              <%= link_to areas_path, class: 'nav-link text-dark', method: :get do %>
+                お気に入り<i class="fas fa-heart"></i>
+              <% end %>
+            </li>
 
-              <li class="nav-item">
-                <%= link_to notifications_path, class: 'nav-link text-white', method: :get do %>
-                <!--新着通知があれば、ベルにオレンジのぽっちが付く-->
-                <% if unchecked_notifications.any? %>
-                  <span class="fa-stack">
-                    <i class="fas fa-bell fa-2x"></i>
-                    <i class="fas fa-circle n-circle"></i>
-                  </span>
-                  <% else %>
-                    <i class="fas fa-bell fa-2x"></i>
-                  <% end %>
-                <% end %>
-              </li>
-            <% end %>
+            <li class="nav-item">
+              <%= link_to customer_path(current_customer), data: {"turbolinks" => false}, class: 'nav-link text-dark', method: :get do %>
+                アカウント<i class="fas fa-info"></i>
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to home_question_path, class: 'nav-link text-dark', method: :get do %>
+                よくある質問<i class="fas fa-question-circle"></i>
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to destroy_customer_session_path, class: 'nav-link text-dark', method: :delete do %>
+                ログアウト<i class="fas fa-sign-out-alt"></i>
+              <% end %>
+            </li>
+
 
             <!--最後に消す部分-->
             <li class="nav-item">
-              <%= link_to "", genres_path, class: 'nav-link text-white' %>
+              <%= link_to "ジャンル", genres_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "支払い", payments_path, class: 'nav-link text-white' %>
+              <%= link_to "支払い", payments_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "", new_area_path, class: 'nav-link text-white' %>
+              <%= link_to "エリア登録", new_area_path, class: 'nav-link text-dark' %>
             </li>
 
-　　　　　<!--2，カスタマーログインしてない状態-->
+
+          <!--2，カスタマーログインしてない状態-->
           <% else %>
             <li class="nav-item">
-              <%= link_to "TOP", root_path, class: 'nav-link text-white' %>
+              <%= link_to root_path, class: 'nav-link text-white', method: :get do %>
+                TOP<i class="fas fa-utensils"></i>
+              <% end %>
+
             </li>
             <li class="nav-item">
-              <%= link_to "お店を探す", root_path, class: 'nav-link text-white' %>
+              <%= link_to new_customer_registration_path, data: {"turbolinks" => false}, class: 'nav-link text-white', method: :get do %>
+                会員登録<i class="fas fa-user-plus"></i>
+              <% end %>
             </li>
+
             <li class="nav-item">
-              <%= link_to "使いかた", home_how_path, class: 'nav-link text-white' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "アカウント登録", new_customer_registration_path, data: {"turbolinks" => false}, class: 'nav-link text-white' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ログイン", new_customer_session_path, data: {"turbolinks" => false}, class: 'nav-link text-white' %>
+              <%= link_to new_customer_session_path, data: {"turbolinks" => false}, class: 'nav-link text-white', method: :get do %>
+                ログイン<i class="fas fa-running"></i>
+              <% end %>
             </li>
           <% end %>
 

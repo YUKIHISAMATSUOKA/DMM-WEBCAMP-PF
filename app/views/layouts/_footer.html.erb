@@ -6,7 +6,7 @@
 
       <li class="nav-item">
         <%= link_to areas_path, class: 'nav-link text-white', method: :get do %>
-          <i class="fas fa-store fa-2x"><h6>探す</h6></i>
+          <i class="fas fa-search-location fa-2x"><h6>探す</h6></i>
         <% end %>
       </li>
 
@@ -58,15 +58,22 @@
       </li>
 
       <li class="nav-item">
-        <%= link_to "お店を探す", root_path, class: 'nav-link text-white' %>
+        <%= link_to root_path, class: 'nav-link text-white', method: :get do %>
+          <i class="fas fa-search-location fa-2x"><h6>お店を探す</h6></i>
+        <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "アカウント登録", new_customer_registration_path, data: {"turbolinks" => false}, class: 'nav-link text-white' %>
+        <%= link_to new_customer_registration_path, data: {"turbolinks" => false}, class: 'nav-link text-white', method: :get do %>
+          <i class="fas fa-user-plus fa-2x"><h6>会員登録</h6></i>
+        <% end %>
       </li>
 
       <li class="nav-item">
-        <%= link_to "ログイン", new_customer_session_path, data: {"turbolinks" => false}, class: 'nav-link text-white' %>
+        <%= link_to new_customer_session_path, data: {"turbolinks" => false}, class: 'nav-link text-white', method: :get do %>
+          <i class="fas fa-running fa-2x"><h6>ログイン</h6></i>
+        <% end %>
+
       </li>
     <% end %>
 

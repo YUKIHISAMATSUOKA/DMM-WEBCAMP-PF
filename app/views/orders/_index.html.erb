@@ -16,7 +16,6 @@
         <%= attachment_image_tag order.shop, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class: 'rounded-circle' %>
 
 
-
     <% order.order_items.each do |order_item| %>
       <%= attachment_image_tag order_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %>
     <% end %>

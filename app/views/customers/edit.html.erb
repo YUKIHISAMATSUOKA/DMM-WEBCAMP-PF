@@ -1,16 +1,27 @@
-<div class="container m-5">
-  <div class="row">
-    <div class="col-2"></div>
-    <h4 class="my-4"><span style="background-color:#EFEFEF">　アカウント情報　変更　</span></h4>
+<div class="login">
+  <div class="login-triangle"></div>
+
+  <h2 class="login-header">アカウント情報 変更</h2>
+  <div class="login-container">
+    <%= render 'layouts/errors', obj: @customer %>
+    <%= form_with model: @customer, local:true do |f| %>
+    <%= flash[:error] %>
+
+    <p type="text" placeholder="text">名前:姓<%= f.text_field :last_name %></p>
+    <p type="text" placeholder="text">名前:名<%= f.text_field :first_name %></p>
+
+    <p type="text" placeholder="text">名前:セイ</p><%= f.text_field :kana_last_name %></p>
+    <p type="text" placeholder="text">名前:メイ</p><%= f.text_field :kana_first_name %></p>
+    <p type="text" placeholder="text">メールアドレス<%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com" %></p>
+
+    <p type="submit" value="Log in"><%= f.submit "　　変更する　　" , class:'btn btn-success' %></p>
+    <% end %>
+
   </div>
+</div>
 
-  <%= render 'layouts/errors', obj: @customer %>
-  <%= form_with model: @customer, local:true do |f| %>
-  <%= flash[:error] %>
+ <%= form_with model: @customer, local:true do |f| %>
 
-  <div class="row">
-    <div class="col-1"></div>
-      <table class="table table-borderless col-8">
         <tr>
           <th>名前</th>
           <th><%= f.label :"(姓)" %></th>
@@ -21,7 +32,7 @@
         <tr>
           <th>フリガナ</th>
           <th><%= f.label :"(セイ)" %></th>
-          <th><%= f.text_field :kana_last_name  %></th>
+          <th><%= f.text_field :kana_last_name %></th>
           <th><%= f.label :"(メイ)" %></th>
           <th><%= f.text_field :kana_first_name, autofocus: true, :placeholder => "ミチコ" %></th>
         </tr>
@@ -37,8 +48,8 @@
           <th></th>
           <th><%= f.submit "　　変更する　　" , class:'btn btn-success' %></th>
         </tr>
-        <% end %>
       </table>
+      <% end %>
 
     </div>
   </div>

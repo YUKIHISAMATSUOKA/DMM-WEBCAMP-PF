@@ -61,12 +61,12 @@ class Customers::RegistrationsController < Devise::RegistrationsController
   # end
 
 
-  password = Devise.friendly_token.first(7)
-    if session[:provider].present? && session[:uid].present?
-      @customer = Customer.create(email: session[:email], password: "password", password_confirmation: "password", kana_first_name: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birthday: session[:birthday], tel: params[:user][:tel])
-      sns = SnsCredential.create(customer_id: @customer.id,uid: session[:uid], provider: session[:provider])
-    else
-      @customer = Customer.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], f_name_kana: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birthday: session[:birthday], tel: params[:user][:tel])
-    end
+  # password = Devise.friendly_token.first(7)
+  #   if session[:provider].present? && session[:uid].present?
+  #     @customer = Customer.create(email: session[:email], password: "password", password_confirmation: "password", kana_first_name: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birthday: session[:birthday], tel: params[:user][:tel])
+  #     sns = SnsCredential.create(customer_id: @customer.id,uid: session[:uid], provider: session[:provider])
+  #   else
+  #     @customer = Customer.create(nickname:session[:nickname], email: session[:email], password: session[:password], password_confirmation: session[:password_confirmation], f_name_kana: session[:f_name_kana],l_name_kana: session[:l_name_kana], f_name_kanji: session[:f_name_kanji], l_name_kanji: session[:l_name_kanji], birthday: session[:birthday], tel: params[:user][:tel])
+  #   end
 
 end

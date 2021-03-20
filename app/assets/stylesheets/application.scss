@@ -214,8 +214,19 @@ body {
 
 img {
     max-width: 100%;
-    // height: auto;
+    height: auto;
 }
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  img {
+    // 最大値50％　高さを自動にすることで、自動的に縮尺する
+    max-width: 50%;
+    height: auto;
+  }
+}
+
+
 
 .header {
 //  ヘッダーの色

@@ -21,3 +21,23 @@
   // 文字の高さを中央
   line-height: 50px;
 }
+
+
+// shop.show部分
+.item-menu {
+  width: 100%;
+  height: auto;
+}
+
+.item-menu-title {
+  text-align: left;
+  border-bottom: 1px dotted #000000;
+}
+
+@media screen and (max-width:768px) {
+  .item-menu {
+    // 最大値50％　高さを自動にすることで、自動的に縮尺する
+    width: 50%;
+    height: auto;
+  }
+}

@@ -1,10 +1,9 @@
 <div class="container-fluid">
   <div class="row">
-      <!--サイト左側には店舗写真-->
     <div class="col-lg-8 offset-col-lg-4 mx-auto">
         <%= attachment_image_tag @shop, :image, :fill, 600, 500, format: 'jpeg', fallback: "no_image.jpg", size:'600x500' %>
 
-      <!--サイト右側には店舗紹介文-->
+
       <button class="btn btn-info"
         data-toggle="collapse"
         data-target="#example-1"
@@ -12,70 +11,52 @@
         aria-controls="example-1">お店情報
       </button>
 
-      <!--<% if @shop.customer_id == current_customer.id %>-->
-      <!--  <button class="btn btn-success"-->
-      <!--    data-target="#example-1"-->
-      <!--    aria-expand="false"-->
-      <!--    aria-controls="example-1"><%= link_to edit_shop_path(@shop), method: :get do %>編集する<% end %>-->
-      <!--  </button>-->
+      <% if @shop.customer_id == current_customer.id %>
+        <button class="btn btn-success"
+          data-target="#example-1"
+          aria-expand="false"
+          aria-controls="example-1"><%= link_to edit_shop_path(@shop), method: :get do %>編集する<% end %>
+        </button>
 
-      <!--  <button class="btn btn-primary"-->
-      <!--    data-target="#example-1"-->
-      <!--    aria-expand="false"-->
-      <!--    aria-controls="example-1"><%= link_to new_item_path, method: :get do %>商品登録<% end %>-->
-      <!--  </button>-->
-      <!--<% end %>-->
+        <button class="btn btn-primary"
+          data-target="#example-1"
+          aria-expand="false"
+          aria-controls="example-1"><%= link_to new_item_path, method: :get do %>商品登録<% end %>
+        </button>
+      <% end %>
 
 
       <div class="collapse" id="example-1">
         <div class="card card-body background">
 
-      <!-- <div class="login">-->
-      <!-- <div class="login-triangle"></div>-->
-      <!--  <h2 class="login-header">アカウント情報</h2>-->
-      <!--  <div class="login-container">-->
+       <div class="login">
+       <div class="login-triangle"></div>
+        <h2 class="login-header">お店情報</h2>
+        <div class="login-container">
 
-      <!--  <p type="text" placeholder="text">店舗名</p>-->
-      <!--  <div class="shop-text-field"><%= @shop.name %></div>-->
+        <p type="text" placeholder="text">店舗名</p>
+        <div class="shop-text-field"><%= @shop.name %></div>
 
-      <!--  <p type="text" placeholder="text">店舗紹介</p>-->
-      <!--  <div class="shop-text-field"><%= @shop.introduction %></div>-->
+        <p type="text" placeholder="text">店舗紹介</p>
+        <div class="shop-text-field"><%= @shop.introduction %></div>
 
-      <!--  <p type="text" placeholder="text">エリア</p>-->
-      <!--  <div class="shop-text-field"><%= @shop.area.name %></div>-->
+        <p type="text" placeholder="text">エリア</p>
+        <div class="shop-text-field"><%= @shop.area.name %></div>
 
-      <!--  <p type="text" placeholder="text">店舗住所</p>-->
-      <!--  <div class="shop-text-field"><%= @shop.post_code %><%= @shop.address %></div>-->
+        <p type="text" placeholder="text">店舗住所</p>
+        <div class="shop-text-field"><%= @shop.post_code %><%= @shop.address %></div>
 
-      <!--  <p type="text" placeholder="text">連絡先</p>-->
-      <!--  <div class="shop-text-field"><%= @shop.telephone_number %>/<%= @shop.email %></div>-->
+        <p type="text" placeholder="text">連絡先</p>
+        <div class="shop-text-field"><%= @shop.telephone_number %>/<%= @shop.email %></div>
 
-　　    <!--</div>-->
-      <!--</div>-->
-
-      <h2 class="login-header">アカウント情報</h2>
-    <div class="login-container">
-
-    <p type="text" placeholder="text">会員ID</p>
-    <div class="text_field">dddd</div>
-
-    <p type="text" placeholder="text">名前</p>
-    <div class="text_field">ddddd</div>
-
-    <p type="text" placeholder="text">ナマエ</p>
-    <div class="text_field">ddddd</div>
-
-    <p type="text" placeholder="text">メールアドレス</p>
-    <div class="text_field">dddddd</div>
-
-    <p type="text" placeholder="text">
-      <%= link_to "編集する", edit_customer_path, class: "btn btn-success" %>
-    　<%= link_to "退会する", customer_exit_path, class: "btn btn-danger" %>
-    </p>
+　　    </div>
       </div>
-    </div>
+      </div>
+      </div>
+
 
   　<!--メニュー表示部分-->
+  　<div class="row">
       <!--メインー-->
       <div class="item-menu">
         <h3 class="item-menu-title">メインメニュー</h3>
@@ -91,22 +72,9 @@
         <h3 class="item-menu-title">ドリンクメニュー</h3>
         <%= render 'index', items: @items_drink %>
       </div>
+    </div>
       <!--メニュー表示部分ここまで-->
 
     </div>
-  </div>
-</div>
-
-
-
-
-<button class="btn btn-primary"
-    data-toggle="collapse"
-    data-target="#example-1"
-    aria-expand="false"
-    aria-controls="example-1">Button</button>
-<div class="collapse" id="example-1">
-  <div class="card card-body">
-    Hypertext Markup Language (HTML) is ...
   </div>
 </div>

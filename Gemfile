@@ -73,7 +73,8 @@ group :production do
   gem 'mysql2'
 end
 gem 'rails-i18n', '~> 5.1'
+
 # グーグル認証フェイスブック認証
-gem 'omniauth','1.9.1'
-gem 'omniauth-google-oauth2'
-gem 'omniauth-facebook'
+# gem 'omniauth','1.9.1'
+# gem 'omniauth-google-oauth2'
+# gem 'omniauth-facebook'

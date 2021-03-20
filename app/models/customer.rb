@@ -2,8 +2,8 @@ class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[google_oauth2]
+         :recoverable, :rememberable, :validatable
+        # :omniauthable, omniauth_providers: %i[google_oauth2]
 
   has_one :shop
   has_many :cart_items, dependent: :destroy
@@ -23,53 +23,53 @@ class Customer < ApplicationRecord
   end
 
 
-  def self.without_sns_data(auth)
-    customer = Customer.where(email: auth.info.email).first
+  # def self.without_sns_data(auth)
+  #   customer = Customer.where(email: auth.info.email).first
 
-      if customer.present?
-        sns = SnsCredential.create(
-          uid: auth.uid,
-          provider: auth.provider,
-          customer_id: customer.id
-        )
-      else
-        customer = Customer.new(
-          kana_first_name: auth.info.name,
-          email: auth.info.email,
-          password: auth.info.password,
-        )
-        sns = SnsCredential.new(
-          uid: auth.uid,
-          provider: auth.provider
-        )
-      end
-      return { customer: customer ,sns: sns}
-  end
+  #     if customer.present?
+  #       sns = SnsCredential.create(
+  #         uid: auth.uid,
+  #         provider: auth.provider,
+  #         customer_id: customer.id
+  #       )
+  #     else
+  #       customer = Customer.new(
+  #         kana_first_name: auth.info.name,
+  #         email: auth.info.email,
+  #         password: auth.info.password,
+  #       )
+  #       sns = SnsCredential.new(
+  #         uid: auth.uid,
+  #         provider: auth.provider
+  #       )
+  #     end
+  #     return { customer: customer ,sns: sns}
+  # end
 
-  def self.with_sns_data(auth, snscredential)
-    customer = Customer.where(id: snscredential.customer_id).first
-    unless customer.present?
-      customer = Customer.new(
-        kana_first_name: auth.info.name,
-        email: auth.info.email,
-      )
-    end
-    return {customer: customer}
-  end
+  # def self.with_sns_data(auth, snscredential)
+  #   customer = Customer.where(id: snscredential.customer_id).first
+  #   unless customer.present?
+  #     customer = Customer.new(
+  #       kana_first_name: auth.info.name,
+  #       email: auth.info.email,
+  #     )
+  #   end
+  #   return {customer: customer}
+  # end
 
-  def self.find_oauth(auth)
-    uid = auth.uid
-    provider = auth.provider
-    snscredential = SnsCredential.where(uid: uid, provider: provider).first
-    if snscredential.present?
-      customer = with_sns_data(auth, snscredential)[:customer]
-      sns = snscredential
-    else
-      customer = without_sns_data(auth)[:customer]
-      sns = without_sns_data(auth)[:sns]
-    end
-    return { customer: customer ,sns: sns}
-  end
+  # def self.find_oauth(auth)
+  #   uid = auth.uid
+  #   provider = auth.provider
+  #   snscredential = SnsCredential.where(uid: uid, provider: provider).first
+  #   if snscredential.present?
+  #     customer = with_sns_data(auth, snscredential)[:customer]
+  #     sns = snscredential
+  #   else
+  #     customer = without_sns_data(auth)[:customer]
+  #     sns = without_sns_data(auth)[:sns]
+  #   end
+  #   return { customer: customer ,sns: sns}
+  # end
 
 
 end

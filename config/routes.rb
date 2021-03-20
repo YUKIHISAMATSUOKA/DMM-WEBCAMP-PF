@@ -1,6 +1,35 @@
 Rails.application.routes.draw do
 
-  devise_for :customers
+  # devise_for :customers,
+  #   controllers: {
+  #   sessions: 'customers/sessions',
+  #   registrations: "customers/registrations",
+  #   omniauth_callbacks: 'customers/omniauth_callbacks'
+  # }
+
+    devise_for :customers,
+    controllers: {
+    sessions: 'customers/sessions',
+    registrations: "customers/registrations",
+    omniauth_callbacks: 'customers/omniauth_callbacks'
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   root to: 'homes#top'
   get 'home/how' => 'homes#how'
   get 'home/question' => 'homes#question'

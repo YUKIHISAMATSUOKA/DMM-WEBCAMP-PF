@@ -20,5 +20,7 @@
     <h4 class="text-center"><span class="text-dark">　既に登録済みの方　</span></h4>
     <P class="text-center text-dark"><%= link_to "こちら", new_customer_session_path %> からログインしてください。</P>
 
+    <%= link_to "グーグル認証", customer_google_oauth2_omniauth_authorize_path %>
+
   </div>
 </div>

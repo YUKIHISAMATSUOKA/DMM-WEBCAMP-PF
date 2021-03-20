@@ -26,6 +26,8 @@
 
 a {
   text-decoration: none;
+//   リンク文字をホワイトにする
+  color: white;
 }
 
 /* 'Open Sans' font from Google Fonts */
@@ -215,7 +217,7 @@ img {
     // height: auto;
 }
 
-
 .header {
-    background: linear-gradient(180deg, #5ca2ed 0%, #3ffbbf 100%);
+//  ヘッダーの色
+  background: linear-gradient(180deg, #21ede3 0%, #06c45c 100%);
 }

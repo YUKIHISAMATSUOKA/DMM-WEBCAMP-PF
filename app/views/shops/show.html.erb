@@ -1,65 +1,112 @@
 <div class="container-fluid">
   <div class="row">
       <!--サイト左側には店舗写真-->
-      <div class="col-lg-5">
+    <div class="col-lg-8 offset-col-lg-4 mx-auto">
         <%= attachment_image_tag @shop, :image, :fill, 600, 500, format: 'jpeg', fallback: "no_image.jpg", size:'600x500' %>
-      </div>
 
       <!--サイト右側には店舗紹介文-->
-      <div class="col-lg-3">
-        <table class="table" style="table-layout:fixed;width:100%;">
-          <thead>
-            <tr>
-              <th><p>店舗名</p></th>
-              <th><p class="text-center"><h2><%= @shop.name %></h2></p></th>
-            </tr>
+      <button class="btn btn-info"
+        data-toggle="collapse"
+        data-target="#example-1"
+        aria-expand="false"
+        aria-controls="example-1">お店情報
+      </button>
 
-            <tr>
-              <th><p>店舗紹介</p></th>
-              <th><p class="text-center"><%= @shop.introduction %></p></th>
-            </tr>
+      <!--<% if @shop.customer_id == current_customer.id %>-->
+      <!--  <button class="btn btn-success"-->
+      <!--    data-target="#example-1"-->
+      <!--    aria-expand="false"-->
+      <!--    aria-controls="example-1"><%= link_to edit_shop_path(@shop), method: :get do %>編集する<% end %>-->
+      <!--  </button>-->
 
-            <tr>
-              <th><p>エリア</p></th>
-              <th><p class="text-center"><%= @shop.area.name %></p></th>
-            </tr>
+      <!--  <button class="btn btn-primary"-->
+      <!--    data-target="#example-1"-->
+      <!--    aria-expand="false"-->
+      <!--    aria-controls="example-1"><%= link_to new_item_path, method: :get do %>商品登録<% end %>-->
+      <!--  </button>-->
+      <!--<% end %>-->
 
-            <tr>
-              <th><p>住所</p></th>
-              <th><p class="text-center"><%= @shop.post_code %><br><%= @shop.address %></p></th>
-            </tr>
 
-            <tr>
-              <th><p>連絡先</p></th>
-              <th><p class="text-center"><%= @shop.telephone_number %><br><%= @shop.email %></p></th>
-            </tr>
+      <div class="collapse" id="example-1">
+        <div class="card card-body background">
 
-          </thead>
-        </table>
-        <% if @shop.customer_id == current_customer.id %>
-　　      <%= link_to "編集する", edit_shop_path(@shop), class: "btn btn-success btn-sm" %>
-　　      <%= link_to "商品を登録する", new_item_path, class: "btn btn-primary btn-sm" %>
-　　    <% else %>
-　　    <% end %>
-　　  </div>
+      <!-- <div class="login">-->
+      <!-- <div class="login-triangle"></div>-->
+      <!--  <h2 class="login-header">アカウント情報</h2>-->
+      <!--  <div class="login-container">-->
 
-　<!--メニュー表示部分-->
-    <!--メインー-->
-    <div class="item-menu">
-      <h3 class="item-menu-title">メインメニュー</h3>
-      <%= render 'index', items: @items_main %>
+      <!--  <p type="text" placeholder="text">店舗名</p>-->
+      <!--  <div class="shop-text-field"><%= @shop.name %></div>-->
+
+      <!--  <p type="text" placeholder="text">店舗紹介</p>-->
+      <!--  <div class="shop-text-field"><%= @shop.introduction %></div>-->
+
+      <!--  <p type="text" placeholder="text">エリア</p>-->
+      <!--  <div class="shop-text-field"><%= @shop.area.name %></div>-->
+
+      <!--  <p type="text" placeholder="text">店舗住所</p>-->
+      <!--  <div class="shop-text-field"><%= @shop.post_code %><%= @shop.address %></div>-->
+
+      <!--  <p type="text" placeholder="text">連絡先</p>-->
+      <!--  <div class="shop-text-field"><%= @shop.telephone_number %>/<%= @shop.email %></div>-->
+
+　　    <!--</div>-->
+      <!--</div>-->
+
+      <h2 class="login-header">アカウント情報</h2>
+    <div class="login-container">
+
+    <p type="text" placeholder="text">会員ID</p>
+    <div class="text_field">dddd</div>
+
+    <p type="text" placeholder="text">名前</p>
+    <div class="text_field">ddddd</div>
+
+    <p type="text" placeholder="text">ナマエ</p>
+    <div class="text_field">ddddd</div>
+
+    <p type="text" placeholder="text">メールアドレス</p>
+    <div class="text_field">dddddd</div>
+
+    <p type="text" placeholder="text">
+      <%= link_to "編集する", edit_customer_path, class: "btn btn-success" %>
+    　<%= link_to "退会する", customer_exit_path, class: "btn btn-danger" %>
+    </p>
+      </div>
     </div>
-    <!--サイドー-->
-    <div class="item-menu">
-      <h3 class="item-menu-title">サイドメニュー</h3>
-      <%= render 'index', items: @items_side %>
-    </div>
-    <!--ドリンク-->
-    <div class="item-menu">
-      <h3 class="item-menu-title">ドリンクメニュー</h3>
-      <%= render 'index', items: @items_drink %>
+
+  　<!--メニュー表示部分-->
+      <!--メインー-->
+      <div class="item-menu">
+        <h3 class="item-menu-title">メインメニュー</h3>
+        <%= render 'index', items: @items_main %>
+      </div>
+      <!--サイドー-->
+      <div class="item-menu">
+        <h3 class="item-menu-title">サイドメニュー</h3>
+        <%= render 'index', items: @items_side %>
+      </div>
+      <!--ドリンク-->
+      <div class="item-menu">
+        <h3 class="item-menu-title">ドリンクメニュー</h3>
+        <%= render 'index', items: @items_drink %>
+      </div>
+      <!--メニュー表示部分ここまで-->
+
     </div>
   </div>
-  <!--メニュー表示部分ここまで-->
+</div>
 
+
+
+
+<button class="btn btn-primary"
+    data-toggle="collapse"
+    data-target="#example-1"
+    aria-expand="false"
+    aria-controls="example-1">Button</button>
+<div class="collapse" id="example-1">
+  <div class="card card-body">
+    Hypertext Markup Language (HTML) is ...
+  </div>
 </div>

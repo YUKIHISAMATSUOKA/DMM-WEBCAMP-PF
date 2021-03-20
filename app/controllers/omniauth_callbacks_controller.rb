@@ -13,7 +13,8 @@ class OmniauthCallbacksController < ApplicationController
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
       @sns = info[:sns]
-      render template: "devise/registrations/new"
+      # render template: "devise/registrations/new"
+      render template: "customers/registrations/new"
     end
   end
 

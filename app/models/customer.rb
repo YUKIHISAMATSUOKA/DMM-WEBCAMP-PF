@@ -3,7 +3,7 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+         :omniauthable, omniauth_providers: %i[google_oauth2]
 
   has_one :shop
   has_many :cart_items, dependent: :destroy
@@ -34,8 +34,9 @@ class Customer < ApplicationRecord
         )
       else
         customer = Customer.new(
-          nickname: auth.info.name,
+          kana_first_name: auth.info.name,
           email: auth.info.email,
+          password: auth.info.password,
         )
         sns = SnsCredential.new(
           uid: auth.uid,
@@ -49,7 +50,7 @@ class Customer < ApplicationRecord
     customer = Customer.where(id: snscredential.customer_id).first
     unless customer.present?
       customer = Customer.new(
-        nickname: auth.info.name,
+        kana_first_name: auth.info.name,
         email: auth.info.email,
       )
     end

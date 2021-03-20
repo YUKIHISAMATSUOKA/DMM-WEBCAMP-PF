@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   #   omniauth_callbacks: 'customers/omniauth_callbacks'
   # }
 
-    devise_for :customers,
+  devise_for :customers,
     controllers: {
     sessions: 'customers/sessions',
     registrations: "customers/registrations",

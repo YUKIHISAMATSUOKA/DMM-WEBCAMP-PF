@@ -125,10 +125,10 @@ ActiveRecord::Schema.define(version: 2021_03_20_033313) do
   create_table "sns_credentials", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
-    t.integer "user_id"
+    t.integer "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+    t.index ["customer_id"], name: "index_sns_credentials_on_customer_id"
   end
 
 end

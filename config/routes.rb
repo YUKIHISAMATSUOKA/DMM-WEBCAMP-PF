@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'inquiry/index'
+  get 'inquiry/confirm'
+  get 'inquiry/thanks'
   devise_for :customers
     # controllers: {
     # sessions: 'customers/sessions',
@@ -54,5 +57,10 @@ Rails.application.routes.draw do
       delete 'destroy_all'
     end
   end
+
+  root  'inquiry#index'
+  get   'inquiry'         => 'inquiry#index'     # 入力画面
+  post  'inquiry/confirm' => 'inquiry#confirm'   # 確認画面
+  post  'inquiry/thanks'  => 'inquiry#thanks'    # 送信完了画面
 
 end

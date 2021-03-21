@@ -34,10 +34,30 @@
   border-bottom: 1px dotted #000000;
 }
 
+// @media screen and (max-width:768px) {
+//   .item-menu {
+//     // 最大値50％　高さを自動にすることで、自動的に縮尺する
+//     width: 50%;
+//     height: auto;
+//   }
+
+.item-box {
+  width: 250px;
+  height: 250px;
+  float: left;
+  padding-left: 10px;
+}
+
+.item-box-name {
+  text-align: center;
+}
+
+// shopの商品をスマホ画面で見たときに、２つ横並びさせる
 @media screen and (max-width:768px) {
-  .item-menu {
-    // 最大値50％　高さを自動にすることで、自動的に縮尺する
-    width: 50%;
-    height: auto;
+  .item-box {
+    width: 170px;
+    height: 120px;
+    float: left;
+    padding-left: 5px;
   }
 }

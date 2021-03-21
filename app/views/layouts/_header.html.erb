@@ -15,6 +15,13 @@
               <i class="">ようこそ、<%= current_customer.last_name %>さん！</i>
             </li>
 
+
+            <li class="nav-item">
+              <%= link_to root_path, class: 'nav-link text-dark', method: :get do %>
+                TOPページ<i class="fas fa-utensils"></i>
+              <% end %>
+            </li>
+
             <li class="nav-item">
               <%= link_to orders_path, class: 'nav-link text-dark', method: :get do %>
                 注文履歴<i class="fas fa-list-ul"></i>

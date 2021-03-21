@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :order_items, dependent: :destroy
 
   validates :name, presence: true
-  validates :name, length: { maximum: 30}
+  validates :name, length: { maximum: 25}
   validates :introduction, length: { maximum: 50}
   validates :price, presence: true
   validates :cook_time, presence: true

@@ -4,7 +4,7 @@
 
 <table class="table table-borderless col-8 mx-auto">
   <tr>
-    <th>名前(30文字以内</th>
+    <th>名前(25文字以内</th>
     <th><%= f.text_field :name, class: 'form-control', required: true %></th>
   </tr>
   <tr>
@@ -26,7 +26,7 @@
     <th><%= f.label :genre, '商品タイプ' %></th>
     <th><%= f.select :genre, {'メインメニュー': 1, 'サイドメニュー': 2, 'ドリンク':3}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %></th>
   </tr>
-  
+
   <tr>
     <th>クッキングタイム<br>(商品を作るまでの目安時間)</th>
     <th>

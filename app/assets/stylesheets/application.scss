@@ -38,7 +38,7 @@ body {
   // background-color: #456;
   height: 100%;
   padding-bottom: 100px;
-  // background-image: url(logo.jpg);
+  // この書き方にしないと本番で表示されない。
   background: image-url('logo.jpg');
   background-position: center;
   background-color:rgba(255,255,255,0.7);
@@ -119,7 +119,7 @@ body {
 // footerここまで
 
 
-// 新規登録　ログイン　カスタマーshow edit   ショップnew edit で使用中フォーム
+// 新規登録　ログイン　カスタマーshow edit   ショップnew edit  お問合せ　幅広い箇所で使用中
 .login {
   width: 400px;
   margin: 16px auto;

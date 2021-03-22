@@ -1,5 +1,7 @@
 class OmniauthCallbacksController < ApplicationController
 
+  # google認証のコントローラー　使用不可です
+
   # def google_oauth2
   #   callback_for(:google)
   # end

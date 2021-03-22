@@ -4,6 +4,16 @@ class AreasController < ApplicationController
 
   def index
     @areas = Area.all
+    @shops = Shop.all
+
+    @area1_shops = Shop.where(area_id: '1').limit(2).order(" created_at DESC ")
+    @area2_shops = Shop.where(area_id: '2')
+    @area3_shops = Shop.where(area_id: '3')
+    @area4_shops = Shop.where(area_id: '4')
+    @area5_shops = Shop.where(area_id: '5')
+    @area6_shops = Shop.where(area_id: '6')
+    @area7_shops = Shop.where(area_id: '7')
+    @area8_shops = Shop.where(area_id: '8')
   end
 
   def new

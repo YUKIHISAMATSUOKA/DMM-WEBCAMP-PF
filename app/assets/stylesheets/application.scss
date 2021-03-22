@@ -35,7 +35,6 @@ a {
 
 body {
   font-family: 'Crimson Text', serif;
-  // background-color: #456;
   height: 100%;
   padding-bottom: 100px;
   // この書き方にしないと本番で表示されない。
@@ -43,6 +42,19 @@ body {
   background-position: center;
   background-color:rgba(255,255,255,0.7);
   background-blend-mode:lighten;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  img {
+    // 最大値50％　高さを自動にすることで、自動的に縮尺する
+    max-width: 75%;
+    height: auto;
+  }
 }
 
 .flash-green {
@@ -55,6 +67,11 @@ body {
 // テキストや写真の背景　使用箇所多いので注意
 .background {
   background-color: #e6edea;
+}
+
+.header {
+//  ヘッダーの色
+  background: linear-gradient(180deg, #21ede3 0%, #06c45c 100%);
 }
 
 // footer
@@ -120,7 +137,8 @@ body {
 // footerここまで
 
 
-// 新規登録　ログイン　カスタマーshow edit   ショップnew edit  お問合せ　幅広い箇所で使用中
+
+// 新規登録　ログイン　カスタマーshow edit   ショップnew edit  お問合せ　幅広い箇所で使用中 フォーム入力画面は基本全てこれ
 .login {
   width: 400px;
   margin: 16px auto;
@@ -213,24 +231,3 @@ body {
 }
 // ログインフォームのcss ここまで
 
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
-@media screen and (max-width:768px) {
-  img {
-    // 最大値50％　高さを自動にすることで、自動的に縮尺する
-    max-width: 75%;
-    height: auto;
-  }
-}
-
-
-
-.header {
-//  ヘッダーの色
-  background: linear-gradient(180deg, #21ede3 0%, #06c45c 100%);
-}

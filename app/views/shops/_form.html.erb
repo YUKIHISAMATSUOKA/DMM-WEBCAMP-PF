@@ -1,21 +1,17 @@
   <div class="login-container">
 
   <%= form_with model: shop, local:true do |f| %>
-
     <p type="text" placeholder="text">店の名前(30文字以内)<%= f.text_field :name, required: true %></p>
     <p type="text" placeholder="text"><%= f.attachment_field :image %></p>
     <p type="text" placeholder="text">ショップ写真<%= attachment_image_tag shop, :image,  :fill, 400, 300, fallback: "no_image.jpg", id: "img_prev", size:'400x300' %></p>
     <p type="text" placeholder="text">ショップ紹介文(100文字以内)<%= f.text_area :introduction, class: 'form-control' %></p>
-
     <p type="text" placeholder="text">エリアを選択してください<%= f.collection_select :area_id, Area.all, :id, :name, include_blank: "-- 選択してください --", required: true %></p>
-
     <p type="text" placeholder="text">郵便番号<%= f.text_field :post_code, required: true %></p>
     <p type="text" placeholder="text">店の住所<%= f.text_field :address, autofocus: true, required: true  %></p>
     <p type="text" placeholder="text">メールアドレス<%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com" %></p>
 　　 <p type="text" placeholder="text">店の電話番号<%= f.text_field :telephone_number %></p>
     <p type="submit" value="Log in"><%= f.submit "　　変更する　　" , class:'btn btn-success' %></p>
     <% end %>
-
   </div>
 </div>
 

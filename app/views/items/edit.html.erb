@@ -1,16 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-2">
-      <h4 class="my-4 text-center"><span>  商品　編集画面　</span></h4>
-
-      <%= render 'layouts/errors', obj: @item %>
-      <%= render 'form', item: @item %>
-
-      <div class="text-center">
-        <%= link_to "商品を削除する", item_path(@item), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
-      </div>
-
-
-    </div>
-  </div>
+<!--商品編集ページ-->
+<%= render 'layouts/errors', obj: @item %>
+<%= render 'form', item: @item %>
+<div class="text-center">
+  <%= link_to "商品を削除する", item_path(@item), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
 </div>

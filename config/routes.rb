@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   resources :shops, only: [:new, :create, :index, :edit, :update, :destroy, :show]
   get 'shop/exit' => 'shops#exit'
 
-  resources :items
+  resources :items, only: [:new, :create, :edit, :update, :destroy, :show]
 
   resources :cart_items, only: [:index, :create, :update, :destroy] do
     #collectionはリソース全体に対するアクションを定義します

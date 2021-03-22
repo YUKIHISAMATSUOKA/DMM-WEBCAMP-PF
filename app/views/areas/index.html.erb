@@ -1,39 +1,111 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-10 col-md-offset-2">
+    <div class="col-lg-8 offset-col-lg-4 mx-auto">
+      <h4 class="my-4 text-center"><span>  地域を選択してください　</span></h4>
 
 
-      <h2 class="text-center area-title">地域を選択してください</h2>
+      <!--area一覧選択-->
+      <div class="area-index">
 
-        <div class="area-index">
+        <%= link_to areas_area1_path, method: :get do %>
+          <div class="btn-gradient-flat">
+            <div class="area-name"><i class="fas fa-arrow-alt-circle-right text-center">:新小岩エリア</i></div>
+            <!--対象エリアに出来た、ショップを2件表示-->
+            <div class="shop-pictures-2">
+              <% @area1_shops.each.with_index(1) do |shop, i| %>
+                <%= attachment_image_tag shop, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'120x120', class: "rounded-circle" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
 
-            <div class="area-box">
-              <p class="area-name"><%= link_to "新小岩エリア", areas_area1_path %></p>
+        <%= link_to areas_area2_path, method: :get do %>
+          <div class="btn-gradient-flat">
+            <div class="area-name"><i class="fas fa-arrow-alt-circle-right">:立石エリア</i></div>
+            <!--対象エリアに出来た、ショップを2件表示-->
+            <div class="shop-pictures-2">
+              <% @area2_shops.each.with_index(1) do |shop, i| %>
+                <%= attachment_image_tag shop, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'120x120', class: "rounded-circle" %>
+              <% end %>
             </div>
-          　<div class="area-box">
-              <p class="area-name"><%= link_to "立石エリア", areas_area2_path %></p>
-            </div>
-          　<div class="area-box">
-              <p class="area-name"><%= link_to "青戸エリア", areas_area3_path %></p>
-            </div>
-          　<div class="area-box">
-              <p class="area-name"><%= link_to "お花茶屋エリア", areas_area4_path %></p>
-            </div>
-          　<div class="area-box">
-              <p class="area-name"><%= link_to "金町・水元エリア", areas_area5_path %></p>
-            </div>
-          　<div class="area-box">
-              <p class="area-name"><%= link_to "亀有エリア", areas_area6_path %></p>
-            </div>
-            　<div class="area-box">
-              <p class="area-name"><%= link_to "柴又エリア", areas_area7_path %></p>
-            </div>
-          　<div class="area-box">
-              <p class="area-name"><%= link_to "高砂・鎌倉エリア", areas_area8_path %></p>
-            </div>
+          </div>
+        <% end %>
 
+        <%= link_to areas_area3_path, method: :get do %>
+          <div class="btn-gradient-flat">
+            <div class="area-name"><i class="fas fa-arrow-alt-circle-right">:青戸エリア</i></div>
+            <!--対象エリアに出来た、ショップを2件表示-->
+            <div class="shop-pictures-2">
+              <% @area3_shops.each.with_index(1) do |shop, i| %>
+                <%= attachment_image_tag shop, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'120x120', class: "rounded-circle" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
 
-        </div>
+        <%= link_to areas_area4_path, method: :get do %>
+          <div class="btn-gradient-flat">
+            <div class="area-name"><i class="fas fa-arrow-alt-circle-right">:お花茶屋エリア</i></div>
+            <!--対象エリアに出来た、ショップを2件表示-->
+            <div class="shop-pictures-2">
+              <% @area4_shops.each.with_index(1) do |shop, i| %>
+                <%= attachment_image_tag shop, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'120x120', class: "rounded-circle" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+        <%= link_to areas_area5_path, method: :get do %>
+          <div class="btn-gradient-flat">
+            <div class="area-name"><i class="fas fa-arrow-alt-circle-right">:金町・水元エリア</i></div>
+            <!--対象エリアに出来た、ショップを2件表示-->
+            <div class="shop-pictures-2">
+              <% @area5_shops.each.with_index(1) do |shop, i| %>
+                <%= attachment_image_tag shop, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'120x120', class: "rounded-circle" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+        <%= link_to areas_area6_path, method: :get do %>
+          <div class="btn-gradient-flat">
+            <div class="area-name"><i class="fas fa-arrow-alt-circle-right">:亀有エリア</i></div>
+            <!--対象エリアに出来た、ショップを2件表示-->
+            <div class="shop-pictures-2">
+              <% @area6_shops.each.with_index(1) do |shop, i| %>
+                <%= attachment_image_tag shop, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'120x120', class: "rounded-circle" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+        <%= link_to areas_area7_path, method: :get do %>
+          <div class="btn-gradient-flat">
+            <div class="area-name"><div class="area-name"><i class="fas fa-arrow-alt-circle-right">:柴又エリア</i></div>
+            <!--対象エリアに出来た、ショップを2件表示-->
+            <div class="shop-pictures-2">
+              <% @area7_shops.each.with_index(1) do |shop, i| %>
+                <%= attachment_image_tag shop, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'120x120', class: "rounded-circle" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+        <%= link_to areas_area8_path, method: :get do %>
+          <div class="btn-gradient-flat">
+            <div class="area-name"><i class="fas fa-arrow-alt-circle-right">:高砂・鎌倉エリア</i></div>
+            <!--対象エリアに出来た、ショップを2件表示-->
+            <div class="shop-pictures-2">
+              <% @area8_shops.each.with_index(1) do |shop, i| %>
+                <%= attachment_image_tag shop, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'120x120', class: "rounded-circle" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+      <!--area一覧選択ここまで-->
+
     </div>
   </div>
 </div>

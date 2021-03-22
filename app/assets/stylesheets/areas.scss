@@ -1,3 +1,49 @@
-// Place all the styles related to the areas controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// areas_index で使用
+.shop-box {
+  float: left;
+  padding-left: 10px;
+}
+
+.shop-box-name {
+  text-align: center;
+}
+// float: left;
+
+
+.area-index {
+}
+
+.btn-gradient-flat {
+  width: 280px;
+  height: 200px;
+  display: inline-block;
+  background: linear-gradient(180deg, #21ede3 0%, #06c45c 100%);
+  transition: .4s;
+  max-width: 100%;
+}
+
+// スマホ、タブレット時は縦1列に表示　なので下に隙間を作る
+@media screen and (max-width:768px) {
+  .btn-gradient-flat {
+    margin-bottom: 10px;
+  }
+}
+
+.btn-gradient-flat:hover {
+  background-image: linear-gradient(#6795fd 0%, #f5317c 70%);
+}
+
+
+.area-name {
+  width: 270px;
+  height: 80px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.shop-pictures-2 {
+  width: 280px;
+  height: 110px;
+  margin-left: 18px;
+}

@@ -1,35 +1,26 @@
 <!--itemの新規登録・編集ページ用のフォーム-->
 
-<%= form_with model: item, local:true do |f| %>
+<div class="login">
+  <div class="login-triangle"></div>
 
-<table class="table table-borderless col-8 mx-auto">
-  <tr>
-    <th>名前(25文字以内</th>
-    <th><%= f.text_field :name, class: 'form-control', required: true %></th>
-  </tr>
-  <tr>
-    <th>写真</th>
-    <th>
-      <%= f.attachment_field :image %><br>
-      <%= attachment_image_tag item, :image,  :fill, 200, 200, fallback: "no_image.jpg", id: "img_prev", size:'200x200', class: 'rounded-circle'%>
-    </th>
-  </tr>
-  <tr>
-    <th>価格(税込み)</th>
-    <th><%= f.text_field :price, class: 'form-control' %>円</th>
-  </tr>
-  <tr>
-    <th>テキスト(50文字以内)</th>
-    <th><%= f.text_area :introduction, class: 'form-control' %></th>
-  </tr>
-  <tr>
-    <th><%= f.label :genre, '商品タイプ' %></th>
-    <th><%= f.select :genre, {'メインメニュー': 1, 'サイドメニュー': 2, 'ドリンク':3}, { include_blank: '選択してください'}, { class: 'form-control' , required: true } %></th>
-  </tr>
+  <h2 class="login-header">商品登録・変更フォーム</h2>
+  <div class="login-container">
+    <%= form_with model: item, local:true do |f| %>
 
-  <tr>
-    <th>クッキングタイム<br>(商品を作るまでの目安時間)</th>
-    <th>
+    <p type="text" placeholder="text">名前(25文字以内<%= f.text_field :name %></p>
+
+    <p type="text" placeholder="text"><%= f.attachment_field :image %></p>
+    <p type="text" placeholder="text">商品写真<%= attachment_image_tag item, :image,  :fill, 200, 200, fallback: "no_image.jpg", id: "img_prev", size:'200x200', class: 'rounded-circle'%></p>
+
+    <p type="text" placeholder="text">価格(税込み)<%= f.text_field :price %></p>
+
+    <p type="text" placeholder="text">商品紹介(50文字以内)<%= f.text_field :introduction %></p>
+
+    <p type="text" placeholder="text"><%= f.label :genre, '商品タイプ' %></p>
+    <p type="text" placeholder="text"><%= f.select :genre, {'メインメニュー': 1, 'サイドメニュー': 2, 'ドリンク':3}, { include_blank: '選択してください'} %></p>
+
+    <p type="text" placeholder="text">クッキングタイム(商品を作るまでの目安時間)</p>
+    <div class="cook_time">
       <%= f.radio_button :cook_time, :"5分", required: true %>
       <%= f.label :cook_time, "5分" %>
       <%= f.radio_button :cook_time, :"10分", required: true %>
@@ -42,16 +33,13 @@
       <%= f.label :cook_time, "25分" %>
       <%= f.radio_button :cook_time, :"30分", required: true %>
       <%= f.label :cook_time, "30分" %>
-    </th>
-  </tr>
+    </div>
 
-  <tr>
-    <th></th>
-    <th><%= f.submit class:'btn btn-success' %></th>
-  </tr>
+    <p type="submit" value="Log in"><%= f.submit %></p>
+    <% end %>
 
-</table>
-<% end %>
+  </div>
+</div>
 
 <script>
 $(document).on("turbolinks:load", function(){

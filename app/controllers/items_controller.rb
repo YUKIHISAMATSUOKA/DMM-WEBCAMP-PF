@@ -10,11 +10,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def index
-    @item = Item.new
-    @items = Item.all
-  end
-
   def show
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
@@ -26,6 +21,7 @@ class ItemsController < ApplicationController
     @item.shop_id = current_customer.shop.id
     if @item.save
       redirect_back(fallback_location: root_path)
+      flash[:notice] = "商品を登録しました"
     else
       render 'new'
     end

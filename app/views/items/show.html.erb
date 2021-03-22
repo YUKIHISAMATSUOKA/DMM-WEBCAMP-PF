@@ -1,7 +1,7 @@
 <!--itemのshowページ 自分の店の商品だったら、編集・削除へのパスを表示させる-->
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-8 offset-col-md-4 mx-auto item-show">
+    <div class="col-lg-8 offset-col-lg-4 mx-auto my-2 item-show">
 
       <!--item情報部分-->
       <%= attachment_image_tag @item, :image, :fill, 1200, 800, fallback: "no_image.jpg", size:'1200x800', class: "img-fluid" %>

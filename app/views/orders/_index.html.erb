@@ -1,6 +1,6 @@
 <!--注文一覧部分-->
 <% orders.each do |order| %>
-
+<%= order.pick_up_time %>
 <!--領域全体をリンクにする-->
 <%= link_to order_path(order), method: :get do %>
   <div class="order-index-box background">

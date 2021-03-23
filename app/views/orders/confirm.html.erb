@@ -48,6 +48,15 @@
           <%= f.hidden_field :number, :value => "#{rand(1000..9999)}" %>
           <!--order.create時にshop_idが必要-->
           <%= f.hidden_field :shop_id, :value => @shop.id %>
+
+
+
+
+          <%= f.time_select :pick_up_time, class: 'form-control' %>
+
+
+
+
           <%= f.submit '注文を確定する', class: "btn btn-success btn-sm" %>
           <% end %>
         <% end %>

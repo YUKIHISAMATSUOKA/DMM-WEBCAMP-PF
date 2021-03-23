@@ -1,30 +1,22 @@
 <!--注文一覧部分-->
 <% orders.each do |order| %>
 
-
-<%= form_with model: order, local:true do |f| %>
-<%#= f.select :status, ['注文確認中', '調理中', '商品完成', '受取り済み'] %>
-<%= f.select :status, {"注文確認中":0, "調理中":1, "商品完成":2, "受取り済み":3} %>
-
-<%= f.submit "更新", class:'btn btn-success' %>
-<% end %>
-<%= order.status %>
-
-
-
 <!--領域全体をリンクにする-->
 <%= link_to order_path(order), method: :get do %>
   <div class="order-index-box background">
-    <h5 class="order-index-box-text text-dark">
+    <h6 class="order-index-box-text text-dark">
       <%= order.created_at.strftime('%Y/%m/%d %H:%M') %><br>
       注文番号: <%= order.number %><br>
       <%= order.shop.name %><br>
       受取時間:<%= order.pick_up_time.strftime('%H:%M') %><br>
+      <%= order.status %><br>
+
+
       <!--商品名-->
       <% order.order_items.each do |order_item| %><br>
         <%= order_item.name %>
       <% end %>
-    </h5>
+    </h6>
     <!--商品写真-->
     <div class="order-index-box-picture">
       <% @first = 1 %>

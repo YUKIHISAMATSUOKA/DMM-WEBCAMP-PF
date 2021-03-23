@@ -3,7 +3,54 @@
     <div class="col-lg-6 offset-col-lg-6 mx-auto">
       <h4 class="my-4 text-center"><span>  <%= current_customer.shop.name %>への注文　</span></h4>
 
-       <%= render 'index', orders: @orders %>
+      <!--注文一覧部分-->
+      <% @orders.each do |order| %>
+      <!--店舗側注文履歴でしか、ステータスを更新できない。-->
+      <%= form_with model: order, local:true do |f| %>
+      <%= f.select :status, ["注文確認中", '調理中', '商品完成', '受取り済み'] %>
+      <%= f.submit "更新", class:'btn btn-success' %>
+      <% end %>
+
+      <!--領域全体をリンクにする-->
+      <%= link_to order_path(order), method: :get do %>
+        <div class="order-index-box background">
+          <h6 class="order-index-box-text text-dark">
+            <%= order.created_at.strftime('%Y/%m/%d %H:%M') %><br>
+            注文番号: <%= order.number %><br>
+            <%= order.shop.name %><br>
+            受取時間:<%= order.pick_up_time.strftime('%H:%M') %><br>
+
+            <%# @payments = Payment.where(genre: '1') %>
+            <!--User.where.if(true, id: 1).to_sql-->
+            <!--オブジェクト名.include?("検索文字列")-->
+            <%# if Order.where(status: '受取り済み') %>
+            <%# if Order.statuses.include?("受取り済み") %>
+            <i class="fas fa-check"></i><%= order.status %><br>
+            <%# else %>
+            <!--dddddd<br>-->
+            <%# end %>
+
+
+            <!--商品名-->
+            <% order.order_items.each do |order_item| %><br>
+              <%= order_item.name %>
+            <% end %>
+          </h6>
+          <!--商品写真-->
+          <div class="order-index-box-picture">
+            <% @first = 1 %>
+            <% order.order_items.each do |order_item| %>
+              <% if @first == 1 %>
+                <%= attachment_image_tag order_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %>
+              <% end %>
+              <% @first += 1 %>
+            <% end %>
+
+      　　</div>
+        </div>
+        <% end %>
+      <% end %>
+
 
     </div>
   </div>

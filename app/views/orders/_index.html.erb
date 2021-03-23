@@ -8,9 +8,10 @@
       <%= order.created_at.strftime('%Y/%m/%d %H:%M') %><br>
       注文番号: <%= order.number %><br>
       <%= order.shop.name %><br>
+      請求金額: <%= order.billing_amount %>円<br>
       <!--商品名-->
       <% order.order_items.each do |order_item| %><br>
-        <%= order_item.item.name %>
+        <%= order_item.name %>
       <% end %>
     </h5>
     <!--商品写真-->

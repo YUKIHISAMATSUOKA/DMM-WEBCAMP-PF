@@ -6,6 +6,7 @@ class CreateOrderItems < ActiveRecord::Migration[5.2]
       t.integer :price
       t.integer :quantity
       t.integer :create_status
+      t.string :name
 
       t.timestamps
     end

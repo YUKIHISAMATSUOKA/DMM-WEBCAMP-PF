@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2021_03_20_033313) do
     t.integer "price"
     t.integer "quantity"
     t.integer "create_status"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

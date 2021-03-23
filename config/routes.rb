@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:create, :index, :show]
+  resources :orders, only: [:create, :index, :show, :update]
   get 'order/shop_index' => 'orders#shop_index'
   get 'order/confirm' => 'orders#confirm'
   # order/complete.htmlで注文確定のform_withをするのでPOSTにする

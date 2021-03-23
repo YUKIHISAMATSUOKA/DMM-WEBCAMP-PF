@@ -31,7 +31,6 @@
         <% @shop = cart_item.item.shop %>
       <% end %>
 
-
       <!--購入手続き表示部分-->
       <div class="order-buy background">
         <% if @cart_items.exists? %>
@@ -46,13 +45,13 @@
           <%= f.hidden_field :billing_amount, :value => "#{@sum}" %>
           <!--注文番号は1000~9999の間でランダム-->
           <%= f.hidden_field :number, :value => "#{rand(1000..9999)}" %>
+          <!--migrationファイルでデフォルト0に設定しとけば、hidden_field使わなくてよかった-->
+          <%= f.hidden_field :status, :value => "注文確認中" %>
           <!--order.create時にshop_idが必要-->
           <%= f.hidden_field :shop_id, :value => @shop.id %>
-
           本日:<%= Date.today.strftime('%Y年 %m月 %d日') %>
           <!--受取時間は10時～20時まで　15分刻み　デフォルト時間を現在時間＋60分(3600秒)に設定する-->
           <%= f.time_select :pick_up_time, :start_hour => 10, :end_hour => 20, :minute_step => 15, :default => Time.zone.now + 60 * 60, class: 'form-control', required: true %>
-
           <%= f.submit '注文を確定する', class: "btn btn-success btn-sm" %>
           <% end %>
         <% end %>

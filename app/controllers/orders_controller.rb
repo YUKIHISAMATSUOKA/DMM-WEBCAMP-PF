@@ -1,15 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_customer!
 
-  def confirm
-    @cart_items = current_customer.cart_items
-    @order = Order.new
-    @cart_items = CartItem.where(customer_id: current_customer.id)
-  end
-
-  def complete
-  end
-
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
@@ -42,9 +33,24 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_back(fallback_location: root_path)
+  end
+
   def index
     @orders = Order.all
     @orders = current_customer.orders
+  end
+
+  def confirm
+    @cart_items = current_customer.cart_items
+    @order = Order.new
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+  end
+
+  def complete
   end
 
   def show

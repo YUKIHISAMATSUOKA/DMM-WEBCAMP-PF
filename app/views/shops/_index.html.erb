@@ -1,7 +1,7 @@
 <!--@shopに紐づいている商品のみを表示させる-->
 <!--コントローラーで@items = @shop.itemsとしているので　ここはitemsだけでok-->
 <% items.each do |item| %>
-  <div class="item-box background">
+  <div class="item-box">
     <div class="item-box-picture">
     　<%= link_to item_path(item) do %>
         <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class: 'rounded-circle' %>

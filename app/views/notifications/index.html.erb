@@ -33,7 +33,7 @@
        通知はありません
       <% end %>
 
-      <%= link_to "全削除", destroy_all_notifications_path, method: :delete %>
+      <%= link_to "通知を全削除", destroy_all_notifications_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
 
     </div>
   </div>

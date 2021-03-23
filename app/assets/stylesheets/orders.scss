@@ -1,6 +1,5 @@
-// Place all the styles related to the orders controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// confirm画面
 .order-title {
   text-align: left;
   border-bottom: 1px dotted #000000;
@@ -13,47 +12,49 @@
 	position: absolute;
 	bottom: 5px;
 	right: 10px;
+	color: black ;
 }
 
 .order-box {
   width: 100%;
   height: 200px;
-  // background-color: blue;
   margin-bottom: 10px;
   border-bottom: 1px dotted #000000;
-  position: relative;
+  display: flex;
 }
 
 .order-box-text {
-  hight: 100%;
-  // 280にしないと右側の写真と重なってしまう。
-  width: 280px;
+  height: 100%;
+  width: 50%;
 }
 
 .order-box-picture {
-  position: absolute;
-  bottom: 10px;
-	right: 10px;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .order-buy {
   width: 100%;
   height: 300px;
-  background-color: #1e90ff;
 }
 
-// index view
+
+
+// index画面
 .order-index-box {
   width: 100%;
   height: 200px;
   margin-bottom: 10px;
-  border-bottom: 2px dotted #000000;
+  border-bottom: 1px dotted #000000;
   overflow: hidden;
   display: flex;
 }
 
 .order-index-box-text {
-  width: 40%;
+  width: 50%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -67,10 +68,13 @@
 
 .order-index-box-picture {
   width: 49%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
-// show.view
+// show画面
 .order-show-title {
   width: 100%;
   height: 200px;
@@ -80,13 +84,20 @@
 
 .order-show-box {
   width: 100%;
-  height: 150px;
+  height: 200px;
   // テキスト文字の背景は必ずこの色に統一すること
-  border-bottom: 2px dotted #000000;
+  border-bottom: 1px dotted #000000;
   display: flex;
 }
 
 .order-show-box-text {
+  width: 49%;
   font-size: 18px;
-  padding-right: 5px;
+}
+
+.order-show-picture {
+  width: 49%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

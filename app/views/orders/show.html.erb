@@ -1,7 +1,7 @@
-<div class="container order">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-8 offset-col-md-4 mx-auto">
-      <h4 class="my-4 text-center"><span>　<%= @order.shop.name %>　</span></h4>
+    <div class="col-lg-6 offset-col-lg-6 mx-auto my-4">
+      <h4 class="text-center"><%= @order.shop.name %></h4>
 
       <div class="order-show-title background">
         <h4>注文時間: <%= @order.created_at.strftime('%Y/%m/%d %H:%M') %></h4>
@@ -16,6 +16,7 @@
           <p class="order-show-box-text">
             商品名: <%= order_item.item.name %> <br>
             トッピング: テキストテキストテキストテキスト
+            
           </p>
           <p class="order-show-picture"><%= attachment_image_tag order_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %></p>
         </div>

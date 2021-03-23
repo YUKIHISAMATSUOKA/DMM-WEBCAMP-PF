@@ -47,7 +47,6 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.all
     @orders = current_customer.orders
-    @first = 1 #each文,最初の1回のみのトリガーに使用するため
   end
 
   def show

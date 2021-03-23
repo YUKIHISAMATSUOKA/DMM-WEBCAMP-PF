@@ -20,7 +20,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.shop_id = current_customer.shop.id
     if @item.save
-      redirect_back(fallback_location: root_path)
+      # redirect_back(fallback_location: root_path)
+      redirect_to shop_path(current_customer.shop)
       flash[:notice] = "商品を登録しました"
     else
       render 'new'

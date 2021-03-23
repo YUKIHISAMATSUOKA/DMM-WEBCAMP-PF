@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   belongs_to :customer
   belongs_to :shop
 
-  validates :request, length: { maximum: 100}
+  validates :request, length: { maximum: 50}
 
   def create_notification_order!(current_customer)
     # すでに「」されているか検索

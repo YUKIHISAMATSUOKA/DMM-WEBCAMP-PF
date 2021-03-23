@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-8 offset-col-md-4 col-sm-12 mx-auto">
-      <h4 class="my-4 text-center"><span>  <%= current_customer.last_name %>さんの注文履歴一覧　</span></h4>
+    <div class="col-lg-6 offset-col-lg-6 mx-auto my-4">
+      <h4 class="text-center"><%= current_customer.last_name %>さんの注文履歴一覧</h4>
 
 
      <%= render 'index', orders: @orders %>

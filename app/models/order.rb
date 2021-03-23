@@ -8,7 +8,6 @@ class Order < ApplicationRecord
   validates :request, length: { maximum: 50}
   validate :start_end_check
 
-  # enum status: [ "注文確認中":0, "調理中":1, "商品完成":2, "受取済み":3 ]
   enum status: {"注文確認中": 0, "調理中": 1, "商品完成": 2, "受取り済み": 3}
 
   def create_notification_order!(current_customer)

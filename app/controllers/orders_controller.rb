@@ -41,7 +41,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-    @orders = current_customer.orders
+    @orders = current_customer.orders.page(params[:page]).reverse_order
   end
 
   def confirm
@@ -59,7 +59,8 @@ class OrdersController < ApplicationController
 
   def shop_index
     @orders = Order.all
-    @orders = current_customer.shop.orders
+    @orders = current_customer.shop.orders.page(params[:page]).reverse_order
+
   end
 
   private

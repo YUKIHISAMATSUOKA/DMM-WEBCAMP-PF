@@ -34,13 +34,10 @@ class OrdersController < ApplicationController
       # @notification = Notification.new
       # @notification.customer_id = current_customer.id
       # @notification.shop_id = @order.shop_id
-
-
-
       current_customer.cart_items.destroy_all
       redirect_to order_complete_path
     else
-      flash[:alert] = "注文できませんでした。"
+      flash[:alert] = "注文できませんでした。受取時間の変更をお願いします。"
       redirect_back(fallback_location: root_path)
     end
   end

@@ -6,6 +6,7 @@ class Order < ApplicationRecord
   belongs_to :shop
 
   validates :request, length: { maximum: 50}
+  validate :start_end_check
 
   def create_notification_order!(current_customer)
     # すでに「」されているか検索
@@ -25,4 +26,16 @@ class Order < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
+  #　 なんでこの記述で動作するのかわかりません。
+  def start_end_check
+    errors.add(:pick_up_time, "の日付を正しく記入してください。") unless
+    # string型に変換しないと、比較できなかった。
+    Time.zone.now.to_s(:time) < self.pick_up_time.to_s(:time)
+  end
+
+
+
+
+
 end

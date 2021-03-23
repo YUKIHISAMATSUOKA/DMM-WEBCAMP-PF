@@ -20,16 +20,11 @@
             <%= order.shop.name %><br>
             受取時間:<%= order.pick_up_time.strftime('%H:%M') %><br>
 
-            <%# @payments = Payment.where(genre: '1') %>
-            <!--User.where.if(true, id: 1).to_sql-->
-            <!--オブジェクト名.include?("検索文字列")-->
-            <%# if Order.where(status: '受取り済み') %>
-            <%# if Order.statuses.include?("受取り済み") %>
+            <% if order.status == "受取り済み" %>
             <i class="fas fa-check"></i><%= order.status %><br>
-            <%# else %>
-            <!--dddddd<br>-->
-            <%# end %>
-
+            <% else %>
+            <%= order.status %><br>
+            <% end %>
 
             <!--商品名-->
             <% order.order_items.each do |order_item| %><br>

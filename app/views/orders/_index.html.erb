@@ -9,8 +9,12 @@
       注文番号: <%= order.number %><br>
       <%= order.shop.name %><br>
       受取時間:<%= order.pick_up_time.strftime('%H:%M') %><br>
-      <%= order.status %><br>
 
+      <% if order.status == "受取り済み" %>
+        <i class="fas fa-check"></i><%= order.status %><br>
+      <% else %>
+        <%= order.status %><br>
+      <% end %>
 
       <!--商品名-->
       <% order.order_items.each do |order_item| %><br>

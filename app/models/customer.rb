@@ -12,10 +12,11 @@ class Customer < ApplicationRecord
   #active_notifications：自分からの通知
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
 
-  validates :last_name, presence: true
-  validates :first_name, presence: true
-  validates :kana_last_name, presence: true
-  validates :kana_first_name, presence: true
+
+  validates :last_name, presence: true, format: { with: /\A[一-龥]+\z/,  message: 'は漢字で入力して下さい。'}
+  validates :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/,  message: 'はひらがな、カタカナ、漢字で入力して下さい。'}
+  validates :kana_last_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :kana_first_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
 
   # カスタマーログイン時に、退会した人であれば、弾くための記述
   def active_for_authentication?

@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      customer: カスタマー
+
+    attributes:
+      customer:
+        email: メールアドレスsssss
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
+        last_name: 姓
+        first_name: 名
+        kana_last_name: セイ
+        kana_first_name: メイ

@@ -4,7 +4,6 @@
       <h4 class="my-4 text-center"><span>  お店　通知画面　</span></h4>
 
 
-
       <!--/自分の投稿に対するいいね、コメントは通知に表示しない-->
       <% notifications = @notifications.where.not(visitor_id: current_customer.id) %>
 
@@ -25,7 +24,6 @@
             <% else %>
               <p class="text-left">「<%= notification.order.request %>」</p>
             <% end %>
-            <%#= attachment_image_tag notification.order.order_item.item, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class: 'rounded-circle' %>
           </div>
         <% end %>
         <%= paginate notifications %>

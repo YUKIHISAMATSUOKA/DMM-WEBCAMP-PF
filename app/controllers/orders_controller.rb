@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_customer!
+  before_action :correct_customer, only:[:show]
 
   def create
     @order = Order.new(order_params)
@@ -68,4 +69,13 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:customer_id, :shop_id, :name, :request, :billing_amount, :status, :number, :pick_up_time)
   end
+
+  def correct_customer
+    @order = Order.find(params[:id])
+    # 注文したカスタマーIDとカレントカスタマーIDが一致　または　注文されたショップIDとカレントカスタマーショップIDが一致している　場合でないとき
+    unless @order.customer.id == current_customer.id || @order.shop.id == current_customer.shop.id
+      redirect_to root_path
+    end
+  end
+
 end

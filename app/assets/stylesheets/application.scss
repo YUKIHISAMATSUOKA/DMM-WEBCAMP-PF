@@ -80,10 +80,6 @@ img {
   line-height: 2;
 }
 
-.footer-text {
-  font-size: 10px;
-}
-
 /*メニューをページ下部に固定*/
 #sp-fixed-menu {
    position: fixed;
@@ -143,16 +139,18 @@ img {
   color: #efa04c;
 }
 
-.cart {
-  position: relative;
-}
-
 .cartitem-count {
-  position: absolute;
-  height: 10px;
   font-size: 20px;
   color: #E87528;
+  font-family: 'Nanum Myeongjo', serif;
 }
+// レスポンシブ時
+@media screen and (max-width:768px) {
+  .cartitem-count {
+    font-size: 12px;
+  }
+}
+
 // footerここまで
 
 

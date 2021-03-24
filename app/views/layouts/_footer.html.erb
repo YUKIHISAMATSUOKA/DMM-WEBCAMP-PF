@@ -6,27 +6,26 @@
 
       <li class="nav-item">
         <%= link_to areas_path, class: 'nav-link text-white', method: :get do %>
-          <i class="fas fa-search-location fa-2x"></i><span class="footer-text">探す</span>
+          <i class="fas fa-search-location fa-2x"></i>
         <% end %>
       </li>
 
-      <li class="nav-item cart">
+      <li class="nav-item">
         <%= link_to cart_items_path, class: 'nav-link text-white', method: :get do %>
           <i class="fas fa-shopping-cart fa-2x cart-icon"></i>
           <span><i class="cartitem-count"><%= current_customer.cart_items.count %></i></span>
         <% end %>
       </li>
 
-
       <!--カレントユーザーがお店を作成したら表示される-->
       <% if current_customer.shop.present? %>
         <li class="nav-item">
           <%= link_to shop_path(current_customer.shop), class: 'nav-link text-white', method: :get do %>
-            <i class="fas fa-home fa-2x"><h6 class="text">マイショップ</h6></i>
+            <i class="fas fa-home fa-2x"></i>
           <% end %>
         <li class="nav-item">
           <%= link_to order_shop_index_path, class: 'nav-link text-white', method: :get do %>
-            <i class="fas fa-truck fa-2x"></i><span class="footer-text">マイショップの注文</span>
+            <i class="fas fa-truck fa-2x"></i>
           <% end %>
         </li>
         <li class="nav-item">
@@ -47,10 +46,9 @@
         <i class="fas fa-plus-square fa-2x"><h6>お店を登録</h6></i>
         <% end %>
       </li>
-
       <% end %>
 
-　　　<!--2，カスタマーログインしてない状態-->
+　　<!--2，カスタマーログインしてない状態-->
     <% else %>
       <li class="nav-item">
         <%= link_to root_path, class: 'nav-link text-white', method: :get do %>
@@ -74,11 +72,9 @@
         <%= link_to new_customer_session_path, data: {"turbolinks" => false}, class: 'nav-link text-white', method: :get do %>
           <i class="fas fa-running fa-2x"><h6>ログイン</h6></i>
         <% end %>
-
       </li>
+
     <% end %>
-
-
 
   </ul>
 </div>

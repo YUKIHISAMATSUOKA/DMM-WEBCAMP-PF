@@ -14,9 +14,8 @@ class Shop < ApplicationRecord
   validates :name, length: { maximum: 30}
   # validates :image_id, presence: true
   validates :introduction, length: { maximum: 100}
-  validates :post_code, presence: true
-  validates :post_code, length: { is: 7 }
+  validates :post_code, presence: true, length: { is: 7 }
   validates :address, presence: true
-  validates :telephone_number, presence: true
+  validates :telephone_number, presence: true, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力して下さい。' }
 
 end

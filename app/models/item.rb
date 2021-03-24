@@ -5,11 +5,9 @@ class Item < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   has_many :order_items, dependent: :destroy
 
-  validates :name, presence: true
-  validates :name, length: { maximum: 25}
+  validates :name, presence: true, length: { maximum: 25}
   validates :introduction, length: { maximum: 50}
-  validates :price, presence: true
+  validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力して下さい。' }
   validates :cook_time, presence: true
 
-  # enum cook_time:[:"5分", :"10分", :"15分", :"20分", :"25分", :"30分"]
 end

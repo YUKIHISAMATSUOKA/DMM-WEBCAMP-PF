@@ -13,3 +13,14 @@ ja:
         first_name: 名
         kana_last_name: セイ
         kana_first_name: メイ
+
+      shop:
+        name: 店の名前
+        introduction: 紹介文
+        post_code: 郵便番号
+        telephone_number: 電話番号
+
+      item:
+        name: 商品名
+        price: 価格
+        introduction: 商品紹介文

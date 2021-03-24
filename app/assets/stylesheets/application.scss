@@ -75,6 +75,11 @@ img {
 }
 
 // footer
+// フォントおーサムの位置調整
+.fas {
+  line-height: 2;
+}
+
 /*メニューをページ下部に固定*/
 #sp-fixed-menu {
    position: fixed;
@@ -134,6 +139,16 @@ img {
   color: #efa04c;
 }
 
+.cart {
+  position: relative;
+}
+
+.cartitem-count {
+  position: absolute;
+  height: 10px;
+  font-size: 20px;
+  color: #E87528;
+}
 // footerここまで
 
 

@@ -6,13 +6,14 @@
 
       <li class="nav-item">
         <%= link_to areas_path, class: 'nav-link text-white', method: :get do %>
-          <i class="fas fa-search-location fa-2x"><h6>探す</h6></i>
+          <i class="fas fa-search-location fa-2x"></i><span class="footer-text">探す</span>
         <% end %>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item cart">
         <%= link_to cart_items_path, class: 'nav-link text-white', method: :get do %>
-          <i class="fas fa-shopping-cart fa-2x"><h6>カート</h6></i>
+          <i class="fas fa-shopping-cart fa-2x cart-icon"></i>
+          <span><i class="cartitem-count"><%= current_customer.cart_items.count %></i></span>
         <% end %>
       </li>
 

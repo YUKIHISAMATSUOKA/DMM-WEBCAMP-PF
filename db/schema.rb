@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_034944) do
+ActiveRecord::Schema.define(version: 2021_03_24_064329) do
 
   create_table "areas", force: :cascade do |t|
     t.text "name"
@@ -73,6 +73,15 @@ ActiveRecord::Schema.define(version: 2021_03_23_034944) do
     t.datetime "updated_at", null: false
     t.index ["visited_id"], name: "index_notifications_on_visited_id"
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+  end
+
+  create_table "order_comments", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "customer_id"
+    t.integer "shop_id"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "order_items", force: :cascade do |t|

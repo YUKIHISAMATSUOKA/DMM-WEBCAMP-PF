@@ -10,8 +10,6 @@ Rails.application.routes.draw do
     # omniauth_callbacks: 'customers/omniauth_callbacks'
   # }
 
-
-
   root to: 'homes#top'
   get 'home/how' => 'homes#how'
   get 'home/question' => 'homes#question'
@@ -46,7 +44,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:create, :index, :show, :update]
+  resources :orders, only: [:create, :index, :show, :update] do
+    resources :order_comments, only: [:create, :destroy]
+  end
   get 'order/shop_index' => 'orders#shop_index'
   get 'order/confirm' => 'orders#confirm'
   # order/complete.htmlで注文確定のform_withをするのでPOSTにする

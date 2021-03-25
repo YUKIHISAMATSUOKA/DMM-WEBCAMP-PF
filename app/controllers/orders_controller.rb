@@ -56,12 +56,12 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @order_comment = OrderComment.new
   end
 
   def shop_index
     @orders = Order.all
     @orders = current_customer.shop.orders.page(params[:page]).reverse_order
-
   end
 
   private

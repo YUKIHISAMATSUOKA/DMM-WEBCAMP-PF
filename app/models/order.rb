@@ -2,6 +2,7 @@ class Order < ApplicationRecord
 
   has_many :order_items, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :order_comments, dependent: :destroy
   belongs_to :customer
   belongs_to :shop
 

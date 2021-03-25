@@ -101,3 +101,20 @@
   align-items: center;
   justify-content: center;
 }
+
+
+// order_comments部分
+.comment-box {
+  padding-bottom: 10px;
+}
+
+.comment-text {
+  // margin: 20px;
+  padding: 15px;
+  border: 1px dotted #000000;
+}
+
+.comment-delete a {
+  color: red;
+
+}

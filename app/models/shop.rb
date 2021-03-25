@@ -6,7 +6,7 @@ class Shop < ApplicationRecord
   # 現状使用していない　has_many :payments, dependent: :destroy
   has_many :items, dependent: :destroy
   has_many :orders, dependent: :destroy
-
+  # has_many :order_comments, dependent: :destroy
   #passive_notifications：相手からの通知
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 

@@ -3,6 +3,7 @@
     <div class="col-lg-6 offset-col-lg-6 mx-auto my-4">
       <h4 class="text-center"><%= @order.shop.name %></h4>
 
+      <!--タイトル部分-->
       <div class="order-show-title background">
         <h4>注文時間: <%= @order.created_at.strftime('%Y/%m/%d %H:%M') %></h4>
         <h4>受取時の名前: <%= @order.name %></h4>
@@ -11,6 +12,7 @@
         <h4>請求金額: <%= @order.billing_amount %>円</h4>
       </div>
 
+      <!--購入した商品部分-->
       <% @order.order_items.each do |order_item| %>
         <div class="order-show-box background">
           <p class="order-show-box-text">
@@ -23,34 +25,14 @@
         </div>
       <% end %>
 
-      <!--comments部分-->
-      <div class="comments">
-        コメント<i class="far fa-comment">:<%= @order.order_comments.count %>件</i>
-        <% @order.order_comments.each do |order_comment| %>
-          <div class="comment-box">
-            <%= order_comment.created_at.strftime('%Y/%m/%d %H:%M') %>
-            <!--もし自分の投稿だったら「あなたのコメント」相手の投稿だったら「相手のコメント」にする-->
-            <% if order_comment.customer_id == current_customer.id %>
-              あなたのコメント
-            <% else %>
-              相手のコメント
-            <% end %>
-
-            <div class="comment-text background">
-              <%= order_comment.comment %>
-              <% if order_comment.customer == current_customer %>
-                <div class="comment-delete">
-                  <%= link_to "コメントを削除", order_order_comment_path(order_comment.order, order_comment), method: :delete %>
-                </div>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-
+      <!--comments部分 クラス名は非同期通信のファイルとリンクしているのでいじるな-->
+      <div class="order_comments">
+        <%= render 'order_comments/ordercomment', order: @order %>
       </div>
-
+      <!--新規コメント部分-->
       <div class="new-comment">
-        <%= form_with(model:[@order, @order_comment], local: true) do |f| %>
+        <%= form_with model:[@order, @order_comment] do |f| %>
+        <%#= form_with(model:[@order, @order_comment], local: true) do |f| %>
           <!--注文が完了したら、コメントをできなくする-->
           <% if @order.status == "受取り済み" %>
           <p class="background">お知らせ:<br>商品の受け渡しが完了しましたので、コメントを送信することはできなくなりました。</p>
@@ -60,7 +42,6 @@
           <% end %>
         <% end %>
       </div>
-
 
     </div>
   </div>

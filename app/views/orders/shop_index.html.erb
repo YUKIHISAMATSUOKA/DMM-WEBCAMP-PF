@@ -9,6 +9,7 @@
       <%= form_with model: order, local:true do |f| %>
       <%= f.select :status, ["注文確認中", '調理中', '商品完成', '受取り済み'] %>
       <%= f.submit "更新", class:'btn btn-success' %>
+      <i class="far fa-comment">:<%= order.order_comments.count %></i>
       <% end %>
 
       <!--領域全体をリンクにする-->

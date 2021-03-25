@@ -25,18 +25,17 @@
 
       <!--comments部分-->
       <div class="comments">
-        <p>コメント件数：<%= @order.order_comments.count %></p>
-
+        コメント<i class="far fa-comment">:<%= @order.order_comments.count %>件</i>
         <% @order.order_comments.each do |order_comment| %>
           <div class="comment-box">
             <%= order_comment.created_at.strftime('%Y/%m/%d %H:%M') %>
-            <!--もしオーダーのショップIdとカレントカスタマーのショップIdが一致していれば、ショップネームでコメントする-->
-            <% if @order.shop.id == current_customer.shop.id %>
-              ショップ名:<%= order_comment.customer.shop.name %>
+            <!--もし自分の投稿だったら「あなたのコメント」相手の投稿だったら「相手のコメント」にする-->
+            <% if order_comment.customer_id == current_customer.id %>
+              あなたのコメント
             <% else %>
-              <!--一致してなければ、注文したカスタマーになるので、注文時の名前でコメントする-->
-              注文者:<%= @order.name %>
+              相手のコメント
             <% end %>
+
             <div class="comment-text background">
               <%= order_comment.comment %>
               <% if order_comment.customer == current_customer %>
@@ -52,8 +51,13 @@
 
       <div class="new-comment">
         <%= form_with(model:[@order, @order_comment], local: true) do |f| %>
-          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-          <%= f.submit "送信する" %>
+          <!--注文が完了したら、コメントをできなくする-->
+          <% if @order.status == "受取り済み" %>
+          <p class="background">お知らせ:<br>商品の受け渡しが完了しましたので、コメントを送信することはできなくなりました。</p>
+          <% else %>
+            <%= f.text_area :comment, rows:'5',placeholder: "受取などで、困ったらショップにメッセージを送りましょう。" %>
+            <%= f.submit "送信する", class: "btn btn-primary" %>
+          <% end %>
         <% end %>
       </div>
 

@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
-
   </head>
 
   <body class="body">
@@ -19,10 +18,10 @@
       <!--新規投稿や、エラー発生時のメッセージ text-centerで中央に表示されるように設定-->
     <div class="container">
       <% if flash[:notice] %>
-         <h3 class="flash-green text-center"><%= flash[:notice] %></h3>
+         <h3 class="flash-green text-center background"><%= flash[:notice] %></h3>
       <% end %>
       <% if flash[:alert] %>
-         <h3 class="flash-red text-center"><%= flash[:alert] %></h3>
+         <h3 class="flash-red text-center background"><%= flash[:alert] %></h3>
       <% end %>
     </div>
     <%= render 'layouts/footer' %>

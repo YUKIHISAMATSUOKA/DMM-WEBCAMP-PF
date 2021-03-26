@@ -60,6 +60,7 @@ img {
 .flash-green {
   color: #00CC33
 }
+
 .flash-red {
   color: #FF3333
 }
@@ -69,9 +70,18 @@ img {
   background-color: #e6edea;
 }
 
+.background2 {
+  background-color: #FFCC33;
+}
+
+.background3 {
+  background-color: #FF3333;
+}
+
 .header {
 //  ヘッダーの色
-  background: linear-gradient(180deg, #21ede3 0%, #06c45c 100%);
+  background: rgb(9,9,9);
+  background: linear-gradient(90deg, rgba(9,9,9,1) 0%, rgba(255,254,250,0) 0%, rgba(236,235,231,1) 100%);
 }
 
 // footer
@@ -115,7 +125,8 @@ img {
    margin: 0;
    font-size: 14px;
    border-right: 1px solid #fff;
-   background: #38b435;
+  // background: #38b435;
+   background: #FF9933;
 }
 
 /*ボタンを調整*/
@@ -141,7 +152,7 @@ img {
 
 .cartitem-count {
   font-size: 20px;
-  color: #E87528;
+  color: #810001;
   font-family: 'Nanum Myeongjo', serif;
 }
 // レスポンシブ時

@@ -23,7 +23,18 @@
 
 .item-menu-title {
   text-align: left;
-  border-bottom: 1px dotted #000000;
+  border-bottom: 2px solid #ff3333;
+  margin: auto .4em;
+  // background: image-url('main.jpg');
+  // background-position: center;
+  // border-bottom: 1px dotted #000000;
+}
+
+.item-menu-title img {
+  width: 40px;
+  // border-radius: 70px 70px 0px 0px;
+  border-radius: 50%;
+
 }
 
 // @media screen and (max-width:768px) {

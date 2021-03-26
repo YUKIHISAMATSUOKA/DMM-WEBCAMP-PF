@@ -16,6 +16,14 @@
   height: 650px;
 }
 
+@media screen and (max-width:768px) {
+  .carousel-item img {
+    // 高さを自動にすることで、自動的に縮尺する
+    width: 100%;
+    height: auto;
+  }
+}
+
 #main-guide {
 }
 

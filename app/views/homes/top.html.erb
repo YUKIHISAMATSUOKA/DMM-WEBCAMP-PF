@@ -26,18 +26,6 @@
 
       </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
       <!--main-shop部分-->
       <section id="main-guide">
         <div class="guide-title">
@@ -110,13 +98,13 @@
 
     	<!--shop4軒程度紹介-->
     	<section class="main-shop">
-    	  <div class="shop-title">
+    	  <div class="guide-title">
           <h2>お店を一部ご紹介♪</h2><br >
     			<h4>新たにお店を登録してくれた４店です！</h4>
         </div>
 
         <% @shop.each.with_index(1) do |shop, i| %>
-        <div class="shop-box">
+        <div class="shop-box background">
             <%= attachment_image_tag shop,  :image, :fill, 500, 400, fallback: "no_image.jpg", size:'500x400' %>
           <p><%= shop.name %></p>
           <p><%= shop.area.name %></p>

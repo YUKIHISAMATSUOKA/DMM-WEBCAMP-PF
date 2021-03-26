@@ -32,6 +32,7 @@
   padding-top: 50px;
   text-align: center;
   background: linear-gradient(-135deg, #b5e472, #d84141) fixed;
+  border-radius: 30px;
 }
 
 .guide-box {
@@ -122,16 +123,10 @@
 #main-shop {
 }
 
-.shop-title {
-  height: 220px;
-  padding-top: 50px;
-  text-align: center;
-  background: linear-gradient(-135deg, #b5e472, #d84141) fixed;
-}
-
 .shop-box {
   margin-right: 10px;
   padding-top: 10px;
+  margin-bottom: 10px;
 }
 
 .shop-box:last-child {

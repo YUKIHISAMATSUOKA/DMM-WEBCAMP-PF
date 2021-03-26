@@ -37,6 +37,7 @@ class OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order.update(order_params)
+    @order.save(validate: false) #これを付けないとpick up timeのエラーで弾かれる
     redirect_back(fallback_location: root_path)
   end
 

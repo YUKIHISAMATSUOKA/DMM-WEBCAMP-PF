@@ -17,7 +17,7 @@
     <p type="text" placeholder="text">商品紹介(50文字以内)<%= f.text_field :introduction %></p>
 
     <p type="text" placeholder="text"><%= f.label :genre, '商品タイプ' %></p>
-    <p type="text" placeholder="text"><%= f.select :genre, {'メインメニュー': 1, 'サイドメニュー': 2, 'ドリンク':3}, { include_blank: '選択してください'} %></p>
+    <p type="text" placeholder="text"><%= f.select :genre, {'メインメニュー': 1, 'サイドメニュー': 2, 'ドリンク':3} %></p>
 
     <p type="text" placeholder="text">クッキングタイム(商品を作るまでの目安時間)</p>
     <div class="cook_time">
@@ -34,6 +34,9 @@
       <%= f.radio_button :cook_time, :"30分", required: true %>
       <%= f.label :cook_time, "30分" %>
     </div>
+
+    <p type="text" placeholder="text"><%= f.label :sale_state, '販売状況' %></p>
+    <p type="text" placeholder="text"><%= f.select :sale_state, {'販売中': true, '販売休止中': false} %></p>
 
     <p type="submit" value="Log in"><%= f.submit %></p>
     <% end %>

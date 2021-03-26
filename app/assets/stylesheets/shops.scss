@@ -14,7 +14,6 @@
   line-height: 50px;
 }
 
-
 // shop.show部分
 .item-menu {
   width: 100%;
@@ -56,6 +55,12 @@
   text-align: center;
   font-weight: bold;
 }
+
+.sale_state {
+  color: red;
+  background : linear-gradient(transparent 50%, #ffa64d 65%);  /* ラインマーカーを付ける  */
+}
+
 
 // shopの商品をスマホ画面で見たときに、２つ横並びさせる
 @media screen and (max-width:768px) {

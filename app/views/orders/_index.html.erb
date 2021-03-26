@@ -1,74 +1,64 @@
 <!--注文一覧部分-->
 <% orders.each do |order| %>
 
-<!--領域全体をリンクにする-->
-<%= link_to order_path(order), method: :get do %>
+  <!--領域全体をリンクにする-->
+  <%= link_to order_path(order), method: :get do %>
 
 
-<% if order.status == "受取り済み" %>
+    <% if order.status == "受取り済み" %>
 
-  <div class="order-index-box background status-ok">
-    <h6 class="order-index-box-text text-dark">
-      <%= order.created_at.strftime('%Y/%m/%d %H:%M') %><br>
-      注文番号: <%= order.number %><br>
-      <%= order.shop.name %><br>
-      受取時間:<%= order.pick_up_time.strftime('%H:%M') %><br>
-      <% if order.status == "受取り済み" %>
-        <i class="fas fa-check"></i><%= order.status %><br>
-      <% else %>
-        <%= order.status %><br>
-      <% end %>
-      <i class="far fa-comment">:<%= order.order_comments.count %></i>
-      <!--商品名-->
-      <% order.order_items.each do |order_item| %><br>
-        <%= order_item.name %>
-      <% end %>
-    </h6>
-    <!--商品写真-->
-    <div class="order-index-box-picture">
-      <% @first = 1 %>
-      <% order.order_items.each do |order_item| %>
-        <% if @first == 1 %>
-          <%= attachment_image_tag order_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %>
-        <% end %>
-        <% @first += 1 %>
-      <% end %>
-　　</div>
-  </div>
+      <div class="order-index-box background status-ok">
+        <h6 class="order-index-box-text text-dark">
+          <%= order.created_at.strftime('%Y/%m/%d %H:%M') %><br>
+          注文番号: <%= order.number %><br>
+          <%= order.shop.name %><br>
+          受取時間:<%= order.pick_up_time.strftime('%H:%M') %><br>
+          <i class="fas fa-check"></i><%= order.status %><br>
+          <i class="far fa-comment">:<%= order.order_comments.count %></i>
+          <!--商品名-->
+          <% order.order_items.each do |order_item| %><br>
+            <%= order_item.name %>
+          <% end %>
+        </h6>
+        <!--商品写真-->
+        <div class="order-index-box-picture">
+          <% @first = 1 %>
+          <% order.order_items.each do |order_item| %>
+            <% if @first == 1 %>
+              <%= attachment_image_tag order_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %>
+            <% end %>
+            <% @first += 1 %>
+          <% end %>
+    　　</div>
+      </div>
 
-<% else %>
+    <% else %>
 
-  <div class="order-index-box background">
-    <h6 class="order-index-box-text text-dark">
-      <%= order.created_at.strftime('%Y/%m/%d %H:%M') %><br>
-      注文番号: <%= order.number %><br>
-      <%= order.shop.name %><br>
-      受取時間:<%= order.pick_up_time.strftime('%H:%M') %><br>
-      <% if order.status == "受取り済み" %>
-        <i class="fas fa-check"></i><%= order.status %><br>
-      <% else %>
-        <%= order.status %><br>
-      <% end %>
-      <i class="far fa-comment">:<%= order.order_comments.count %></i>
-      <!--商品名-->
-      <% order.order_items.each do |order_item| %><br>
-        <%= order_item.name %>
-      <% end %>
-    </h6>
-    <!--商品写真-->
-    <div class="order-index-box-picture">
-      <% @first = 1 %>
-      <% order.order_items.each do |order_item| %>
-        <% if @first == 1 %>
-          <%= attachment_image_tag order_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %>
-        <% end %>
-        <% @first += 1 %>
-      <% end %>
-　　</div>
-  </div>
-
-<% end %>
-
+      <div class="order-index-box background">
+        <h6 class="order-index-box-text text-dark">
+          <%= order.created_at.strftime('%Y/%m/%d %H:%M') %><br>
+          注文番号: <%= order.number %><br>
+          <%= order.shop.name %><br>
+          受取時間:<%= order.pick_up_time.strftime('%H:%M') %><br>
+          <%= order.status %><br>
+          <i class="far fa-comment">:<%= order.order_comments.count %></i>
+          <!--商品名-->
+          <% order.order_items.each do |order_item| %><br>
+            <%= order_item.name %>
+          <% end %>
+        </h6>
+        <!--商品写真-->
+        <div class="order-index-box-picture">
+          <% @first = 1 %>
+          <% order.order_items.each do |order_item| %>
+            <% if @first == 1 %>
+              <%= attachment_image_tag order_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %>
+            <% end %>
+            <% @first += 1 %>
+          <% end %>
+    　　</div>
+      </div>
+    <% end %>
 
   <% end %>
 <% end %>

@@ -9,5 +9,7 @@ class Item < ApplicationRecord
   validates :introduction, length: { maximum: 50}
   validates :price, presence: true, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力して下さい。' }
   validates :cook_time, presence: true
+  validates :genre, presence: true
+  validates :image, presence: true
 
 end

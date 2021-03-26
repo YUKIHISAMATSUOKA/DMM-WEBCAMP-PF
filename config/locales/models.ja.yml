@@ -24,3 +24,4 @@ ja:
         name: 商品名
         price: 価格
         introduction: 商品紹介文
+        image: 商品写真

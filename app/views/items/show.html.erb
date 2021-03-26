@@ -4,7 +4,7 @@
     <div class="col-lg-8 offset-col-lg-4 mx-auto my-2 item-show">
 
       <!--item情報部分-->
-      <%= attachment_image_tag @item, :image, :fill, 1200, 800, fallback: "no_image.jpg", size:'1200x800', class: "img-fluid" %>
+      <%= attachment_image_tag @item, :image, :fill, 800, 600, fallback: "no_image.jpg", size:'800x600' %>
       <h6><%= @item.shop.name %></h6>
       <h2><%= @item.name %></h2>
       <h6>料理ができるまでの時間</h6>
@@ -17,14 +17,17 @@
           <%= link_to "編集する", edit_item_path(@item), class: "btn btn-success btn-sm" %>
         </div>
       <% end %>
-
       <!--カート部分-->
       <%= form_with model: @cart_item, local:true do |f| %>
       <%= f.hidden_field :item_id, :value => @item.id %>
-      <%= f.select :amount, options_for_select((1..10).to_a), required: true %>
-      <%= f.submit "カートに入れる", class: 'btn btn-success btn-sm' %>
+      <!--アイテムが販売中のみ、カートに入れることができる-->
+      <% if @item.sale_state == true %>
+        <%= f.select :amount, options_for_select((1..10).to_a), required: true %>
+        <%= f.submit "カートに入れる", class: 'btn btn-success btn-sm' %>
+      <% else %>
+        <%= f.submit "販売休止中のため、カートに追加できません", class: 'btn btn-secondary btn-sm cart-false' %>
       <% end %>
-
+      <% end %>
 
     </div>
   </div>

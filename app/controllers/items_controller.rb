@@ -32,7 +32,8 @@ class ItemsController < ApplicationController
      @item = Item.find(params[:id])
      @item.shop_id = current_customer.shop.id
      if @item.update(item_params)
-       redirect_to new_item_path
+       redirect_to shop_path(current_customer.shop)
+       flash[:notice] = "商品情報を更新しました"
      else
        render 'edit'
      end

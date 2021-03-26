@@ -53,6 +53,29 @@
   display: flex;
 }
 
+.status-ok {
+  background-image: linear-gradient(
+    to right top,
+    transparent 75%,
+    #555555 70%,
+    #555555 100%,
+    transparent 100%
+  );
+}
+
+@media screen and (max-width:768px) {
+  .status-ok {
+    background-image: linear-gradient(
+      to right top,
+      transparent 70%,
+      #555555 70%,
+      #555555 100%,
+      transparent 100%
+    );
+  }
+}
+
+
 .order-index-box-text {
   width: 50%;
   overflow: hidden;

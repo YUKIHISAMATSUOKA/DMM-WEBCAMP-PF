@@ -53,7 +53,13 @@
   display: flex;
 }
 
-.status-ok {
+.size {
+  color: red;
+}
+
+
+// 受取済みに更新したとき
+.status-gray {
   background-image: linear-gradient(
     to right top,
     transparent 75%,
@@ -64,7 +70,7 @@
 }
 
 @media screen and (max-width:768px) {
-  .status-ok {
+  .status-gray {
     background-image: linear-gradient(
       to right top,
       transparent 70%,
@@ -74,6 +80,34 @@
     );
   }
 }
+
+// 注文キャンセルになってしまったとき
+.status-red {
+  background-image: linear-gradient(
+    to right top,
+    transparent 75%,
+    #dc143c 70%,
+    #dc143c 100%,
+    transparent 100%
+  );
+}
+
+@media screen and (max-width:768px) {
+  .status-red {
+    background-image: linear-gradient(
+      to right top,
+      transparent 70%,
+      #dc143c 70%,
+      #dc143c 100%,
+      transparent 100%
+    );
+  }
+}
+
+
+
+
+
 
 
 .order-index-box-text {

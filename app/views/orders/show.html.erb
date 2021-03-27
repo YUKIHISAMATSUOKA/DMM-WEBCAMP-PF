@@ -19,7 +19,6 @@
             商品名: <%= order_item.name %> <br>
             トッピング: テキストテキストテキストテキスト<br>
             <%= order_item.price %>円
-
           </p>
           <p class="order-show-picture"><%= attachment_image_tag order_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %></p>
         </div>
@@ -31,11 +30,13 @@
       </div>
       <!--新規コメント部分-->
       <div class="new-comment">
+        <!--非同期通信になってる-->
         <%= form_with model:[@order, @order_comment] do |f| %>
-        <%#= form_with(model:[@order, @order_comment], local: true) do |f| %>
-          <!--注文が完了したら、コメントをできなくする-->
+          <!--注文が完了またはキャンセルなら、コメントをできなくする-->
           <% if @order.status == "受取り済み" %>
-          <p class="background">お知らせ:<br>商品の受け渡しが完了しましたので、コメントを送信することはできなくなりました。</p>
+            <p class="background">お知らせ:<br>商品の受け渡しが完了しましたので、コメントを送信することはできなくなりました。</p>
+          <% elsif @order.status == "注文キャンセル" %>
+            <p class="background text-danger">お知らせ:<br>注文がキャンセルされましたので、コメントを送信することはできなくなりました。</p>
           <% else %>
             <%= f.text_area :comment, rows:'5',placeholder: "受取などで、困ったらショップにメッセージを送りましょう。" %>
             <%= f.submit "送信する", class: "btn btn-primary" %>

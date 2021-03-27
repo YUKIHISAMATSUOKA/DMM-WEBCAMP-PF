@@ -11,7 +11,7 @@
           <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class: 'rounded-circle' %>
         <% end %>
       </div>
-      <h6 class="item-box-name sale_state">販売停止中</h6>
+      <h6 class="item-box-name sale_state-false">販売停止中</h6>
     </div>
 
   <% else %>
@@ -21,7 +21,10 @@
           <%= attachment_image_tag item, :image, :fill, 200, 200, fallback: "no_image.jpg", size:'200x200', class: 'rounded-circle' %>
         <% end %>
       </div>
-      <h6 class="item-box-name"><%= item.name %><%= item.price %>円</h6>
+      <span>
+        <h6 class="item-box-name sale_state-true"><%= item.name %></h6>
+        <h6><%= item.price %>円</h6>
+      </span>
     </div>
   <% end %>
 

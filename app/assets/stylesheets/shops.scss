@@ -54,10 +54,17 @@
 .item-box-name {
   text-align: center;
   font-weight: bold;
+      overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.sale_state {
-  color: red;
+.sale_state-false {
+  color: gray;
+  background : linear-gradient(transparent 50%, #a1b5a3 65%);  /* ラインマーカーを付ける  */
+}
+
+.sale_state-true {
   background : linear-gradient(transparent 50%, #ffa64d 65%);  /* ラインマーカーを付ける  */
 }
 

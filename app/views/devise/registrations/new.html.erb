@@ -6,10 +6,10 @@
   <div class="login-container">
     <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', local: true do |f| %>
 
-    <p type="text" placeholder="text"><%= f.text_field :last_name, autofocus: true, :placeholder => "令和", required: true %></p>
-    <p type="text" placeholder="text"><%= f.text_field :first_name, autofocus: true, :placeholder => "道子", required: true  %></p>
-    <p type="text" placeholder="text"><%= f.text_field :kana_last_name, autofocus: true, :placeholder => "レイワ", required: true %></p>
-    <p type="text" placeholder="text"><%= f.text_field :kana_first_name, autofocus: true, :placeholder => "ミチコ", required: true %></p>
+    <p type="text" placeholder="text"><%= f.text_field :last_name, autofocus: true, :placeholder => "令和" %></p>
+    <p type="text" placeholder="text"><%= f.text_field :first_name, autofocus: true, :placeholder => "道子"  %></p>
+    <p type="text" placeholder="text"><%= f.text_field :kana_last_name, autofocus: true, :placeholder => "レイワ" %></p>
+    <p type="text" placeholder="text"><%= f.text_field :kana_first_name, autofocus: true, :placeholder => "ミチコ" %></p>
 
     <p type="email" placeholder="Email"><%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "メールアドレス" %></p>
     <p type="password" placeholder="Password"><%= f.password_field :password, autocomplete: "new-password", :placeholder => "パスワード(6文字以上)", required: true %></p>

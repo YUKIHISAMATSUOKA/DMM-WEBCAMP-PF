@@ -15,20 +15,22 @@ Rails.application.routes.draw do
   # 管理者
   namespace :admin do
     root to: 'homes#top'
-    resources :customers, only: [ :index, :show, :edit, :update]
-    resources :orders, only: [ :index, :show, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:index, :show, :update]
+    # areaはdestroyできない
+    resources :areas, only: [:new, :create, :edit, :update]
   end
 
   # カスタマー
   scope module: :customer do
     root to: 'homes#top'
-    get 'home/how' => 'homes#how'
-    get 'home/question' => 'homes#question'
+    # get 'home/how' => 'homes#how'
+    # get 'home/question' => 'homes#question'
 
-    resources :genres, only: [:create, :index, :edit, :update, :destroy]
-    get '/genres/:id' => 'genres#index' #editでバリデエラー発生後に、No route matches [GET] "/genres/1"となったので付け足した
+    # resources :genres, only: [:create, :index, :edit, :update, :destroy]
+    # get '/genres/:id' => 'genres#index' #editでバリデエラー発生後に、No route matches [GET] "/genres/1"となったので付け足した
 
-    resources :areas, only: [:new, :create, :index, :edit, :update, :destroy]
+    resources :areas, only: [:index]
     get 'areas/area1' => 'areas/area1'
     get 'areas/area2' => 'areas/area2'
     get 'areas/area3' => 'areas/area3'
@@ -42,7 +44,7 @@ Rails.application.routes.draw do
     get 'customer/exit' => 'customers#exit'
     put "/customers/:id/hide" => "customers#hide", as: 'customers_hide'
 
-    resources :payments, only: [:index, :edit, :update, :create, :destroy]
+    # resources :payments, only: [:index, :edit, :update, :create, :destroy]
 
     resources :shops, only: [:new, :create, :index, :edit, :update, :destroy, :show]
     get 'shop/exit' => 'shops#exit'

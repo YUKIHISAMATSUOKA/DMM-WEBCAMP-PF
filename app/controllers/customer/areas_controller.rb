@@ -4,7 +4,6 @@ class Customer::AreasController < ApplicationController
   def index
     @areas = Area.all
     @shops = Shop.all
-
     @area1_shops = Shop.where(area_id: '1').limit(2).order(" created_at DESC ")
     @area2_shops = Shop.where(area_id: '2')
     @area3_shops = Shop.where(area_id: '3')
@@ -13,42 +12,6 @@ class Customer::AreasController < ApplicationController
     @area6_shops = Shop.where(area_id: '6')
     @area7_shops = Shop.where(area_id: '7')
     @area8_shops = Shop.where(area_id: '8')
-  end
-
-  def new
-    @area = Area.new
-    @areas = Area.all
-  end
-
-  def edit
-    @area = Area.find(params[:id])
-  end
-
-  def create
-    @areas = Area.all
-    @area = Area.new(area_params)
-    if @area.save
-      flash[:notice] = "作成しました"
-      redirect_to areas_path
-    else
-      render 'new'
-    end
-  end
-
-  def update
-    @area = Area.find(params[:id])
-    if @area.update(area_params)
-      redirect_to areas_path
-    else
-      render 'edit'
-    end
-  end
-
-  def destroy
-    @area = Area.find(params[:id])
-    @area.destroy
-    flash[:alert] = "削除しました"
-    redirect_to areas_path
   end
 
   def area1
@@ -91,12 +54,4 @@ class Customer::AreasController < ApplicationController
     @shops = Shop.all
     @shops = Shop.where(area_id: '8')
   end
-
-  private
-
-  def area_params
-    params.require(:area).permit(:name)
-  end
-
-
 end

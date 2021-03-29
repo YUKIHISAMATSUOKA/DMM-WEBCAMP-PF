@@ -1,4 +1,4 @@
-class CustomersController < ApplicationController
+class Customer::CustomersController < ApplicationController
   before_action :authenticate_customer!
   before_action :set_customer #重複しているコードをひとまとめにした。定義はprivate以下に記述
 

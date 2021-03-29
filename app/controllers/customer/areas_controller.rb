@@ -1,6 +1,5 @@
-class AreasController < ApplicationController
+class Customer::AreasController < ApplicationController
   before_action :authenticate_customer!
-
 
   def index
     @areas = Area.all

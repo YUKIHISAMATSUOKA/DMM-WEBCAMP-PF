@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class Customer::OrdersController < ApplicationController
   before_action :authenticate_customer!
   before_action :correct_customer, only:[:show]
 

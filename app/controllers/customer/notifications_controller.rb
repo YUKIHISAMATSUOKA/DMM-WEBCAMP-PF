@@ -1,4 +1,4 @@
-class NotificationsController < ApplicationController
+class Customer::NotificationsController < ApplicationController
   before_action :authenticate_customer!
 
   def index

@@ -1,4 +1,4 @@
-class ShopsController < ApplicationController
+class Customer::ShopsController < ApplicationController
   before_action :authenticate_customer!
   before_action :correct_customer, only:[:edit]
 

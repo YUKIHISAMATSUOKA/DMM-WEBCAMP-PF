@@ -1,4 +1,4 @@
-class OmniauthCallbacksController < ApplicationController
+class Customer::OmniauthCallbacksController < ApplicationController
 
   # google認証のコントローラー　使用不可です
 

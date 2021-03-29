@@ -1,4 +1,4 @@
-class OrderCommentsController < ApplicationController
+class Customer::OrderCommentsController < ApplicationController
 
   def create
     @order = Order.find(params[:order_id])

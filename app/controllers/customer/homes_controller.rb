@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class Customer::HomesController < ApplicationController
 
   def top
     @shops = Shop.all

@@ -1,5 +1,0 @@
-$("#order_<%= @order.id %> .comment-count").html("コメントｃｃｃｃｃｃ数: <%= @order.order_comments.count %>");
-<!--$(".order_comments")部分はorder_showのrender部分を囲っているクラス名と統一させること-->
-$(".order_comments").html("<%= j(render partial: 'order_comments/ordercomment', locals: {order: @order}) %>");
-<!--val("")は投稿した後にコメントフォームを空にする-->
-$("#order_comment_comment").val("");

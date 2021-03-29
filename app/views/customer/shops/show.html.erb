@@ -2,6 +2,16 @@
   <div class="row">
     <div class="col-lg-8 offset-col-lg-4 mx-auto my-1">
         <%= attachment_image_tag @shop, :image, :fill, 600, 500, format: 'jpeg', fallback: "no_image.jpg", size:'600x500' %>
+        <div>
+          <h3>
+            <%= @shop.name %>
+            <% if @shop.status == true %>
+            (営業中)
+            <% else %>
+            (営業休止中)
+            <% end %>
+          </h3>
+        </div>
 
      <!--店舗紹介用の格納ボタン-->
       <button class="btn btn-info"
@@ -15,9 +25,8 @@
         <button class="btn btn-success"
           data-target="#example-1"
           aria-expand="false"
-          aria-controls="example-1"><%= link_to edit_shop_path(@shop), method: :get do %>編集する<% end %>
+          aria-controls="example-1"><%= link_to edit_shop_path(@shop), method: :get do %>ショップ編集<% end %>
         </button>
-
         <button class="btn btn-primary"
           data-target="#example-1"
           aria-expand="false"
@@ -48,6 +57,12 @@
 
               <p type="text" placeholder="text">連絡先</p>
               <div class="shop-text-field"><%= @shop.telephone_number %>/<%= @shop.email %></div>
+              <p type="text" placeholder="text">営業ステータス</p>
+              <% if @shop.status == true %>
+                <div class="shop-text-field">営業中</div>
+              <% else %>
+                <div class="shop-text-field">営業休止中</div>
+              <% end %>
     　　      </div>
           </div>
         </div>

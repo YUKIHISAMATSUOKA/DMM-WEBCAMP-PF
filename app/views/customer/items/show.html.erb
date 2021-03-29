@@ -21,11 +21,11 @@
       <%= form_with model: @cart_item, local:true do |f| %>
       <%= f.hidden_field :item_id, :value => @item.id %>
       <!--アイテムが販売中のみ、カートに入れることができる-->
-      <% if @item.sale_state == true %>
+      <% if @item.sale_state == true && @item.shop.status == true %>
         <%= f.select :amount, options_for_select((1..10).to_a), required: true %>
         <%= f.submit "カートに入れる", class: 'btn btn-success btn-sm' %>
       <% else %>
-        <%= f.submit "販売休止中のため、カートに追加できません", class: 'btn btn-secondary btn-sm cart-false' %>
+        <%= f.submit "現在カートに追加できません", class: 'btn btn-secondary btn-sm cart-false' %>
       <% end %>
       <% end %>
 

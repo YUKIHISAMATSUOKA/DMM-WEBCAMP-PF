@@ -17,6 +17,7 @@ FactoryBot.define do
     kana_last_name {"レイワ"}
     kana_first_name {"ハナコ"}
     email { Faker::Internet.email }
+    member_state {"true"}
     password { 'password' }
     password_confirmation { 'password' }
   end

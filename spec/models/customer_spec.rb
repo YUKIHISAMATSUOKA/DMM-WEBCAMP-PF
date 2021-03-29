@@ -13,11 +13,12 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
         is_expected.to eq false
       end
 
-      it 'last_nameが漢字のみ: 〇' do
-        #FactoryBotにカタカナの記述を行ってバリデーションを設定しているので、テストコードではカタカナ以外の値を入れればよい
-        customer = build(:customer, last_name: "ああああ")
+      it '漢字のみ: 〇' do
+        #FactoryBotにテストワードを記述してバリデーションを設定しているので、テストコードではカタカナ以外の値を入れればよい
+        customer = build(:customer, last_name: "a")
         customer.valid?
-        is_expected.to eq false
+        # is_expected.to eq false この記述はなぜダメなのかわからない
+        expect(customer.errors[:last_name]).to include('は漢字で入力して下さい。')
       end
     end
 
@@ -26,6 +27,11 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
         customer.first_name = ''
         is_expected.to eq false
       end
+      it 'ひらがな、カタカナ、漢字のみ: 〇' do
+        customer = build(:customer, first_name: "a1")
+        customer.valid?
+        expect(customer.errors[:first_name]).to include('はひらがな、カタカナ、漢字で入力して下さい。')
+      end
     end
 
     context 'kana_last_nameカラム' do
@@ -33,53 +39,24 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
         customer.kana_last_name = ''
         is_expected.to eq false
       end
-
-      it 'kana_last_nameがカタカナのみ: 〇' do
-        #FactoryBotにカタカナの記述を行ってバリデーションを設定しているので、テストコードではカタカナ以外の値を入れればよい
+      it 'カタカナのみ: 〇' do
         customer = build(:customer, kana_last_name: "kana")
         customer.valid?
         expect(customer.errors[:kana_last_name]).to include('はカタカナで入力して下さい。')
       end
-
-
     end
 
     context 'kana_first_nameカラム' do
       it '空欄でないこと' do
-        customer.kana_first_name = ''
+        customer.kana_last_name = ''
         is_expected.to eq false
       end
+      it 'カタカナのみ: 〇' do
+        customer = build(:customer, kana_first_name: "あ亜")
+        customer.valid?
+        expect(customer.errors[:kana_first_name]).to include('はカタカナで入力して下さい。')
+      end
     end
-
-      # it '漢字とアルファベットであること: カタカナ、ひらがな、数字などは×' do
-      #   customer.last_name = '亜aア'
-      #   is_expected.to eq true
-      # end
-
-      # it '2文字以上であること: 2文字は〇' do
-      #   user.name = Faker::Lorem.characters(number: 2)
-      #   is_expected.to eq true
-      # end
-
-      # it '20文字以下であること: 20文字は〇' do
-      #   user.name = Faker::Lorem.characters(number: 20)
-      #   is_expected.to eq true
-      # end
-      # it '20文字以下であること: 21文字は×' do
-      #   user.name = Faker::Lorem.characters(number: 21)
-      #   is_expected.to eq false
-      # end
-
-    # context 'member_stateカラム' do
-    #   it '50文字以下であること: 50文字は〇' do
-    #     customer.member_state = Faker::Lorem.characters(number: 50)
-    #     is_expected.to eq true
-    #   end
-    #   it '50文字以下であること: 51文字は×' do
-    #     user.introduction = Faker::Lorem.characters(number: 51)
-    #     is_expected.to eq false
-    #   end
-    # end
   end
 
   describe 'アソシエーションのテスト' do
@@ -113,4 +90,6 @@ RSpec.describe 'Customerモデルのテスト', type: :model do
       end
     end
   end
+
+
 end

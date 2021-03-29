@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 offset-col-lg-4 mx-auto">
+
+      <h4 class="my-4 text-center">  ユーザー　詳細画面</h4>
+
+      <table class="table table-borderless background">
+      <tbody>
+        <tr>
+          <td style="width:20%">会員ID</td>
+          <td style="width:20%"><%= @customer.id %></td>
+          <td style="width:65%"></td>
+        </tr>
+        <tr>
+          <td>氏名</td>
+          <td><%= @customer.last_name +  @customer.first_name %></td>
+        </tr>
+        <tr>
+          <td>フリガナ</td>
+          <td><%= @customer.kana_last_name + @customer.kana_first_name %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td>会員ステータス</td>
+          <% if @customer.member_state == true %>
+            <td class="text-success">有効</td>
+          <% else %>
+            <td>退会</td>
+          <% end %>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!--ここから注文履歴-->
+    <h4 class="my-4 text-center"><span>  注文履歴<%= @customer.orders.count %>件</span></h4>
+    <% @orders.each do |order| %>
+
+      <%= link_to admin_order_path(order), method: :get do %>
+        <div class="order-index-box background">
+          <h6 class="order-index-box-text text-dark">
+            <%= order.created_at.strftime('%Y/%m/%d %H:%M') %><br>
+            注文番号: <%= order.number %><br>
+            <%= order.shop.name %><br>
+            受取時間:<%= order.pick_up_time.strftime('%H:%M') %><br>
+            <i class="fas fa-check"></i><%= order.status %><br>
+            <i class="far fa-comment">:<%= order.order_comments.count %></i>
+            <!--商品名-->
+            <% order.order_items.each do |order_item| %><br>
+              <%= order_item.name %>
+            <% end %>
+          </h6>
+          <!--商品写真-->
+          <div class="order-index-box-picture">
+            <% @first = 1 %>
+            <% order.order_items.each do |order_item| %>
+              <% if @first == 1 %>
+                <%= attachment_image_tag order_item.item, :image, :fill, 150, 150, fallback: "no_image.jpg", size:'150x150', class: 'rounded-circle' %>
+              <% end %>
+              <% @first += 1 %>
+            <% end %>
+      　　</div>
+        </div>
+        <% end %>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

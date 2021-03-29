@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 offset-col-lg-4 mx-auto">
+
+      <h4 class="my-4 text-center"><span>  <%= @customer.last_name %><%= @customer.first_name %>さんの　編集画面　</span></h4>
+
+      <%= render 'layouts/errors', obj: @customer %>
+      <%= form_for @customer, :url => {action:"update"} do |f| %>
+
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th style="width:20%">会員ID</th>
+              <th style="width:20%"><%= @customer.id %></th>
+              <th style="width:65%"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>氏名</td>
+              <td><%= f.text_field :last_name %></td>
+              <td><%= f.text_field :first_name %></td>
+            </tr>
+
+             <tr>
+              <td>フリガナ</td>
+              <td><%= f.text_field :kana_last_name %></td>
+              <td><%= f.text_field :kana_first_name %></td>
+            </tr>
+
+            </tr>
+              <tr>
+              <td>メールアドレス</td>
+              <td><%= f.text_field :email %></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td><%= f.label :member_state, '会員ステータス' %></td>
+              <td><%= f.radio_button :member_state, :true %>有効
+                  <%= f.radio_button :member_state, :false %>退会
+              </td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td><%= f.submit "変更を保存", class: "btn btn-success" %></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+
+    </div>
+  </div>
+</div>

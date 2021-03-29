@@ -1,0 +1,31 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-4 offset-col-lg-8 mx-auto">
+
+      <h1>地域　新規登録</h1>
+      <%= render 'layouts/errors', obj: @area %>
+      <%= render 'form', area: @area %>
+
+      <h1>一覧</h1>
+      <h5>カスタマー側のショップのエリア名が変わってしまうので、編集しないでください</h5>
+      <table class="teble">
+        <thead  class="table-active">
+          <tr>
+            <th class="py-2 text-center">地域</th>
+            <th class="py-2"></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @areas.each do |area| %>
+              <tr>
+                <td><%= area.name %></td>
+                <td><%= link_to "編集", edit_admin_area_path(area), class: "btn btn-success" %></td>
+                <td><%#= link_to "削除", admin_area_path(area), "data-confirm" => "本当に削除しますか？", method: :delete, class: "btn btn-danger" %></td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

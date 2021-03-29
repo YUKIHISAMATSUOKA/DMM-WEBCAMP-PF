@@ -1,20 +1,18 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-8 offset-col-lg-4 mx-auto my-4">
-      <!--スマホ対応版-->
 
       <% @cart_items.each do |cart_item| %>
         <% if @first == 1 %>
-      <!--題名部分-->
-      <div class="cart_item-title">
-        <h2 class="text-center"><span class="background"><%= cart_item.item.shop.name %></span></h2>
-        <h4>ご注文内容</h4>
-        <h4 class="cart_item-link"><%= link_to "商品を追加する", shop_path(cart_item.item.shop), class: "btn btn-primary btn-sm" %></h4>
-      </div>
-      <% end %>
+          <!--題名部分-->
+          <div class="cart_item-title">
+            <h2 class="text-center"><span class="background"><%= cart_item.item.shop.name %></span></h2>
+            <h4>ご注文内容</h4>
+            <h4 class="cart_item-link"><%= link_to "商品を追加する", shop_path(cart_item.item.shop), class: "btn btn-primary btn-sm" %></h4>
+          </div>
+        <% end %>
 
   　　<!--カート内商品　表示部分-->
-
         <div class="cart_item-box">
           <div class="cart_item-box-text">
             <h4><%= cart_item.item.name %></h4>
@@ -47,10 +45,9 @@
         <h3><%= link_to "購入手続きへ", order_confirm_path, class: "btn btn-success btn-sm" %>  </h3>
         <%= link_to "カート内商品を全て空にする", destroy_all_cart_items_path, method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger btn-sm" %>
         <% else %>
-        <h4>カート内に商品がありません。</h4>
+        <h4 class="text-center">カート内に商品がありません。</h4>
         <% end %>
       </div>
-
 
     </div>
   </div>

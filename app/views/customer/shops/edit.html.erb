@@ -4,12 +4,10 @@
   <div class="login-triangle"></div>
   <h2 class="login-header"> お店　編集画面 </h2>
 
-      <%= render 'form', shop: @shop %>
-      <!--下寄せ-->
-      <div class="d-flex align-items-end">
-        <%= link_to "お店を削除", shop_path(@shop), method: :delete, "data-confirm" => "本当にお店を削除しますか？", class: "btn btn-danger" %>
-      </div>
-
-    </div>
+  <%= render 'form', shop: @shop %>
+  <!--下寄せ-->
+  <div class="text-center">
+    <%= link_to "お店を削除", shop_path(@shop), method: :delete, "data-confirm" => "本当にお店を削除しますか？", class: "btn btn-danger" %>
   </div>
+
 </div>

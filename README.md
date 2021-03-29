@@ -27,18 +27,23 @@ Uber、Menuなど飲食店の商品を宅配するアプリだったり、飲食
 * 仕事から帰ってきて、疲れて何もしたくないとき
 * 1人では入りにくいお店の商品が食べたいとき
 
-## 設計書
-後に追加
-
 ## チャレンジ要素一覧
 <https://docs.google.com/spreadsheets/d/1M3hW-eQzNXVduPpEbyncaOxPIeuYJXCVo6f7D_YIHjU/edit#gid=0>
 
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
+- フレームワーク：Ruby on Rails 5.2.4
 - JSライブラリ：jQuery
 - IDE：Cloud9
+
+## 主な機能一覧
+* ユーザーログイン機能　gem 'devise'
+* ショップ機能　アイテム機能　カート機能　注文機能  注文(中間テーブル)機能
+* comment機能(非同期)
+* 通知機能
+* お問合せ機能
+* 管理者機能
 
 ## 使用素材
 * フォントオーサム:https://fontawesome.com/

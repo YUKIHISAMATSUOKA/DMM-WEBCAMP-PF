@@ -5,13 +5,13 @@ class Customer::AreasController < ApplicationController
     @areas = Area.all
     @shops = Shop.all
     @area1_shops = Shop.where(area_id: '1').limit(2).order(" created_at DESC ")
-    @area2_shops = Shop.where(area_id: '2')
-    @area3_shops = Shop.where(area_id: '3')
-    @area4_shops = Shop.where(area_id: '4')
-    @area5_shops = Shop.where(area_id: '5')
-    @area6_shops = Shop.where(area_id: '6')
-    @area7_shops = Shop.where(area_id: '7')
-    @area8_shops = Shop.where(area_id: '8')
+    @area2_shops = Shop.where(area_id: '2').limit(2).order(" created_at DESC ")
+    @area3_shops = Shop.where(area_id: '3').limit(2).order(" created_at DESC ")
+    @area4_shops = Shop.where(area_id: '4').limit(2).order(" created_at DESC ")
+    @area5_shops = Shop.where(area_id: '5').limit(2).order(" created_at DESC ")
+    @area6_shops = Shop.where(area_id: '6').limit(2).order(" created_at DESC ")
+    @area7_shops = Shop.where(area_id: '7').limit(2).order(" created_at DESC ")
+    @area8_shops = Shop.where(area_id: '8').limit(2).order(" created_at DESC ")
   end
 
   def area1

@@ -1,9 +1,30 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-lg-8 offset-col-lg-4 mx-auto">
+    <div class="col-lg-6 offset-col-lg-6 mx-auto">
 
-        <h1 class="my-4 text-center">アドミン　ＴＯＰ画面</h1>
+      <h1 class="my-4 text-center">アドミン　ＴＯＰ画面</h1>
 
+      <div class="text-center">
+        <%= link_to admin_root_path, class: 'text-dark', method: :get do %>
+          <h1>TOP</h1>
+        <% end %>
+
+        <%= link_to admin_customers_path, class: 'text-dark', method: :get do %>
+          <h1>ユーザー一覧</h1>
+        <% end %>
+
+        <%= link_to admin_orders_path, class: 'text-dark', method: :get do %>
+          <h1>注文履歴一覧</h1>
+        <% end %>
+
+        <%= link_to destroy_customer_session_path, class: 'text-dark', method: :delete do %>
+          <h1>ログアウト</h1>
+        <% end %>
+
+        <%= link_to new_admin_area_path, class: 'text-dark', method: :get do %>
+          <h1>エリア登録</h1>
+        <% end %>
+      </div>
 
     </div>
   </div>

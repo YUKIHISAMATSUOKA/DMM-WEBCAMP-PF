@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="mx-auto px-5">
+    <div class="col-lg-4 offset-col-lg-8 mx-auto">
 
       <h1>地域　新規登録</h1>
       <%= render 'layouts/errors', obj: @area %>
       <%= render 'form', area: @area %>
 
       <h1>一覧</h1>
-      <h5>カスタマー側のショップのエリア名が変わってしまうので、変更しないでください</h5>
+      <h5>カスタマー側のショップのエリア名が変わってしまうので、編集しないでください</h5>
       <table class="teble">
         <thead  class="table-active">
           <tr>

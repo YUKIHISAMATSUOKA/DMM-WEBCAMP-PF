@@ -29,7 +29,6 @@ class Admin::AreasController < ApplicationController
       render 'edit'
     end
   end
-
   # def destroy
   #   @area = Area.find(params[:id])
   #   @area.destroy

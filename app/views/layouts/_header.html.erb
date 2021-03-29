@@ -15,7 +15,6 @@
               <i class="">ようこそ、<%= current_customer.last_name %>さん！</i>
             </li>
 
-
             <li class="nav-item">
               <%= link_to root_path, class: 'nav-link text-dark', method: :get do %>
                 TOP<i class="fas fa-utensils"></i>
@@ -58,8 +57,24 @@
               <% end %>
             </li>
 
+          <!--アドミン側-->
+          <% elsif admin_signed_in? %>
+          <li class="nav-item">
+              <%= link_to "TOP", root_path, class: 'nav-link text-dark' %>
+            </li>
 
-            <!--最後に消す部分-->
+            <li class="nav-item">
+              <%= link_to "ユーザー一覧", root_path, class: 'nav-link text-dark' %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to "注文履歴", orders_path, class: 'nav-link text-dark' %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %>
+            </li>
+
             <li class="nav-item">
               <%= link_to "ジャンル", genres_path, class: 'nav-link text-dark' %>
             </li>
@@ -77,8 +92,8 @@
               <%= link_to root_path, class: 'nav-link text-dark', method: :get do %>
                 TOP<i class="fas fa-utensils"></i>
               <% end %>
-
             </li>
+
             <li class="nav-item">
               <%= link_to new_customer_registration_path, data: {"turbolinks" => false}, class: 'nav-link text-dark', method: :get do %>
                 会員登録<i class="fas fa-user-plus"></i>
@@ -89,6 +104,10 @@
               <%= link_to new_customer_session_path, data: {"turbolinks" => false}, class: 'nav-link text-dark', method: :get do %>
                 ログイン<i class="fas fa-running"></i>
               <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to "管理者ログイン", new_admin_session_path, data: {"turbolinks" => false}, class: 'nav-link text-dark' %>
             </li>
           <% end %>
 

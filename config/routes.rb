@@ -67,7 +67,6 @@ Rails.application.routes.draw do
         delete 'destroy_all'
       end
     end
-
   end
 
    # お問合せ機能

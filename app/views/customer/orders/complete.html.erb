@@ -3,15 +3,14 @@
     <div class="col-md-8 offset-col-md-4 mx-auto">
       <h4 class="my-4 my-4 text-center"><span> ご注文  ありがとうございました。  </span></h4>
 
-      <%= link_to orders_path, class: 'nav-link text-white', method: :get do %>
-        <i class="fas fa-store background2">注文履歴へ</i>
-      <% end %>
-       <%= link_to root_path, class: 'nav-link text-white', method: :get do %>
-        <i class="fas fa-store background2">TOPに戻る</i>
-      <% end %>
-
-
-
+      <div class="text-center">
+        <%= link_to orders_path, class: 'nav-link text-dark', method: :get do %>
+          <i class="fas fa-list-ul fa-2x">注文履歴</i>
+        <% end %>
+        <%= link_to root_path, class: 'nav-link text-dark', method: :get do %>
+          <i class="fas fa-utensils fa-2x ">TOPに戻る</i>
+        <% end %>
+      </div>
 
     </div>
   </div>

@@ -6,7 +6,7 @@ class Customer::HomesController < ApplicationController
     @shop = Shop.where(status: "true").limit(4).order(" created_at DESC ")
   end
 
-  def about
+  def service
   end
 
   def question

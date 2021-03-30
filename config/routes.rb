@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # カスタマー
   scope module: :customer do
     root to: 'homes#top'
+    get 'home/service' => 'homes#service'
     # get 'home/how' => 'homes#how'
     # get 'home/question' => 'homes#question'
 

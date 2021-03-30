@@ -1,5 +1,5 @@
 class Customer::AreasController < ApplicationController
-  before_action :authenticate_customer!
+  before_action :authenticate_customer!, except: [:index, :area1, :area2, :area3, :area4, :area5, :area6, :area7, :area8 ]
 
   def index
     @areas = Area.all

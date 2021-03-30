@@ -1,0 +1,86 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8 offset-col-lg-4 mx-auto my-1">
+        <%= attachment_image_tag @shop, :image, :fill, 600, 500, format: 'jpeg', fallback: "no_image.jpg", size:'600x500' %>
+        <div>
+          <h3>
+            <%= @shop.name %>
+            <% if @shop.status == true %>
+            (営業中)
+            <% else %>
+            (営業休止中)
+            <% end %>
+          </h3>
+        </div>
+
+       <!--店舗紹介用の格納ボタン-->
+        <button class="btn btn-info"
+          data-toggle="collapse"
+          data-target="#example-1"
+          aria-expand="false"
+          aria-controls="example-1">お店情報
+        </button>
+        <button class="btn btn-success"
+          data-target="#example-1"
+          aria-expand="false"
+          aria-controls="example-1"><%= link_to edit_admin_shop_path(@shop), method: :get do %>ショップ編集<% end %>
+        </button>
+
+      <!--店舗紹介部分-->
+      <div class="collapse" id="example-1">
+        <div class="card card-body background">
+
+          <div class="login">
+            <div class="login-triangle"></div>
+            <h2 class="login-header">お店情報</h2>
+
+            <div class="login-container">
+              <p type="text" placeholder="text">店舗名</p>
+              <div class="shop-text-field"><%= @shop.name %></div>
+
+              <p type="text" placeholder="text">店舗紹介</p>
+              <div class="shop-text-field"><%= @shop.introduction %></div>
+
+              <p type="text" placeholder="text">エリア</p>
+              <div class="shop-text-field"><%= @shop.area.name %></div>
+
+              <p type="text" placeholder="text">店舗住所</p>
+              <div class="shop-text-field"><%= @shop.post_code %><%= @shop.address %></div>
+
+              <p type="text" placeholder="text">連絡先</p>
+              <div class="shop-text-field"><%= @shop.telephone_number %>/<%= @shop.email %></div>
+              <p type="text" placeholder="text">営業ステータス</p>
+              <% if @shop.status == true %>
+                <div class="shop-text-field">営業中</div>
+              <% else %>
+                <div class="shop-text-field">営業休止中</div>
+              <% end %>
+    　　      </div>
+          </div>
+        </div>
+      </div>
+      <!--店舗紹介部分ここまで-->
+
+    　<!--メニュー表示部分-->
+    　<div class="row">
+        <!--メインー-->
+        <div class="item-menu">
+          <h3 class="item-menu-title background">メインメニュー</h3>
+          <%= render 'customer/shops/index', items: @items_main %>
+        </div>
+        <!--サイドー-->
+        <div class="item-menu">
+          <h3 class="item-menu-title background">サイドメニュー</h3>
+          <%= render 'customer/shops/index', items: @items_side %>
+        </div>
+        <!--ドリンク-->
+        <div class="item-menu">
+          <h3 class="item-menu-title background">ドリンクメニュー</h3>
+          <%= render 'customer/shops/index', items: @items_drink %>
+        </div>
+      </div>
+      <!--メニュー表示部分ここまで-->
+
+    </div>
+  </div>
+</div>

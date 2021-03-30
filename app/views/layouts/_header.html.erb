@@ -57,36 +57,28 @@
               <% end %>
             </li>
 
-          <!--アドミン側-->
+          <!--3, アドミン側-->
           <% elsif admin_signed_in? %>
           <li class="nav-item">
               <%= link_to "TOP", admin_root_path, class: 'nav-link text-dark' %>
             </li>
-
             <li class="nav-item">
               <%= link_to "ユーザー一覧", admin_customers_path, class: 'nav-link text-dark' %>
             </li>
-
+            <li class="nav-item">
+              <%= link_to "ショップ一覧",  admin_shops_path, class: 'nav-link text-dark' %>
+            </li>
             <li class="nav-item">
               <%= link_to "注文履歴一覧", admin_orders_path, class: 'nav-link text-dark' %>
             </li>
-
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_customer_session_path, class: 'nav-link text-dark', method: :delete %>
             </li>
-
-            <!--<li class="nav-item">-->
-            <!--  %= link_to "ジャンル", genres_path, class: 'nav-link text-dark' %>-->
-            <!--</li>-->
-            <!--<li class="nav-item">-->
-            <!--  %= link_to "支払い", payments_path, class: 'nav-link text-dark' %>-->
-            <!--</li>-->
-
             <li class="nav-item">
               <%= link_to "エリア登録",  new_admin_area_path, class: 'nav-link text-dark' %>
             </li>
 
-          <!--2，カスタマーログインしてない状態-->
+          <!--3，カスタマーログインしてない状態-->
           <% else %>
             <li class="nav-item">
               <%= link_to root_path, class: 'nav-link text-dark', method: :get do %>

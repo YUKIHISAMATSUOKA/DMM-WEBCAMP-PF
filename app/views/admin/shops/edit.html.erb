@@ -1,0 +1,46 @@
+<%= render 'layouts/errors', obj: @shop %>
+
+<div class="login">
+  <div class="login-triangle"></div>
+  <h2 class="login-header"> 管理者　お店　編集画面 </h2>
+
+  <div class="login-container">
+    <%= form_for @shop, :url => {action:"update"} do |f| %>
+    <p type="text" placeholder="text">店の名前(30文字以内)<%= f.text_field :name, required: true %></p>
+    <p type="text" placeholder="text"><%= f.attachment_field :image %></p>
+    <p type="text" placeholder="text">ショップ写真<%= attachment_image_tag @shop, :image,  :fill, 400, 300, fallback: "no_image.jpg", id: "img_prev", size:'400x300' %></p>
+    <p type="text" placeholder="text">ショップ紹介文(100文字以内)<%= f.text_area :introduction, class: 'form-control' %></p>
+    <p type="text" placeholder="text">エリアを選択してください<%= f.collection_select :area_id, Area.all, :id, :name, include_blank: "-- 選択してください --", required: true %></p>
+    <p type="text" placeholder="text">郵便番号<%= f.text_field :post_code, required: true %></p>
+    <p type="text" placeholder="text">店の住所<%= f.text_field :address, autofocus: true, required: true  %></p>
+    <p type="text" placeholder="text">メールアドレス<%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "sample@exaample.com" %></p>
+　　<p type="text" placeholder="text">店の電話番号<%= f.text_field :telephone_number %></p>
+　　<p type="text" placeholder="text"><%= f.select :status, {'営業中': true, '営業休止': false} %></p>
+    <p type="submit" value="Log in"><%= f.submit "登録/変更する" , class:'btn btn-success' %></p>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$(document).on("turbolinks:load", function(){
+  function readURL(input) {
+    if(input.files && input.files[0]){
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#img_prev').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#shop_image").change(function(){
+    readURL(this);
+  });
+});
+</script>
+
+  <!--下寄せ-->
+  <div class="text-center">
+    <%= link_to "お店を削除", shop_path(@shop), method: :delete, "data-confirm" => "本当にお店を削除しますか？", class: "btn btn-danger" %>
+  </div>
+
+</div>

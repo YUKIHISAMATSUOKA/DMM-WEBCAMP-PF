@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update]
     # areaはdestroyできない
     resources :areas, only: [:new, :create, :edit, :update]
+    resources :shops, only: [:index, :edit, :update, :show]
   end
 
   # カスタマー

@@ -7,12 +7,11 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
 
-
           <!--１、カスタマーログイン状態か否か-->
           <% if customer_signed_in? %>
 
             <li class="d-flex align-items-center">
-              <i class="">ようこそ、<%= current_customer.last_name %>さん！</i>
+              <i>ようこそ、<%= current_customer.last_name %>さん！</i>
             </li>
 
             <li class="nav-item">
@@ -27,23 +26,11 @@
               <% end %>
             </li>
 
-            <!--<li class="nav-item">-->
-            <!--  %= link_to areas_path, class: 'nav-link text-dark', method: :get do %>-->
-            <!--    お気に入り<i class="fas fa-heart"></i>-->
-            <!--  % end %>-->
-            <!--</li>-->
-
             <li class="nav-item">
               <%= link_to customer_path(current_customer), data: {"turbolinks" => false}, class: 'nav-link text-dark', method: :get do %>
                 アカウント<i class="fas fa-info"></i>
               <% end %>
             </li>
-
-            <!--<li class="nav-item">-->
-            <!--  %= link_to home_question_path, class: 'nav-link text-dark', method: :get do %>-->
-            <!--    よくある質問<i class="fas fa-question-circle"></i>-->
-            <!--  % end %>-->
-            <!--</li>-->
 
             <li class="nav-item">
               <%= link_to destroy_customer_session_path, class: 'nav-link text-dark', method: :delete do %>
@@ -57,9 +44,13 @@
               <% end %>
             </li>
 
-          <!--3, アドミン側-->
-          <% elsif admin_signed_in? %>
-          <li class="nav-item">
+            <!--3, アドミン側-->
+            <% elsif admin_signed_in? %>
+
+            <li class="d-flex align-items-center">
+              <i class="text-danger">管理者モード</i>
+            </li>
+            <li class="nav-item">
               <%= link_to "TOP", admin_root_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
@@ -85,19 +76,16 @@
                 TOP<i class="fas fa-utensils"></i>
               <% end %>
             </li>
-
             <li class="nav-item">
               <%= link_to new_customer_registration_path, data: {"turbolinks" => false}, class: 'nav-link text-dark', method: :get do %>
                 会員登録<i class="fas fa-user-plus"></i>
               <% end %>
             </li>
-
             <li class="nav-item">
               <%= link_to new_customer_session_path, data: {"turbolinks" => false}, class: 'nav-link text-dark', method: :get do %>
                 ログイン<i class="fas fa-running"></i>
               <% end %>
             </li>
-
             <li class="nav-item">
               <%= link_to "管理者ログイン", new_admin_session_path, data: {"turbolinks" => false}, class: 'nav-link text-dark' %>
             </li>

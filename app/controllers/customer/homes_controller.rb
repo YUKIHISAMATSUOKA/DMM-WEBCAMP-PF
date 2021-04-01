@@ -9,7 +9,4 @@ class Customer::HomesController < ApplicationController
   def service
   end
 
-  def question
-  end
-
 end
